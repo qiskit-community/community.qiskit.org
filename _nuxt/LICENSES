@@ -4,12 +4,6 @@
  * Released under the MIT License.
  */
 
-/**
-  * vue-class-component v7.1.0
-  * (c) 2015-present Evan You
-  * @license MIT
-  */
-
 /*!
  * Vue.js v2.6.10
  * (c) 2014-2019 Evan You
@@ -33,3 +27,9 @@
 	(c) Sindre Sorhus
 	@license MIT
 	*/
+
+/**
+  * vue-class-component v7.1.0
+  * (c) 2015-present Evan You
+  * @license MIT
+  */
