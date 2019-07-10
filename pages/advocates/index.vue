@@ -10,15 +10,18 @@
       >
         {{ section.title }}
       </h2>
-      <Card
-        v-for="(card, cardIndex) in section.regular"
-        :key="`card-${cardIndex}`"
-        :title="card.attributes.title"
-        :image="`/images/events/${card.attributes.image}`"
-        :to="card.attributes.to"
-        :info="card.html"
-        major
-      />
+      <div class="card-container">
+        <AdvocateCard
+          v-for="(card, cardIndex) in section.regular"
+          :key="`card-${cardIndex}`"
+          class="card"
+          :name="card.attributes.name"
+          :image="`/images/advocates/${card.attributes.image}`"
+          :location="card.attributes.location"
+          :areas="card.attributes.areas"
+          major
+        />
+      </div>
     </section>
   </main>
 </template>
@@ -26,7 +29,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import Card from '~/components/Card.vue'
+import AdvocateCard from '~/components/AdvocateCard.vue'
 
 async function loadToc(source: string): Promise<any> {
   const toc = (await import(`~/src/${source}/toc.md`)).attributes
@@ -43,7 +46,7 @@ async function embedDocuments(section, source: string, collection: string) {
 @Component({
   layout: 'secondary',
 
-  components: { Card },
+  components: { AdvocateCard },
 
   async asyncData() {
     const root = 'advocates/index'
@@ -60,3 +63,15 @@ async function embedDocuments(section, source: string, collection: string) {
 
 export default class extends Vue { }
 </script>
+
+<style scoped>
+.card-container {
+  display: flex;
+}
+.card {
+  box-shadow: 0 1.6px 3.6px 0 hsla(0,0%,0%,.132), 0 0.3px 0.9px 0 hsla(0,0%,0%,.108);
+  width: 33%;
+  margin:0.5em;
+}
+</style>
+
