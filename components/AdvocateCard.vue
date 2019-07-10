@@ -4,9 +4,13 @@
       <img :src="image" :alt="name">
     </figure>
     <div class="content">
-      <p class="bold"><strong>{{ name }}</strong></p>
+      <p class="bold">
+        <strong>{{ name }}</strong>
+      </p>
       <p>{{ location }}</p>
-      <p class="bold"><strong>Focus Areas</strong></p>
+      <p class="bold">
+        <strong>Focus Areas</strong>
+      </p>
       <p>{{ areas }}</p>
     </div>
   </article>

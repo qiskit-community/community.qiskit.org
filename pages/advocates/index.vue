@@ -74,4 +74,3 @@ export default class extends Vue { }
   margin:0.5em;
 }
 </style>
-
