@@ -20,8 +20,8 @@
         </div>
       </section>
     </header>
-    <section id="whyJoin" class="join">
-      <div>
+    <section class="join">
+      <div id="whyJoin">
         <h1>Why Apply</h1>
         <div id="gallery-text">
           <div id="gallery-text-left">
