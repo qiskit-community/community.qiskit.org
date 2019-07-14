@@ -14,8 +14,11 @@
             <center>Qiskit Advocates Program</center>
           </h1>
           <p>
-            <center><strong>A global program that provides support to the individuals
-              <br>who actively work on assisting and growing the Qiskit Community</strong></center>
+            <center>
+              <strong>
+                A global program that provides support to the individuals<br>who actively work on assisting and growing the Qiskit Community
+              </strong>
+            </center>
           </p>
         </div>
       </section>
@@ -55,7 +58,9 @@
           <li>Click the link to attend test</li>
           <li>Learn, Do the test and get certified!</li>
         </ol>
-        <button type="button" onclick="alert('Redirect to apply form')">Apply Now!</button>
+        <button type="button" onclick="alert('Redirect to apply form')">
+          Apply Now!
+        </button>
       </div>
     </section>
     <nuxt />
