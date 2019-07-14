@@ -1,63 +1,63 @@
 <template>
-    <div class="wrapper">
-        <Menu>
-            <li><a href="#whyJoin">Why Join</a></li>
-            <li><a href="#applySteps">Apply</a></li>
-            <li>Advocates</li>
-        </Menu>
-        <header>
-          <section>
-            <div>
-                <h1>
-                    <center>Qiskit Advocates Program</center>
-                </h1>
-                <p>
-                    <center><strong>A global program that provides support to the individuals
-                        <br>who actively work on assisting and growing the Qiskit Community</strong></center>
-                </p>
-            </div>
-          </section>
-        </header>
-        <section class="join">
-          <div id="whyJoin">
-            <h1>Why Apply</h1>
-            <div id="gallery-text">
-              <div id="gallery-text-left">
-                <img src="images/icons/apply01.svg">
-                <h3>Funding for your projects and work</h3>
-                <p>Advocates can request funding or events and projects</p>
-              </div>
-              <div id="gallery-text-left">
-                <img src="images/icons/apply03.svg">
-                <h3>Prioritized access to hardware</h3>
-                <p>Advocates will receive prioritized access to publicly available hardware</p>
-              </div>
-              <div id="gallery-text-right">
-                <img src="images/icons/apply02.svg">
-                <h3>Network with experts and enthusiasts</h3>
-                <p>Advocates will be added to a group of quantum experts and will receive ~~~~(??).</p>
-              </div>
-              <div id="gallery-text-right">
-                <img src="images/icons/apply04.svg">
-                <h3>Increased visibility for your work</h3>
-                <p>All advocates will have the opportunity to have their work supported by IBM</p>
-              </div>
-            </div>
+  <div class="wrapper">
+    <Menu>
+      <li><a href="#whyJoin">Why Join</a></li>
+      <li><a href="#applySteps">Apply</a></li>
+      <li>Advocates</li>
+    </Menu>
+    <header>
+      <section>
+        <div>
+          <h1>
+            <center>Qiskit Advocates Program</center>
+          </h1>
+          <p>
+            <center><strong>A global program that provides support to the individuals
+              <br>who actively work on assisting and growing the Qiskit Community</strong></center>
+          </p>
+        </div>
+      </section>
+    </header>
+    <section class="join">
+      <div id="whyJoin">
+        <h1>Why Apply</h1>
+        <div id="gallery-text">
+          <div id="gallery-text-left">
+            <img src="images/icons/apply01.svg">
+            <h3>Funding for your projects and work</h3>
+            <p>Advocates can request funding or events and projects</p>
           </div>
-        </section>
-        <section class="apply">
-          <div id="applySteps">
-            <h1>Steps to apply</h1>
-            <ol>
-              <li>Fill the form below</li>
-              <li>Click the link to attend test</li>
-              <li>Learn, Do the test and get certified!</li>
-            </ol>
+          <div id="gallery-text-left">
+            <img src="images/icons/apply03.svg">
+            <h3>Prioritized access to hardware</h3>
+            <p>Advocates will receive prioritized access to publicly available hardware</p>
           </div>
-        </section>
-        <nuxt />
-        <Footer />
-    </div>
+          <div id="gallery-text-right">
+            <img src="images/icons/apply02.svg">
+            <h3>Network with experts and enthusiasts</h3>
+            <p>Advocates will be added to a group of quantum experts and will receive ~~~~(??).</p>
+          </div>
+          <div id="gallery-text-right">
+            <img src="images/icons/apply04.svg">
+            <h3>Increased visibility for your work</h3>
+            <p>All advocates will have the opportunity to have their work supported by IBM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="apply">
+      <div id="applySteps">
+        <h1>Steps to apply</h1>
+        <ol>
+          <li>Fill the form below</li>
+          <li>Click the link to attend test</li>
+          <li>Learn, Do the test and get certified!</li>
+        </ol>
+      </div>
+    </section>
+    <nuxt />
+    <Footer />
+  </div>
 </template>
 
 <script lang="ts">
@@ -68,11 +68,11 @@ import AdvocateCard from '~/components/AdvocateCard.vue'
 import { Component } from 'vue-property-decorator'
 
 @Component({
-    components: {
-        Menu,
-        AdvocateCard,
-        Footer
-        }
+  components: {
+    Menu,
+    AdvocateCard,
+    Footer
+  }
 })
 export default class extends Vue { };
 </script>
