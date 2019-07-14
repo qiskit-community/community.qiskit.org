@@ -1,11 +1,13 @@
 <template>
   <div class="wrapper">
     <Menu>
+      <li><a href="/">Home</a></li>
       <li><a href="#whyJoin">Why Join</a></li>
       <li><a href="#applySteps">Apply</a></li>
       <li>Advocates</li>
     </Menu>
-    <header>
+    <header style="background-image: url(/images/advocates/advocates.jpg)">
+      <!-- <img src="images/advocates/advocates.jpg"> -->
       <section>
         <div>
           <h1>
@@ -18,8 +20,8 @@
         </div>
       </section>
     </header>
-    <section class="join">
-      <div id="whyJoin">
+    <section id="whyJoin" class="join">
+      <div>
         <h1>Why Apply</h1>
         <div id="gallery-text">
           <div id="gallery-text-left">
@@ -53,6 +55,7 @@
           <li>Click the link to attend test</li>
           <li>Learn, Do the test and get certified!</li>
         </ol>
+        <button type="button" onclick="alert('Redirect to apply form')">Apply Now!</button>
       </div>
     </section>
     <nuxt />
@@ -101,7 +104,7 @@ export default class extends Vue { };
 
 :root {
   --secondary-color: rgb(103, 58, 183);
-  --dark-color: Hex(FFFFFF);
+  --dark-color: rgb(30, 20, 60);
 }
 
 * {
@@ -126,8 +129,8 @@ html {
   font-family: 'IBM Plex Sans', sans-serif;
   /* min-fs + (max-fs - min-fs) * ((viewport-width - min-vw) / (max-vw - min-vw)) */
   font-size: calc(10px + (18 - 10) * ((900px - 340px) / (900 - 340)));
-  background-image: url('/img/dots.svg'), url('/img/dots.svg'), url('/img/dots.svg'),
-    url('/img/lines.svg'), url('/img/lines.svg'), url('/img/lines.svg');
+  background-image: url('/images/events/deco/dots.svg'), url('/images/events/deco/dots.svg'), url('/images/events/deco/dots.svg'),
+    url('/images/events/deco/lines.svg'), url('/images/events/deco/lines.svg'), url('/images/events/deco/lines.svg');
   background-repeat: repeat-x, repeat-x, repeat-x, repeat-y, repeat-y, repeat-y;
   background-position: top calc(100vh + 890px) left 0, top calc(100vh + 930px) left 0, top calc(100vh + 970px) left 0,
     top 0 right 100px, top 0 right 0, top 0 right -100px;
@@ -141,6 +144,7 @@ html {
   position: relative;
   width: 100%;
   background-color: rgb(138, 43, 226, 0.9);
+  margin-top: 5vw;
   padding: 1rem;
   display: flex;
   flex-direction: row;
@@ -211,9 +215,10 @@ header > section > div {
 }
 
 header img {
-  height: 10vw;
-  min-height: 10rem;
-  max-height: 14rem;
+  height: 100vw;
+  position: absolute;
+  width: auto;
+  top: 10px;
 }
 
 header h1 {
