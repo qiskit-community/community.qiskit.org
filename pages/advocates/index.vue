@@ -44,7 +44,7 @@ async function embedDocuments(section, source: string, collection: string) {
 }
 
 @Component({
-  layout: 'secondary',
+  layout: 'advocate',
 
   components: { AdvocateCard },
 
@@ -63,6 +63,13 @@ async function embedDocuments(section, source: string, collection: string) {
 
 export default class extends Vue { }
 </script>
+
+<style>
+main {
+  position: relative;
+  top: 60px;
+}
+</style>
 
 <style scoped>
 .card-container {
