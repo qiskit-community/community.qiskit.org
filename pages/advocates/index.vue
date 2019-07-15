@@ -74,10 +74,14 @@ main {
 <style scoped>
 .card-container {
   display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-.card {
-  box-shadow: 0 1.6px 3.6px 0 hsla(0,0%,0%,.132), 0 0.3px 0.9px 0 hsla(0,0%,0%,.108);
-  width: 33%;
-  margin:0.5em;
+
+@media (max-width: 720px) {
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
