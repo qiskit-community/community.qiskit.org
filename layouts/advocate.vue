@@ -2,18 +2,67 @@
   <div class="wrapper">
     <Menu>
       <li><a href="/">Home</a></li>
-      <li><a href="/events/">Events</a></li>
-      <li><a href="/advocates">Advocates</a></li>
+      <li><a href="#whyJoin">Why Join</a></li>
+      <li><a href="#applySteps">Apply</a></li>
+      <li>Advocates</li>
     </Menu>
-    <header>
-      <video src="video/qiskit-camp-community.mp4" muted autoplay loop />
+    <header style="background-image: url(/images/advocates/advocates.jpg)">
+      <!-- <img src="images/advocates/advocates.jpg"> -->
       <section>
-        <img alt="Qiskit Logo" src="/images/qiskit-logo.png">
         <div>
-          <h1>Welcome to the Qiskit Community!</h1>
+          <h1>
+            <center>Qiskit Advocates Program</center>
+          </h1>
+          <p>
+            <center>
+              <strong>
+                A global program that provides support to the individuals<br>who actively work on assisting and growing the Qiskit Community
+              </strong>
+            </center>
+          </p>
         </div>
       </section>
     </header>
+    <section class="join">
+      <div id="whyJoin">
+        <h1>Why Apply</h1>
+        <div id="gallery-text">
+          <div id="gallery-text-left">
+            <img src="images/icons/apply01.svg">
+            <h3>Funding for your projects and work</h3>
+            <p>Advocates can request funding or events and projects</p>
+          </div>
+          <div id="gallery-text-left">
+            <img src="images/icons/apply03.svg">
+            <h3>Prioritized access to hardware</h3>
+            <p>Advocates will receive prioritized access to publicly available hardware</p>
+          </div>
+          <div id="gallery-text-right">
+            <img src="images/icons/apply02.svg">
+            <h3>Network with experts and enthusiasts</h3>
+            <p>Advocates will be added to a group of quantum experts and will receive ~~~~(??).</p>
+          </div>
+          <div id="gallery-text-right">
+            <img src="images/icons/apply04.svg">
+            <h3>Increased visibility for your work</h3>
+            <p>All advocates will have the opportunity to have their work supported by IBM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="apply">
+      <div id="applySteps">
+        <h1>Steps to apply</h1>
+        <ol>
+          <li>Fill the form below</li>
+          <li>Click the link to attend test</li>
+          <li>Learn, Do the test and get certified!</li>
+        </ol>
+        <button type="button" onclick="alert('Redirect to apply form')">
+          Apply Now!
+        </button>
+      </div>
+    </section>
     <nuxt />
     <Footer />
   </div>
@@ -23,11 +72,13 @@
 import Vue from 'vue'
 import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
+import AdvocateCard from '~/components/AdvocateCard.vue'
 import { Component } from 'vue-property-decorator'
 
 @Component({
   components: {
     Menu,
+    AdvocateCard,
     Footer
   }
 })
@@ -94,6 +145,41 @@ html {
   display: flex;
   flex-direction: column;
 }
+.join {
+  position: relative;
+  width: 100%;
+  background-color: rgb(138, 43, 226, 0.9);
+  margin-top: 5vw;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  padding-left: 50px;
+  color: #FFFFFF;
+}
+.join h3 {
+  color: #FFFFFF;
+  margin-top: 1rem;
+}
+.join img {
+  padding-right: 1rem;
+  height: 4vw;
+  min-height: 4rem;
+  max-height: 4rem;
+}
+.join h3, .join img {
+  display:inline-block;
+  vertical-align:middle;
+}
+.apply{
+  position: relative;
+  width: 100%;
+  background-color: rgb(71, 71, 71, 0.9);
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  padding-left: 50px;
+  color: #FFFFFF;
+}
 
 header {
   position: relative;
@@ -134,12 +220,18 @@ header > section > div {
 }
 
 header img {
-  height: 10vw;
-  min-height: 10rem;
-  max-height: 14rem;
+  height: 100vw;
+  position: absolute;
+  width: auto;
+  top: 10px;
 }
 
 header h1 {
+  font-size: 50px;
+  margin-left: 1.5rem;
+}
+
+header p{
   margin-left: 1.5rem;
 }
 
