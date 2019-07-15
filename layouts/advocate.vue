@@ -182,8 +182,7 @@ h3 {
   box-sizing: border-box;
   width: 100%;
   background-color: rgb(138, 43, 226, 0.9);
-  margin-top: 5vw;
-  padding: 1rem;
+  padding-top: 5em;
   padding-left: 50px;
   color: #FFFFFF;
 }
@@ -352,6 +351,16 @@ h2 {
   header h1 {
     margin: 0;
     margin-top: 2rem;
+  }
+
+  .gallery-text {
+    flex-direction: column;
+  }
+  .gallery-text-column {
+    width: 100%;
+  }
+  .gallery-text-content {
+    flex-direction: column;
   }
 
 }
