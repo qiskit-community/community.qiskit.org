@@ -22,29 +22,39 @@
         </div>
       </section>
     </header>
-    <section class="join">
-      <div id="whyJoin">
-        <h1>Why Apply</h1>
-        <div id="gallery-text">
-          <div id="gallery-text-left">
+    <section id="whyJoin" class="join">
+      <h1>Why Apply</h1>
+      <div class="gallery-text">
+        <div class="gallery-text-column">
+          <div class="gallery-text-content">
             <img src="images/icons/apply01.svg">
-            <h3>Funding for your projects and work</h3>
-            <p>Advocates can request funding or events and projects</p>
+            <div>
+              <h3>Funding for your projects and work</h3>
+              <p>Advocates can request funding or events and projects</p>
+            </div>
           </div>
-          <div id="gallery-text-left">
+          <div class="gallery-text-content">
             <img src="images/icons/apply03.svg">
-            <h3>Prioritized access to hardware</h3>
-            <p>Advocates will receive prioritized access to publicly available hardware</p>
+            <div>
+              <h3>Prioritized access to hardware</h3>
+              <p>Advocates will receive prioritized access to publicly available hardware</p>
+            </div>
           </div>
-          <div id="gallery-text-right">
+        </div>
+        <div class="gallery-text-column">
+          <div class="gallery-text-content">
             <img src="images/icons/apply02.svg">
-            <h3>Network with experts and enthusiasts</h3>
-            <p>Advocates will be added to a group of quantum experts and will receive ~~~~(??).</p>
+            <div>
+              <h3>Network with experts and enthusiasts</h3>
+              <p>Advocates will be added to a group of quantum experts and will receive ~~~~(??).</p>
+            </div>
           </div>
-          <div id="gallery-text-right">
+          <div class="gallery-text-content">
             <img src="images/icons/apply04.svg">
-            <h3>Increased visibility for your work</h3>
-            <p>All advocates will have the opportunity to have their work supported by IBM</p>
+            <div>
+              <h3>Increased visibility for your work</h3>
+              <p>All advocates will have the opportunity to have their work supported by IBM</p>
+            </div>
           </div>
         </div>
       </div>
@@ -129,13 +139,24 @@ a:hover {
 
 html {
   font-family: 'IBM Plex Sans', sans-serif;
-  /* min-fs + (max-fs - min-fs) * ((viewport-width - min-vw) / (max-vw - min-vw)) */
   font-size: calc(10px + (18 - 10) * ((900px - 340px) / (900 - 340)));
-  background-image: url('/images/events/deco/dots.svg'), url('/images/events/deco/dots.svg'), url('/images/events/deco/dots.svg'),
-    url('/images/events/deco/lines.svg'), url('/images/events/deco/lines.svg'), url('/images/events/deco/lines.svg');
-  background-repeat: repeat-x, repeat-x, repeat-x, repeat-y, repeat-y, repeat-y;
-  background-position: top calc(100vh + 890px) left 0, top calc(100vh + 930px) left 0, top calc(100vh + 970px) left 0,
-    top 0 right 100px, top 0 right 0, top 0 right -100px;
+  background-image: url('/images/events/deco/dots.svg'),
+                    url('/images/events/deco/dots.svg'),
+                    url('/images/events/deco/dots.svg'),
+                    url('/images/events/deco/lines.svg'),
+                    url('/images/events/deco/lines.svg'),
+                    url('/images/events/deco/lines.svg');
+  background-repeat:  repeat-x,
+                      repeat-x,
+                      repeat-x,
+                      repeat-y,
+                      repeat-y,
+                      repeat-y;
+  background-position:  top calc(100vh + 890px) left 0,
+                        top calc(100vh + 930px) left 0,
+                        top calc(100vh + 970px) left 0,
+                        top 0 right 100px, top 0 right 0,
+                        top 0 right -100px;
 }
 
 .wrapper {
@@ -143,39 +164,54 @@ html {
   flex-direction: column;
 }
 .join {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
   width: 100%;
   background-color: rgb(138, 43, 226, 0.9);
   margin-top: 5vw;
   padding: 1rem;
-  display: flex;
-  flex-direction: row;
   padding-left: 50px;
   color: #FFFFFF;
 }
-.join h3 {
-  color: #FFFFFF;
-  margin-top: 1rem;
+
+.join h1 {
+  margin-bottom: 1.5em;
 }
 .join img {
   padding-right: 1rem;
-  height: 4vw;
-  min-height: 4rem;
-  max-height: 4rem;
+  height: 40px;
 }
 .join h3, .join img {
   display:inline-block;
   vertical-align:middle;
 }
-.apply{
-  position: relative;
-  width: 100%;
+.apply {
   background-color: rgb(71, 71, 71, 0.9);
+  box-sizing: border-box;
   padding: 1rem;
   display: flex;
   flex-direction: row;
   padding-left: 50px;
   color: #FFFFFF;
+}
+
+.gallery-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.gallery-text-column {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.gallery-text-content {
+  display: flex;
+  flex-direction: row;
+  margin: 1em 1em 2em 1em;
 }
 
 header {
