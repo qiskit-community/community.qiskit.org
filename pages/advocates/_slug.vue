@@ -25,7 +25,7 @@
         <p>Scroll-down for further info</p>
       </section>
     </header>
-    <main v-html="advocate.html" />
+    <!-- <main v-html="advocate.html" /> -->
     <Footer />
   </div>
 </template>

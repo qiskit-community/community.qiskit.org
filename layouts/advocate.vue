@@ -4,10 +4,9 @@
       <li><a href="/">Home</a></li>
       <li><a href="#whyJoin">Why Join</a></li>
       <li><a href="#applySteps">Apply</a></li>
-      <li>Advocates</li>
+      <li><a href="#meet-advocates">Advocates</a></li>
     </Menu>
     <header style="background-image: url(/images/advocates/advocates.jpg)">
-      <!-- <img src="images/advocates/advocates.jpg"> -->
       <section>
         <div>
           <h1>
@@ -72,13 +71,11 @@
 import Vue from 'vue'
 import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
-import AdvocateCard from '~/components/AdvocateCard.vue'
 import { Component } from 'vue-property-decorator'
 
 @Component({
   components: {
     Menu,
-    AdvocateCard,
     Footer
   }
 })
