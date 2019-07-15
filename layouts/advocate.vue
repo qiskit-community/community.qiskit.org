@@ -6,18 +6,12 @@
       <li><a href="#applySteps">Apply</a></li>
       <li><a href="#meet-advocates">Advocates</a></li>
     </Menu>
-    <header style="background-image: url(/images/advocates/advocates.jpg)">
+    <header>
       <section>
         <div>
-          <h1>
-            <center>Qiskit Advocates Program</center>
-          </h1>
-          <p>
-            <center>
-              <strong>
-                A global program that provides support to the individuals<br>who actively work on assisting and growing the Qiskit Community
-              </strong>
-            </center>
+          <h1>Qiskit Advocates Program</h1>
+          <p class="header-subtitle">
+            A global program that provides support to the individuals<br>who actively work on assisting and growing the Qiskit Community
           </p>
         </div>
       </section>
@@ -125,6 +119,7 @@ export default class extends Vue { };
 :root {
   --secondary-color: rgb(103, 58, 183);
   --dark-color: rgb(30, 20, 60);
+  --gray-color: rgba(71, 71, 71, 0.9);
 }
 
 * {
@@ -181,7 +176,7 @@ h3 {
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  background-color: rgb(138, 43, 226, 0.9);
+  background-color: var(--secondary-color);
   padding-top: 5em;
   padding-left: 50px;
   color: #FFFFFF;
@@ -196,7 +191,7 @@ h3 {
   vertical-align:middle;
 }
 .apply {
-  background-color: rgb(71, 71, 71, 0.9);
+  background-color: var(--gray-color);
   box-sizing: border-box;
   padding: 1rem;
   padding-left: 50px;
@@ -216,7 +211,7 @@ h3 {
 }
 .apply ol li::before {
   content: counter(my-awesome-counter);
-  color: rgb(71, 71, 71, 0.9);
+  color: var(--gray-color);
   font-size: 1rem;
   font-weight: bold;
   position: absolute;
@@ -241,7 +236,7 @@ h3 {
   outline: 0;
   border: 2px solid white;
   border-radius: 5px;
-  background: rgb(71, 71, 71, 0.5);
+  background: var(--gray-color);
   color: white;
   cursor: pointer;
 }
@@ -283,16 +278,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--dark-color)
-}
-
-header video {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  height: 100vh;
-  width: auto;
-  transform: translateX(-50%);
+  background-image: url(/images/advocates/advocates.jpg);
 }
 
 header > section {
@@ -321,10 +307,13 @@ header img {
 header h1 {
   font-size: 50px;
   margin-left: 1.5rem;
+  text-align: center;
 }
 
-header p{
+header .header-subtitle {
   margin-left: 1.5rem;
+  font-weight: bold;
+  text-align: center;
 }
 
 h2::before {
