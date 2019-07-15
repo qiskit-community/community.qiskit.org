@@ -17,7 +17,7 @@
       </section>
     </header>
     <section id="whyJoin" class="join">
-      <h3>Why Apply</h3>
+      <h3>Why Join</h3>
       <div class="gallery-text">
         <div class="gallery-text-column">
           <div class="gallery-text-content">
@@ -165,6 +165,7 @@ html {
 h3 {
   font-size: 1.5em;
   margin-bottom: 1.5em;
+  margin-top: 1em;
 }
 
 .wrapper {
@@ -190,10 +191,16 @@ h3 {
   display:inline-block;
   vertical-align:middle;
 }
+
+.applySteps{
+  margin-left: 33.33%;
+}
+
 .apply {
   background-color: var(--gray-color);
   box-sizing: border-box;
-  padding: 1rem;
+  display: flex;
+  flex-direction: column;
   padding-left: 50px;
   color: #FFFFFF;
 }
@@ -241,6 +248,44 @@ h3 {
   cursor: pointer;
 }
 
+.apply h1 {
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+}
+
+.apply button{
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.apply img{
+  padding-right: 1rem;
+  height: 30px;
+}
+
+.apply .button {
+  margin: 1em;
+  text-align: center;
+}
+
+.gallery-apply-content {
+  display: flex;
+  flex-direction: row;
+  margin: 2vw;
+}
+
+.apply img {
+  display: inline-block;
+  vertical-align: middle;
+}
 .gallery-text {
   display: flex;
   flex-direction: row;
