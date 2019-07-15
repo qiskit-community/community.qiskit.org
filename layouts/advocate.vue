@@ -23,7 +23,7 @@
       </section>
     </header>
     <section id="whyJoin" class="join">
-      <h1>Why Apply</h1>
+      <h1>Why Join</h1>
       <div class="gallery-text">
         <div class="gallery-text-column">
           <div class="gallery-text-content">
@@ -59,14 +59,29 @@
         </div>
       </div>
     </section>
-    <section class="apply">
-      <div id="applySteps">
-        <h1>Steps to apply</h1>
-        <ol>
-          <li>Fill the form below</li>
-          <li>Click the link to attend test</li>
-          <li>Learn, Do the test and get certified!</li>
-        </ol>
+    <section id="applySteps" class="apply">
+      <h1>Steps to apply</h1>
+      <div class="applySteps">
+        <div class="gallery-apply-content">
+          <img src="images/icons/bullet01.svg">
+          <div>
+            <h3>Fill the form below</h3>
+          </div>
+        </div>
+        <div class="gallery-apply-content">
+          <img src="images/icons/bullet02.svg">
+          <div>
+            <h3>Click the link to attend test</h3>
+          </div>
+        </div>
+        <div class="gallery-apply-content">
+          <img src="images/icons/bullet03.svg">
+          <div>
+            <h3>Learn, do the test and get certified!</h3>
+          </div>
+        </div>
+      </div>
+      <div class="button">
         <button type="button" onclick="alert('Redirect to apply form')">
           Apply Now!
         </button>
@@ -176,6 +191,7 @@ html {
 }
 
 .join h1 {
+  margin-top: 1.5em;
   margin-bottom: 1.5em;
 }
 .join img {
@@ -186,16 +202,58 @@ html {
   display:inline-block;
   vertical-align:middle;
 }
+
+.applySteps{
+  margin-left: 33.33%;
+}
+
 .apply {
   background-color: rgb(71, 71, 71, 0.9);
   box-sizing: border-box;
-  padding: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding-left: 50px;
   color: #FFFFFF;
 }
 
+.apply h1 {
+  margin-top: 1.5em;
+  margin-bottom: .5em;
+}
+
+.apply button{
+  background-color: white;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.apply img{
+  padding-right: 1rem;
+  height: 30px;
+}
+
+.apply .button {
+  margin: 1em;
+  text-align: center;
+}
+
+.gallery-apply-content {
+  display: flex;
+  flex-direction: row;
+  margin: 2vw;
+}
+
+.apply h3, .apply img {
+  display: inline-block;
+  vertical-align: middle;
+}
 .gallery-text {
   display: flex;
   flex-direction: row;
