@@ -23,20 +23,24 @@
       </section>
     </header>
     <section id="whyJoin" class="join">
-      <h1>Why Apply</h1>
+      <h3>Why Apply</h3>
       <div class="gallery-text">
         <div class="gallery-text-column">
           <div class="gallery-text-content">
             <img src="images/icons/apply01.svg">
             <div>
-              <h3>Funding for your projects and work</h3>
+              <h3 class="gallery-text-subtitle">
+                Funding for your projects and work
+              </h3>
               <p>Advocates can request funding or events and projects</p>
             </div>
           </div>
           <div class="gallery-text-content">
             <img src="images/icons/apply03.svg">
             <div>
-              <h3>Prioritized access to hardware</h3>
+              <h3 class="gallery-text-subtitle">
+                Prioritized access to hardware
+              </h3>
               <p>Advocates will receive prioritized access to publicly available hardware</p>
             </div>
           </div>
@@ -45,14 +49,18 @@
           <div class="gallery-text-content">
             <img src="images/icons/apply02.svg">
             <div>
-              <h3>Network with experts and enthusiasts</h3>
+              <h3 class="gallery-text-subtitle">
+                Network with experts and enthusiasts
+              </h3>
               <p>Advocates will be added to a group of quantum experts and will receive ~~~~(??).</p>
             </div>
           </div>
           <div class="gallery-text-content">
             <img src="images/icons/apply04.svg">
             <div>
-              <h3>Increased visibility for your work</h3>
+              <h3 class="gallery-text-subtitle">
+                Increased visibility for your work
+              </h3>
               <p>All advocates will have the opportunity to have their work supported by IBM</p>
             </div>
           </div>
@@ -60,14 +68,14 @@
       </div>
     </section>
     <section class="apply">
-      <div id="applySteps">
-        <h1>Steps to apply</h1>
-        <ol>
-          <li>Fill the form below</li>
-          <li>Click the link to attend test</li>
-          <li>Learn, Do the test and get certified!</li>
-        </ol>
-        <button type="button" onclick="alert('Redirect to apply form')">
+      <h3>Steps to apply</h3>
+      <ol>
+        <li>Fill the form below</li>
+        <li>Click the link to attend test</li>
+        <li>Learn, Do the test and get certified!</li>
+      </ol>
+      <div class="button-container">
+        <button onclick="alert('Redirect to apply form')">
           Apply Now!
         </button>
       </div>
@@ -159,6 +167,11 @@ html {
                         top 0 right -100px;
 }
 
+h3 {
+  font-size: 1.5em;
+  margin-bottom: 1.5em;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -175,14 +188,11 @@ html {
   color: #FFFFFF;
 }
 
-.join h1 {
-  margin-bottom: 1.5em;
-}
 .join img {
   padding-right: 1rem;
   height: 40px;
 }
-.join h3, .join img {
+.join img {
   display:inline-block;
   vertical-align:middle;
 }
@@ -190,10 +200,51 @@ html {
   background-color: rgb(71, 71, 71, 0.9);
   box-sizing: border-box;
   padding: 1rem;
-  display: flex;
-  flex-direction: row;
   padding-left: 50px;
   color: #FFFFFF;
+}
+.apply ol {
+  max-width: 320px;
+  counter-reset: my-awesome-counter;
+  list-style: none;
+  padding-left: 40px;
+  margin: 0 auto;
+}
+.apply ol li {
+  margin: 0.5em;
+  counter-increment: my-awesome-counter;
+  position: relative;
+}
+.apply ol li::before {
+  content: counter(my-awesome-counter);
+  color: rgb(71, 71, 71, 0.9);
+  font-size: 1rem;
+  font-weight: bold;
+  position: absolute;
+  --size: 25px;
+  left: calc(-1 * var(--size) - 10px);
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  top: 0;
+  background: white;
+  border-radius: 50%;
+  text-align: center;
+}
+.apply .button-container {
+  margin: 0 auto;
+  text-align: center;
+}
+.apply .button-container button {
+  padding: 0.5em 1em;
+  margin: 1.5em;
+  font-size: 1em;
+  outline: 0;
+  border: 2px solid white;
+  border-radius: 5px;
+  background: rgb(71, 71, 71, 0.5);
+  color: white;
+  cursor: pointer;
 }
 
 .gallery-text {
@@ -208,10 +259,19 @@ html {
   width: 40%;
 }
 
+.gallery-text-subtitle {
+  font-size: 1.25em !important;
+  margin-bottom: 0 !important;
+}
+
 .gallery-text-content {
   display: flex;
   flex-direction: row;
   margin: 1em 1em 2em 1em;
+}
+
+.gallery-text-content p {
+  font-size: 0.9em;
 }
 
 header {
