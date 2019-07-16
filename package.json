@@ -16,7 +16,8 @@
   "dependencies": {
     "cross-env": "^5.2.0",
     "nuxt": "^2.8.1",
-    "ts-node": "^8.2.0"
+    "ts-node": "^8.2.0",
+    "v-maps": "^1.0.2"
   },
   "devDependencies": {
     "@nuxt/typescript": "^2.8.1",
