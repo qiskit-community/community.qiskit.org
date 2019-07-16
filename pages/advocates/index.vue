@@ -4,12 +4,13 @@
       v-for="(section, index) in sections"
       :key="`section-${index}`"
     >
-      <h2
+      <h3
         v-if="!!section.title"
         :id="section.anchor"
+        class="section-title"
       >
         {{ section.title }}
-      </h2>
+      </h3>
       <div class="card-container">
         <AdvocateCard
           v-for="(card, cardIndex) in section.regular"

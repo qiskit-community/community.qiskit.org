@@ -17,7 +17,9 @@
       </section>
     </header>
     <section id="whyJoin" class="join">
-      <h3>Why Join</h3>
+      <h3 class="section-title">
+        Why Join
+      </h3>
       <div class="gallery-text">
         <div class="gallery-text-column">
           <div class="gallery-text-content">
@@ -62,7 +64,9 @@
       </div>
     </section>
     <section class="apply">
-      <h3>Steps to apply</h3>
+      <h3 class="section-title">
+        Steps to apply
+      </h3>
       <ol>
         <li>Fill the form below</li>
         <li>Click the link to attend test</li>
@@ -179,7 +183,6 @@ h3 {
   width: 100%;
   background-color: var(--secondary-color);
   padding-top: 5em;
-  padding-left: 50px;
   color: #FFFFFF;
 }
 
@@ -201,7 +204,6 @@ h3 {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding-left: 50px;
   color: #FFFFFF;
 }
 .apply ol {
@@ -314,6 +316,10 @@ h3 {
   font-size: 0.9em;
 }
 
+.section-title {
+  margin-left: 50px;
+}
+
 header {
   position: relative;
   top: 63px;
@@ -396,6 +402,7 @@ h2 {
   }
   .gallery-text-content {
     flex-direction: column;
+    text-align: center;
   }
   .gallery-text-content img {
     height: 100px;
