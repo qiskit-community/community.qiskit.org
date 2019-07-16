@@ -4,6 +4,7 @@ cache: npm
 before_script:
   - npm run lint
 before_deploy:
+  - npm install
   - npm run generate
 deploy:
   provider: pages
