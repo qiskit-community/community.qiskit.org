@@ -301,6 +301,7 @@ h3 {
 .gallery-text-subtitle {
   font-size: 1.25em !important;
   margin-bottom: 0 !important;
+  margin-top: 0;
 }
 
 .gallery-text-content {
@@ -395,6 +396,9 @@ h2 {
   }
   .gallery-text-content {
     flex-direction: column;
+  }
+  .gallery-text-content img {
+    height: 100px;
   }
 
 }
