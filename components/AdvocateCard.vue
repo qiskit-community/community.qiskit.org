@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <article class="advocate-card">
     <figure>
       <img :src="image" :alt="name">
     </figure>
@@ -28,26 +28,15 @@ import { Component } from 'vue-property-decorator'
     areas: String
   }
 })
-
 export default class extends Vue { }
 </script>
 
-<style scoped>
-article {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: white;
-  padding: 1em;
-  -webkit-box-shadow: 10px 10px 11px -10px rgba(148,148,148,1);
-  -moz-box-shadow: 10px 10px 11px -10px rgba(148,148,148,1);
-  box-shadow: 10px 10px 11px -10px rgba(148,148,148,1);
-  border: 1px solid rgba(148,148,148,1);
-  width: 25%;
-  margin:0.5em;
+<style>
+:root {
+  --gray-shadow: rgba(148,148,148,1);
 }
 figure {
-  width: 96px;
+  width: 6rem;
   margin: 0 auto;
 }
 img {
@@ -62,11 +51,5 @@ p.bold {
   margin-top: 1em;
   font-size: 1em;
   font-weight: 800;
-}
-
-@media (max-width: 720px) {
-  article {
-    width: 70%;
-  }
 }
 </style>

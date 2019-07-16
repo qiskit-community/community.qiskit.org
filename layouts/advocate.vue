@@ -188,14 +188,15 @@ h3 {
 
 .join img {
   padding-right: 1rem;
-  height: 40px;
+  height: 3rem;
+  width: 3rem;
 }
 .join img {
   display:inline-block;
   vertical-align:middle;
 }
 
-.applySteps{
+.applySteps {
   margin-left: 33.33%;
 }
 

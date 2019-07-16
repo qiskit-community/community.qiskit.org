@@ -79,10 +79,25 @@ main {
   justify-content: space-around;
 }
 
-@media (max-width: 720px) {
+.card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: white;
+  padding: 1em;
+  box-shadow: 10px 10px 11px -10px var(--gray-shadow);
+  border: 1px solid var(--gray-shadow);
+  width: 25%;
+  margin:0.5em;
+}
+
+@media (max-width: 800px) {
   .card-container {
     flex-direction: column;
     align-items: center;
+  }
+  .card {
+    width: 70%;
   }
 }
 </style>

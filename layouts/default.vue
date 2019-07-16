@@ -83,11 +83,23 @@ html {
   font-family: 'IBM Plex Sans', sans-serif;
   /* min-fs + (max-fs - min-fs) * ((viewport-width - min-vw) / (max-vw - min-vw)) */
   font-size: calc(10px + (18 - 10) * ((900px - 340px) / (900 - 340)));
-  background-image: url('/images/events/deco/dots.svg'), url('/images/events/deco/dots.svg'), url('/images/events/deco/dots.svg'),
-    url('/images/events/deco/lines.svg'), url('/images/events/deco/lines.svg'), url('/images/events/deco/lines.svg');
-  background-repeat: repeat-x, repeat-x, repeat-x, repeat-y, repeat-y, repeat-y;
-  background-position: top calc(100vh + 890px) left 0, top calc(100vh + 930px) left 0, top calc(100vh + 970px) left 0,
-    top 0 right 100px, top 0 right 0, top 0 right -100px;
+  background-image: url('/images/events/deco/dots.svg'),
+                    url('/images/events/deco/dots.svg'),
+                    url('/images/events/deco/dots.svg'),
+                    url('/images/events/deco/lines.svg'),
+                    url('/images/events/deco/lines.svg'),
+                    url('/images/events/deco/lines.svg');
+  background-repeat:  repeat-x,
+                      repeat-x,
+                      repeat-x,
+                      repeat-y,
+                      repeat-y,
+                      repeat-y;
+  background-position:  top calc(100vh + 890px) left 0,
+                        top calc(100vh + 930px) left 0,
+                        top calc(100vh + 970px) left 0,
+                        top 0 right 100px, top 0 right 0,
+                        top 0 right -100px;
 }
 
 .wrapper {
