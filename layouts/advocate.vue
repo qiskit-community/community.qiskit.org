@@ -190,8 +190,6 @@ h3 {
   padding-right: 1rem;
   height: 3rem;
   width: 3rem;
-}
-.join img {
   display:inline-block;
   vertical-align:middle;
 }
@@ -269,7 +267,7 @@ h3 {
   cursor: pointer;
 }
 
-.apply img{
+.apply img {
   padding-right: 1rem;
   height: 30px;
 }
@@ -366,6 +364,7 @@ header h1 {
 header .header-subtitle {
   margin-left: 1.5rem;
   font-weight: bold;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -407,6 +406,7 @@ h2 {
   }
   .gallery-text-content img {
     height: 100px;
+    width: 100%;
   }
 
 }
