@@ -35,6 +35,14 @@ export default class extends Vue { }
 :root {
   --gray-shadow: rgba(148,148,148,1);
 }
+
+.advocate-card {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: white;
+}
+
 figure {
   width: 6rem;
   margin: 0 auto;

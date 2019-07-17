@@ -15,7 +15,6 @@
         <AdvocateCard
           v-for="(card, cardIndex) in section.regular"
           :key="`card-${cardIndex}`"
-          class="card"
           :name="card.attributes.name"
           :image="`/images/advocates/${card.attributes.image}`"
           :location="card.attributes.location"
@@ -79,16 +78,12 @@ main {
   justify-content: space-around;
 }
 
-.card {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: white;
+.advocate-card {
   padding: 1em;
   box-shadow: 10px 10px 11px -10px var(--gray-shadow);
   border: 1px solid var(--gray-shadow);
   width: 25%;
-  margin:0.5em;
+  margin: 0.5em;
 }
 
 @media (max-width: 800px) {
@@ -96,7 +91,7 @@ main {
     flex-direction: column;
     align-items: center;
   }
-  .card {
+  .advocate-card {
     width: 70%;
   }
 }
