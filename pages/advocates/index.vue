@@ -1,31 +1,20 @@
 <template>
-  <main v-html="html">
-    <section class="apply">
-      <h3 class="section-title">
-        Steps to apply
-      </h3>
-      <ol>
-        <li>Fill the form below</li>
-        <li>Click the link to attend test</li>
-        <li>Learn, Do the test and get certified!</li>
-      </ol>
-      <div class="button-container">
-        <button onclick="alert('Redirect to apply form')">
-          Apply Now!
-        </button>
-      </div>
-    </section>
+  <main>
+    <MdContent
+      :render-fn="renderFn"
+      :static-render-fns="staticRenderFns"
+    />
     <section
       v-for="(section, index) in sections"
       :key="`section-${index}`"
     >
-      <h3
+      <h2
         v-if="!!section.title"
         :id="section.anchor"
         class="section-title"
       >
         {{ section.title }}
-      </h3>
+      </h2>
       <div class="card-container">
         <AdvocateCard
           v-for="(card, cardIndex) in section.regular"
@@ -46,33 +35,36 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import AdvocateCard from '~/components/AdvocateCard.vue'
 import Button from '~/components/Button.vue'
+import MdContent from '~/components/MdContent.vue'
 
-function loadToc(source: string): Promise<any> {
-  return import(`~/content/${source}/toc.md`)
+async function loadToc(source: string): Promise<any> {
+  return (await import(`~/content/${source}`)).attributes
 }
 
-async function embedDocuments(section, source: string, collection: string) {
+async function embedDocuments(section, basepath: string, collection: string) {
   if (!section[collection]) { return [] }
   section[collection] = await Promise.all(section[collection].map(
-    path => import(`~/content/${source}/${path}`)
+    path => import(`~/content/${basepath}${path}`)
   ))
 }
 
 @Component({
   layout: 'advocate',
 
-  components: { AdvocateCard, Button },
+  components: { AdvocateCard, Button, MdContent },
 
   async asyncData() {
-    const root = 'advocates/index'
+    const root = 'advocates/index/advocates.md'
+    const index = await import(`~/content/advocates/index/${'toc.md'}`)
     const sections = await loadToc(root)
-    /* for (const aSection of sections.attributes) {
-      await embedDocuments(aSection, root, 'regular')
-    } */
+    for (const aSection of sections) {
+      await embedDocuments(aSection, 'advocates/index/', 'regular')
+    }
 
     return {
-      sections: sections.attributes,
-      html: sections.html
+      sections,
+      renderFn: index.vue.render,
+      staticRenderFns: index.vue.staticRenderFns
     }
   }
 })
@@ -88,15 +80,36 @@ main {
 </style>
 
 <style>
+h2::before {
+  content: "";
+  float: left;
+  width: 5%;
+  margin-top: 0.5rem;
+  margin-right: 5%;
+  border-top: 1px solid #0A1D8F;
+}
+
 h2 {
+  margin: 2rem 0 2.5rem;
+  color: #0A1D8F;
+}
+
+.join > h2,
+.apply > h2 {
+  color: white;
   font-size: 1.5em;
-  margin-left: 5%;
   margin-bottom: 1.5em;
   margin-top: 1em;
 }
 
+.join > h2::before,
+.apply > h2::before {
+  content: none;
+}
+
 .join {
   display: flex;
+  padding: 0 5%;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
@@ -109,7 +122,7 @@ h2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-column-gap: 2rem;
-  margin: 1rem 3rem 1rem 3rem
+  margin: 1rem 3rem 1rem 0;
 }
 
 .join > ul > li {
@@ -147,11 +160,13 @@ h2 {
   display: flex;
   flex-direction: column;
   color: #FFFFFF;
+  padding: 0 5% 3rem;
 }
+
 .apply > ol {
   list-style: none;
-  margin-left: 5%;
   counter-reset: my-awesome-counter;
+  margin-bottom: 2rem;
 }
 
 .apply > ol > li {

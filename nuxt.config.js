@@ -76,7 +76,7 @@ export default {
         include: path.resolve(__dirname, 'content'),
         options: {
           vue: {
-            root: 'dynamicMarkdown'
+            root: 'content'
           },
           markdown: (body) => {
             return md.render(body)

@@ -151,11 +151,11 @@ header h1 {
 }
 
 header .header-subtitle {
-  margin-left: 1.5rem;
   font-weight: bold;
   font-size: 1rem;
   text-align: center;
-  max-width: 40rem;
+  max-width: 30rem;
+  margin: 0 auto;
 }
 
 @media (max-width: 800px) {

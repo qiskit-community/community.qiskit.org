@@ -1,7 +1,7 @@
 <template>
   <a
     :href="href"
-    :target="isPointingOutside ? '__blank' : '__self'"
+    :target="isPointingOutside ? '_blank' : '_self'"
     class="button"
   >
     <slot />
