@@ -55,7 +55,7 @@ function getBackgroundUris(background: string): [string, string] {
     if (sourceName === 'undefined') {
       return
     }
-    const definition = await import(`~/src/events/${sourceName}.md`)
+    const definition = await import(`~/content/events/${sourceName}.md`)
     const [lBackgroundUri, hBackgroundUri] =
       getBackgroundUris(definition.attributes.background)
     return {

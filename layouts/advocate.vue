@@ -2,16 +2,15 @@
   <div class="wrapper">
     <Menu>
       <li><a href="/">Home</a></li>
-      <li><a href="#whyJoin">Why Join</a></li>
-      <li><a href="#applySteps">Apply</a></li>
-      <li><a href="#meet-advocates">Advocates</a></li>
+      <li><a href="/events">Events</a></li>
+      <!-- <li><a href="/advocates">Advocates</a></li> -->
     </Menu>
     <header>
       <section>
         <div>
           <h1>Qiskit Advocates Program</h1>
           <p class="header-subtitle">
-            A global program that provides support to the individuals<br>who actively work on assisting and growing the Qiskit Community
+            A global program that provides support to the individuals who actively work on assisting and growing the Qiskit Community
           </p>
         </div>
       </section>

@@ -29,13 +29,13 @@ import { Component } from 'vue-property-decorator'
 import Card from '~/components/Card.vue'
 
 async function loadToc(source: string): Promise<any> {
-  const toc = (await import(`~/src/${source}/toc.md`)).attributes
+  const toc = (await import(`~/content/${source}/toc.md`)).attributes
   return toc
 }
 
 async function embedCards(section, source: string) {
   const cards = await Promise.all(section.cards.map(
-    path => import(`~/src/${source}/${path}`)
+    path => import(`~/content/${source}/${path}`)
   ))
   section.cards = cards
 }

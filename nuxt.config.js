@@ -73,7 +73,7 @@ export default {
       config.module.rules.push({
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
-        include: path.resolve(__dirname, 'src'),
+        include: path.resolve(__dirname, 'content'),
         options: {
           vue: {
             root: 'dynamicMarkdown'
@@ -109,7 +109,7 @@ export default {
 
   generate: {
     routes: (function () {
-      return fs.readdirSync(path.resolve(__dirname, 'src', 'events'))
+      return fs.readdirSync(path.resolve(__dirname, 'content', 'events'))
         .filter(filename => path.extname(filename) === '.md')
         .map(filename => `/events/${path.parse(filename).name}`)
     })()
