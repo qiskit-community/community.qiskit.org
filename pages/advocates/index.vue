@@ -1,52 +1,5 @@
 <template>
-  <main>
-    <section id="whyJoin" class="join">
-      <h3 class="section-title">
-        Why Join
-      </h3>
-      <div class="gallery-text">
-        <div class="gallery-text-column">
-          <div class="gallery-text-content">
-            <img src="images/icons/apply01.svg">
-            <div>
-              <h3 class="gallery-text-subtitle">
-                Funding for your projects and work
-              </h3>
-              <p>Advocates can request funding or events and projects</p>
-            </div>
-          </div>
-          <div class="gallery-text-content">
-            <img src="images/icons/apply03.svg">
-            <div>
-              <h3 class="gallery-text-subtitle">
-                Prioritized access to hardware
-              </h3>
-              <p>Advocates will receive prioritized access to publicly available hardware</p>
-            </div>
-          </div>
-        </div>
-        <div class="gallery-text-column">
-          <div class="gallery-text-content">
-            <img src="images/icons/apply02.svg">
-            <div>
-              <h3 class="gallery-text-subtitle">
-                Network with experts and enthusiasts
-              </h3>
-              <p>Advocates will be added to a group of quantum experts and will receive ~~~~(??).</p>
-            </div>
-          </div>
-          <div class="gallery-text-content">
-            <img src="images/icons/apply04.svg">
-            <div>
-              <h3 class="gallery-text-subtitle">
-                Increased visibility for your work
-              </h3>
-              <p>All advocates will have the opportunity to have their work supported by IBM</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main v-html="html">
     <section class="apply">
       <h3 class="section-title">
         Steps to apply
@@ -92,10 +45,10 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import AdvocateCard from '~/components/AdvocateCard.vue'
+import Button from '~/components/Button.vue'
 
-async function loadToc(source: string): Promise<any> {
-  const toc = (await import(`~/content/${source}/toc.md`)).attributes
-  return toc
+function loadToc(source: string): Promise<any> {
+  return import(`~/content/${source}/toc.md`)
 }
 
 async function embedDocuments(section, source: string, collection: string) {
@@ -108,17 +61,18 @@ async function embedDocuments(section, source: string, collection: string) {
 @Component({
   layout: 'advocate',
 
-  components: { AdvocateCard },
+  components: { AdvocateCard, Button },
 
   async asyncData() {
     const root = 'advocates/index'
     const sections = await loadToc(root)
-    for (const aSection of sections) {
+    /* for (const aSection of sections.attributes) {
       await embedDocuments(aSection, root, 'regular')
-    }
+    } */
 
     return {
-      sections
+      sections: sections.attributes,
+      html: sections.html
     }
   }
 })
@@ -133,7 +87,46 @@ main {
 }
 </style>
 
-<style scoped>
+<style>
+h2 {
+  font-size: 1.5em;
+  margin-left: 5%;
+  margin-bottom: 1.5em;
+  margin-top: 1em;
+}
+
+.join {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: var(--secondary-color);
+  color: #FFFFFF;
+}
+
+.join > ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  margin: 1rem 3rem 1rem 3rem
+}
+
+.join > ul > li {
+  margin: 1em 1em 2em;
+}
+
+.join > ul > li > p:first-of-type {
+  float: left;
+}
+
+.join > ul > li > p > img {
+  padding-right: 1rem;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 0;
+}
+
 .card-container {
   display: flex;
   flex-direction: row;
@@ -148,7 +141,47 @@ main {
   margin: 0.5em;
 }
 
+.apply {
+  background-color: var(--gray-color);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: #FFFFFF;
+}
+.apply > ol {
+  list-style: none;
+  margin-left: 5%;
+  counter-reset: my-awesome-counter;
+}
+
+.apply > ol > li {
+  margin: 0.5em;
+  position: relative;
+  counter-increment: my-awesome-counter;
+  --size: 1.5rem;
+}
+
+.apply > ol > li::before {
+  content: counter(my-awesome-counter);
+  color: var(--gray-color);
+  font-size: 1rem;
+  font-weight: bold;
+  position: relative;
+  margin-right: 0.5rem;
+  display: inline-block;
+  line-height: var(--size);
+  width: var(--size);
+  height: var(--size);
+  background: white;
+  border-radius: 50%;
+  text-align: center;
+}
+
 @media (max-width: 800px) {
+  .join > ul {
+    display: block;
+  }
+
   .card-container {
     flex-direction: column;
     align-items: center;
