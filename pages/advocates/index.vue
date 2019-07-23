@@ -38,7 +38,15 @@ import Button from '~/components/Button.vue'
 import MdContent from '~/components/MdContent.vue'
 
 async function loadToc(source: string): Promise<any> {
-  return (await import(`~/content/${source}`)).attributes
+  const toc: any[] = []
+  const attrs = (await import(`~/content/${source}`)).attributes
+  let entry
+  // XXX: Conversion to an array is needed because of:
+  // https://github.com/hmsk/frontmatter-markdown-loader/issues/50
+  for (let i = 0; (entry = attrs[i]) !== undefined; i++) {
+    toc.push(entry)
+  }
+  return toc
 }
 
 async function embedDocuments(section, basepath: string, collection: string) {
@@ -49,7 +57,7 @@ async function embedDocuments(section, basepath: string, collection: string) {
 }
 
 @Component({
-  layout: 'advocate',
+  layout: 'advocates',
 
   components: { AdvocateCard, Button, MdContent },
 
@@ -76,22 +84,6 @@ export default class extends Vue { }
 main {
   position: relative;
   top: 60px;
-}
-</style>
-
-<style>
-h2::before {
-  content: "";
-  float: left;
-  width: 5%;
-  margin-top: 0.5rem;
-  margin-right: 5%;
-  border-top: 1px solid #0A1D8F;
-}
-
-h2 {
-  margin: 2rem 0 2.5rem;
-  color: #0A1D8F;
 }
 
 .join > h2,
@@ -148,8 +140,8 @@ h2 {
 
 .advocate-card {
   padding: 1em;
-  box-shadow: 10px 10px 11px -10px var(--gray-shadow);
-  border: 1px solid var(--gray-shadow);
+  box-shadow: 10px 10px 11px -10px var(--shadow-color);
+  border: 1px solid var(--shadow-color);
   width: 25%;
   margin: 0.5em;
 }
@@ -201,6 +193,7 @@ h2 {
     flex-direction: column;
     align-items: center;
   }
+
   .advocate-card {
     width: 70%;
   }

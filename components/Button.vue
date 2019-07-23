@@ -10,14 +10,12 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
 
-@Component({
-  props: {
-    href: String
-  }
-})
+@Component
 export default class extends Vue {
+  @Prop(String) href
+
   get isPointingOutside() {
     return this.$props.href.startsWith('http')
   }

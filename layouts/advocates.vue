@@ -2,15 +2,16 @@
   <div class="wrapper">
     <Menu>
       <li><a href="/">Home</a></li>
-      <li><a href="/events/">Events</a></li>
+      <li><a href="/events">Events</a></li>
       <!-- <li><a href="/advocates">Advocates</a></li> -->
     </Menu>
     <header>
-      <video src="video/qiskit-camp-community.mp4" muted autoplay loop />
       <section>
-        <img alt="Qiskit Logo" src="/images/qiskit-logo.png">
         <div>
-          <h1>Welcome to the Qiskit Community!</h1>
+          <h1>Qiskit Advocates</h1>
+          <p class="header-subtitle">
+            A global program that provides support to the individuals who actively work on assisting and growing the Qiskit Community
+          </p>
         </div>
       </section>
     </header>
@@ -25,13 +26,8 @@ import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
 import { Component } from 'vue-property-decorator'
 
-@Component({
-  components: {
-    Menu,
-    Footer
-  }
-})
-export default class extends Vue { };
+@Component({ components: { Menu, Footer } })
+export default class extends Vue {}
 </script>
 
 <style>
@@ -49,16 +45,7 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--dark-color)
-}
-
-header video {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  height: 100vh;
-  width: auto;
-  transform: translateX(-50%);
+  background-image: url(/images/advocates/advocates.jpg);
 }
 
 header > section {
@@ -78,13 +65,24 @@ header > section > div {
 }
 
 header img {
-  height: 10vw;
-  min-height: 10rem;
-  max-height: 14rem;
+  height: 100vw;
+  position: absolute;
+  width: auto;
+  top: 10px;
 }
 
 header h1 {
+  font-size: 50px;
   margin-left: 1.5rem;
+  text-align: center;
+}
+
+header .header-subtitle {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 30rem;
+  margin: 0 auto;
 }
 
 @media (max-width: 800px) {

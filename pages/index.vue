@@ -47,7 +47,14 @@ import { Component } from 'vue-property-decorator'
 import Card from '~/components/Card.vue'
 
 async function loadToc(source: string): Promise<any> {
-  const toc = (await import(`~/content/${source}/toc.md`)).attributes
+  const toc: any[] = []
+  const attrs = (await import(`~/content/${source}/toc.md`)).attributes
+  let entry
+  // XXX: Conversion to an array is needed because of:
+  // https://github.com/hmsk/frontmatter-markdown-loader/issues/50
+  for (let i = 0; (entry = attrs[i]) !== undefined; i++) {
+    toc.push(entry)
+  }
   return toc
 }
 
@@ -66,6 +73,7 @@ async function embedDocuments(section, source: string, collection: string) {
   async asyncData() {
     const root = 'index'
     const sections = await loadToc(root)
+    console.log(sections)
     for (const aSection of sections) {
       await embedDocuments(aSection, root, 'major')
       await embedDocuments(aSection, root, 'regular')
