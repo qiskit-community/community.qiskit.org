@@ -27,7 +27,7 @@
       </h2>
       <div class="card-container">
         <AdvocateProfile
-          v-for="(card, cardIndex) in section.regular"
+          v-for="(card, cardIndex) in section.collections.regular"
           :key="`card-${cardIndex}`"
           :name="card.attributes.name"
           :image="`/images/advocates/${card.attributes.image}`"
@@ -47,37 +47,16 @@ import AdvocateProfile from '~/components/AdvocateProfile.vue'
 import Button from '~/components/Button.vue'
 import MdContent from '~/components/MdContent.vue'
 
-async function loadToc(source: string): Promise<any> {
-  const toc: any[] = []
-  const attrs = (await import(`~/content/${source}`)).attributes
-  let entry
-  // XXX: Conversion to an array is needed because of:
-  // https://github.com/hmsk/frontmatter-markdown-loader/issues/50
-  for (let i = 0; (entry = attrs[i]) !== undefined; i++) {
-    toc.push(entry)
-  }
-  return toc
-}
-
-async function embedDocuments(section, basepath: string, collection: string) {
-  if (!section[collection]) { return [] }
-  section[collection] = await Promise.all(section[collection].map(
-    path => import(`~/content/${basepath}${path}`)
-  ))
-}
-
 @Component({
   layout: 'secondary',
 
   components: { AdvocateProfile, Button, MdContent },
 
-  async asyncData() {
-    const root = 'advocates/index/profiles.md'
+  async asyncData(ctx) {
     const index = await import(`~/content/advocates/index/${'master.md'}`)
-    const sections = await loadToc(root)
-    for (const aSection of sections) {
-      await embedDocuments(aSection, 'advocates/index/', 'regular')
-    }
+    const sections = await ctx.app.deepLoadCardToc('profiles.md', {
+      basePath: 'advocates/index/'
+    })
 
     return {
       sections,
@@ -87,7 +66,6 @@ async function embedDocuments(section, basepath: string, collection: string) {
     }
   }
 })
-
 export default class extends Vue { }
 </script>
 

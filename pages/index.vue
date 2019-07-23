@@ -11,7 +11,7 @@
         {{ section.title }}
       </h2>
       <Card
-        v-for="(card, cardIndex) in section.major"
+        v-for="(card, cardIndex) in section.collections.major"
         :key="`major-${cardIndex}`"
         :title="card.attributes.title"
         :image="card.attributes.image"
@@ -20,7 +20,7 @@
         major
       />
       <Card
-        v-for="(card, cardIndex) in section.regular"
+        v-for="(card, cardIndex) in section.collections.regular"
         :key="`regular-${cardIndex}`"
         :title="card.attributes.title"
         :image="card.attributes.image"
@@ -29,7 +29,7 @@
       />
       <section class="minor">
         <Card
-          v-for="(card, cardIndex) in section.minor"
+          v-for="(card, cardIndex) in section.collections.minor"
           :key="`minor-${cardIndex}`"
           :title="card.attributes.title"
           :image="card.attributes.image"
@@ -46,45 +46,20 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import Card from '~/components/Card.vue'
 
-async function loadToc(source: string): Promise<any> {
-  const toc: any[] = []
-  const attrs = (await import(`~/content/${source}/toc.md`)).attributes
-  let entry
-  // XXX: Conversion to an array is needed because of:
-  // https://github.com/hmsk/frontmatter-markdown-loader/issues/50
-  for (let i = 0; (entry = attrs[i]) !== undefined; i++) {
-    toc.push(entry)
-  }
-  return toc
-}
-
-async function embedDocuments(section, source: string, collection: string) {
-  if (!section[collection]) { return [] }
-  section[collection] = await Promise.all(section[collection].map(
-    path => import(`~/content/${source}/${path}`)
-  ))
-}
-
 @Component({
-  components: {
-    Card
-  },
+  components: { Card },
 
-  async asyncData() {
-    const root = 'index'
-    const sections = await loadToc(root)
-    for (const aSection of sections) {
-      await embedDocuments(aSection, root, 'major')
-      await embedDocuments(aSection, root, 'regular')
-      await embedDocuments(aSection, root, 'minor')
-    }
+  async asyncData(ctx) {
     return {
-      sections
+      sections: await ctx.app.deepLoadCardToc('toc.md', {
+        basePath: 'index/'
+      })
     }
   }
 })
 export default class extends Vue { }
 </script>
+
 <style>
 main {
   position: relative;
