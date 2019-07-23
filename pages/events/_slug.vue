@@ -33,9 +33,9 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
+import { Context } from '@nuxt/vue-app'
 import Menu from '~/components/Menu.vue'
 import Footer from '~/components/Footer.vue'
-import { Context } from '@nuxt/vue-app'
 
 function getBackgroundUris(background: string): [string, string] {
   const bgRoute = '/images/events/headers/'

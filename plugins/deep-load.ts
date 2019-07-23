@@ -1,5 +1,3 @@
-import Vue from 'vue'
-
 /**
  * The format of the sections inside the frontmatter of card TOCs.
  * The "slim" qualificative reminds this format just contain reference to
@@ -38,7 +36,7 @@ export default ({ app }) => {
   }
 
   async function embedDocumentsInPlace(section: SlimCardSection, basepath: string) {
-    if (typeof section.collections === 'undefined') { return; }
+    if (typeof section.collections === 'undefined') { return }
     for (const aCollection of Object.keys(section.collections)) {
       section.collections[aCollection] =
         await Promise.all(section.collections[aCollection].map(
@@ -67,5 +65,5 @@ export default ({ app }) => {
     return toc
   }
 
-  app.deepLoadCardToc = deepLoadCardToc;
+  app.deepLoadCardToc = deepLoadCardToc
 }
