@@ -21,23 +21,19 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import Menu from '~/components/Menu.vue'
-import Footer from '~/components/Footer.vue'
 import { Component } from 'vue-property-decorator'
 
-@Component({
-  components: {
-    Menu,
-    Footer
-  }
-})
+import Menu from '~/components/Menu.vue'
+import Footer from '~/components/Footer.vue'
+
+@Component({ components: { Menu, Footer } })
 export default class extends Vue { };
 </script>
 
 <style>
-@import url(../static/css/fonts.css);
-@import url(../static/css/config.css);
-@import url(../static/css/theme.css);
+@import url(~/static/css/fonts.css);
+@import url(~/static/css/config.css);
+@import url(~/static/css/theme.css);
 
 header {
   position: relative;

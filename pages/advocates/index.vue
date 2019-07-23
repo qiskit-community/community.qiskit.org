@@ -1,5 +1,15 @@
 <template>
   <main>
+    <header>
+      <section>
+        <div>
+          <h1>{{ attributes.title }}</h1>
+          <p class="header-subtitle">
+            {{ attributes.tagline }}
+          </p>
+        </div>
+      </section>
+    </header>
     <MdContent
       :render-fn="renderFn"
       :static-render-fns="staticRenderFns"
@@ -16,7 +26,7 @@
         {{ section.title }}
       </h2>
       <div class="card-container">
-        <AdvocateCard
+        <AdvocateProfile
           v-for="(card, cardIndex) in section.regular"
           :key="`card-${cardIndex}`"
           :name="card.attributes.name"
@@ -33,7 +43,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import AdvocateCard from '~/components/AdvocateCard.vue'
+import AdvocateProfile from '~/components/AdvocateProfile.vue'
 import Button from '~/components/Button.vue'
 import MdContent from '~/components/MdContent.vue'
 
@@ -57,13 +67,13 @@ async function embedDocuments(section, basepath: string, collection: string) {
 }
 
 @Component({
-  layout: 'advocates',
+  layout: 'secondary',
 
-  components: { AdvocateCard, Button, MdContent },
+  components: { AdvocateProfile, Button, MdContent },
 
   async asyncData() {
-    const root = 'advocates/index/advocates.md'
-    const index = await import(`~/content/advocates/index/${'toc.md'}`)
+    const root = 'advocates/index/profiles.md'
+    const index = await import(`~/content/advocates/index/${'master.md'}`)
     const sections = await loadToc(root)
     for (const aSection of sections) {
       await embedDocuments(aSection, 'advocates/index/', 'regular')
@@ -71,6 +81,7 @@ async function embedDocuments(section, basepath: string, collection: string) {
 
     return {
       sections,
+      attributes: index.attributes,
       renderFn: index.vue.render,
       staticRenderFns: index.vue.staticRenderFns
     }
@@ -84,6 +95,81 @@ export default class extends Vue { }
 main {
   position: relative;
   top: 60px;
+}
+
+header {
+  position: relative;
+  top: 63px;
+  height: calc(100vh - 63px);
+  width: auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url(/images/advocates/advocates.jpg);
+}
+
+header > section {
+  position: relative;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+header > section > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+header img {
+  height: 100vw;
+  position: absolute;
+  width: auto;
+  top: 10px;
+}
+
+header h1 {
+  font-size: 50px;
+  margin-left: 1.5rem;
+  text-align: center;
+}
+
+header .header-subtitle {
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  max-width: 30rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 800px) {
+
+  header section {
+    display: block;
+    text-align: center;
+  }
+
+  header h1 {
+    margin: 0;
+    margin-top: 2rem;
+  }
+
+}
+
+@media (max-height: 390px) {
+  header h1 {
+    margin: 0;
+    margin-top: 0.5rem;
+  }
+
+  header section {
+    padding: 1rem;
+  }
 }
 
 .join > h2,

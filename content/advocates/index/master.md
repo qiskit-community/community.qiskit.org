@@ -1,3 +1,7 @@
+---
+title: Qiskit Advocates
+tagline: A global program that provides support to the individuals who actively work on assisting and growing the Qiskit Community.
+---
 <section class="join">
 
 ## Why Join
@@ -17,6 +21,7 @@
 * ![](/images/icons/visibility.svg)
   ### Increased visibility for your work
   All advocates will have the opportunity to have their work supported by IBM.
+
 </section>
 
 <section class="apply">

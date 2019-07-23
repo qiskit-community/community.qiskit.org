@@ -73,7 +73,6 @@ async function embedDocuments(section, source: string, collection: string) {
   async asyncData() {
     const root = 'index'
     const sections = await loadToc(root)
-    console.log(sections)
     for (const aSection of sections) {
       await embedDocuments(aSection, root, 'major')
       await embedDocuments(aSection, root, 'regular')
