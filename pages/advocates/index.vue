@@ -76,8 +76,6 @@ main {
 }
 
 header {
-  position: relative;
-  top: 63px;
   height: calc(100vh - 63px);
   width: auto;
   overflow: hidden;

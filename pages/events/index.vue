@@ -46,7 +46,7 @@ export default class extends Vue { }
 <style>
 main {
   position: relative;
-  top: 60px;
+  top: 63px;
 }
 
 .card {
