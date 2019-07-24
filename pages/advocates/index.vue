@@ -17,6 +17,7 @@
     <section
       v-for="(section, index) in sections"
       :key="`section-${index}`"
+      class="advocates"
     >
       <h2
         v-if="!!section.title"
@@ -83,13 +84,16 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url(/images/advocates/advocates.jpg);
+  background-image: url(/images/advocates/advocates-decoration.svg);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 header > section {
   position: relative;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
   padding: 1rem;
   display: flex;
   flex-direction: row;
@@ -148,22 +152,30 @@ header .header-subtitle {
   }
 }
 
-.join > h2,
-.apply > h2 {
-  color: white;
+section > h2 {
+  color: black;
   font-size: 1.5em;
   margin-bottom: 1.5em;
   margin-top: 1em;
 }
 
-.join > h2::before,
-.apply > h2::before {
+section > h2::before {
   content: none;
+}
+
+.join > h2,
+.apply > h2 {
+  color: white;
+}
+
+.join,
+.apply,
+.advocates {
+  padding: 0 5%;
 }
 
 .join {
   display: flex;
-  padding: 0 5%;
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
@@ -197,7 +209,7 @@ header .header-subtitle {
 .card-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .advocate-card {
@@ -214,7 +226,7 @@ header .header-subtitle {
   display: flex;
   flex-direction: column;
   color: #FFFFFF;
-  padding: 0 5% 3rem;
+  padding-bottom: 3rem;
 }
 
 .apply > ol {

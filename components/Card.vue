@@ -25,7 +25,7 @@ import { Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop(String) title
   @Prop(String) image
-  @Prop(String) to = ''
+  @Prop({ default: '' }) to
   @Prop(String) info
 
   get isPointingOutside() {
