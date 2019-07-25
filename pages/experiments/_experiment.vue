@@ -61,7 +61,10 @@
         >
       </div>
     </header>
-    <section class="content" v-html="html" />
+    <MdContent
+      :render-fn="vue.render"
+      :static-render-fns="vue.staticRenderFns"
+    />
   </main>
 </template>
 
@@ -70,12 +73,29 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import { Context } from '@nuxt/vue-app'
 import Button from '~/components/Button.vue'
+import MdContent from '~/components/MdContent.vue'
 
 @Component({
   layout: 'secondary',
 
-  components: {
-    Button
+  components: { Button, MdContent },
+
+  head() {
+    const self = this as any
+    const title = self.attributes.title
+    const description = self.attributes.description
+    const image = self.attributes.media[0].url
+    return {
+      title,
+      meta: [
+        { hid: 'description', name: 'description', content: description },
+        { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
+        { hid: 'twitter:site', name: 'twitter:site', content: '@qiskit' },
+        { hid: 'twitter:title', name: 'twitter:title', content: title },
+        { hid: 'twitter:description', name: 'twitter:description', content: description },
+        { hid: 'twitter:image', name: 'twitter:image', content: image }
+      ]
+    }
   },
 
   async asyncData(context: Context) {
@@ -83,7 +103,7 @@ import Button from '~/components/Button.vue'
     if (sourceName === 'undefined') {
       return
     }
-    const definition = await import(`~/src/experiments/${sourceName}.md`)
+    const definition = await import(`~/content/experiments/${sourceName}.md`)
     definition.attributes.media =
       (definition.attributes.media || []).slice(0, 3) // limit to 3 items
     definition.attributes.media.forEach((url, index) => {
@@ -100,9 +120,11 @@ export default class extends Vue { }
 </script>
 
 <style>
+@import url('~/static/css/theme.css');
+
 main {
   position: relative;
-  top: 60px;
+  top: 63px;
   flex: 1;
 }
 
@@ -136,20 +158,6 @@ header {
   max-width: 50%;
 }
 
-@media (max-width: 800px) {
-  .secondary {
-    display: block;
-  }
-
-  .secondary > * {
-    max-width: 100%;
-  }
-
-  .button {
-    margin-bottom: 0.5rem;
-  }
-}
-
 .content {
   margin-top: 3rem;
 }
@@ -178,23 +186,27 @@ header {
   line-height: 1rem;
 }
 
-.content h2::before {
-  content: "";
-  float: left;
-  width: 5%;
-  margin-top: 0.5rem;
-  margin-right: 5%;
-  border-top: 1px solid var(--ibm-color);
-}
-
-.content h2 {
-  margin: 2rem 0 2.5rem;
-  color: var(--ibm-color);
-}
-
 .content h3 {
   font-weight: bold;
   margin-top: 2.5rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 800px) {
+  .secondary {
+    display: block;
+  }
+
+  .secondary > * {
+    max-width: 100%;
+  }
+
+  .button {
+    margin-bottom: 0.5rem;
+  }
+
+  .content > :not(h2):not(iframe):not(table) {
+    margin-right: 10%;
+  }
 }
 </style>

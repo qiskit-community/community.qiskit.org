@@ -8,7 +8,7 @@
       </h2>
       <div class="content featured">
         <ExperimentCard
-          v-for="(experiment, experimentIndex) in sections[0].cards"
+          v-for="(experiment, experimentIndex) in sections[0].collections.cards"
           :key="`experiment-${experimentIndex}`"
           :title="experiment.attributes.title"
           :image="experiment.attributes.image"
@@ -27,7 +27,7 @@
       </h2>
       <div class="content collection">
         <ExperimentCard
-          v-for="(experiment, experimentIndex) in sections[1].cards"
+          v-for="(experiment, experimentIndex) in sections[1].collections.cards"
           :key="`experiment-${experimentIndex}`"
           :title="experiment.attributes.title"
           :image="experiment.attributes.image"
@@ -46,33 +46,16 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import ExperimentCard from '~/components/ExperimentCard.vue'
 
-async function loadToc(source: string): Promise<any> {
-  const toc = (await import(`~/src/${source}/index/toc.md`)).attributes
-  return toc
-}
-
-async function embedCards(section, source: string) {
-  const cards = await Promise.all((section.cards || []).map(
-    path => import(`~/src/${source}/${path}`)
-  ))
-  section.cards = cards
-}
-
 @Component({
   layout: 'secondary',
 
-  components: {
-    ExperimentCard
-  },
+  components: { ExperimentCard },
 
-  async asyncData() {
-    const root = 'experiments'
-    const sections = await loadToc(root)
-    for (const aSection of sections) {
-      await embedCards(aSection, root)
-    }
+  async asyncData(ctx) {
     return {
-      sections
+      sections: await ctx.app.deepLoadCardToc('toc.md', {
+        basePath: 'experiments/index/'
+      })
     }
   }
 })
@@ -113,7 +96,7 @@ main {
   min-width: 20rem;
   max-width: 20rem;
   max-height: 20rem;
-  border: 1px solid var(--ibm-color);
+  border: 1px solid var(--ibm-blue);
 }
 
 @media (max-width: 500px) {
