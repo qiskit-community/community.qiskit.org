@@ -41,8 +41,8 @@ export default ({ app }) => {
   async function embedDocumentsInPlace(section: SlimCardSection, basepath: string) {
     if (typeof section.collections === 'undefined') { return }
     for (const aCollection of Object.keys(section.collections)) {
-      const sectionBasepath = typeof section.basepath !== 'undefined' ?
-                              section.basepath : basepath
+      const sectionBasepath =
+        typeof section.basepath !== 'undefined' ? section.basepath : basepath
 
       section.collections[aCollection] =
         await Promise.all(section.collections[aCollection].map(
