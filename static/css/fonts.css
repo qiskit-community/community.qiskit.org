@@ -18,3 +18,9 @@
   font-weight: 400;
   src: local("IBM Plex Sans"), local("IBMPlexSans"), url("/fonts/IBM-Plex-Sans/fonts/complete/woff/IBMPlexSans-Regular.woff") format("woff");
 }
+
+html {
+  font-family: 'IBM Plex Sans', sans-serif;
+  /* min-fs + (max-fs - min-fs) * ((viewport-width - min-vw) / (max-vw - min-vw)) */
+  font-size: calc(10px + (18 - 10) * ((900px - 340px) / (900 - 340)));
+}
