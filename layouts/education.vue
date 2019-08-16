@@ -1,29 +1,29 @@
 <template>
   <div class="content-root">
-    <header class="global-nav">
-      <div class="content">
-        <a href="https://qiskit.org">Qiskit ™</a>
+    <header id="navigation">
+      <div id="qiskit-org-menu" class="menu content">
+        <a href="https://qiskit.org">Qiskit&nbsp;™</a>
         <nav id="elements-navigation">
           <a href="https://qiskit.org/terra">Terra</a>
           <a href="https://qiskit.org/aer">Aer</a>
           <a href="https://qiskit.org/aqua">Aqua</a>
           <a href="https://qiskit.org/ignis">Ignis</a>
         </nav>
-        <nav id="section-navigation">
+        <nav id="sections-navigation">
           <a href="/" class="active">Community</a>
           <a href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
           <a href="https://qiskit.org/documentation">Documentation</a>
         </nav>
       </div>
-      <div>
-        <nav id="community-nav" class="content">
+      <section id="community-navigation" class="menu">
+        <nav class="content">
           <a href="/">Home</a>
           <a href="/education" class="active">Education</a>
           <a href="/advocates">Advocates</a>
           <a href="/events">Events</a>
           <a href="/experiments">Experiments</a>
         </nav>
-      </div>
+      </section>
     </header>
     <main>
       <header>
@@ -46,78 +46,86 @@
           </div>
         </section>
       </header>
-      <section id="highlights" class="content">
-        <section class="feature">
-          <img src="/images/education/event.svg">
-          <h2>Attend Exclusive Events</h2>
-          <p>Lorem ipsum dolor amet...</p>
+      <div>
+        <section id="inner-navigation">
+          <nav class="content">
+            <a href="#video-series">Coding With Qiskit Series</a>
+            <a href="#textbook">Qiskit Textbook</a>
+          </nav>
         </section>
-        <section class="feature">
-          <img src="/images/education/event.svg">
-          <h2>Join a Global Community</h2>
-          <p>Lorem ipsum dolor amet...</p>
+        <section id="highlights" class="content">
+          <section class="feature">
+            <img src="/images/education/event.svg">
+            <h2>Attend Exclusive Events</h2>
+            <p>Lorem ipsum dolor amet...</p>
+          </section>
+          <section class="feature">
+            <img src="/images/education/event.svg">
+            <h2>Join a Global Community</h2>
+            <p>Lorem ipsum dolor amet...</p>
+          </section>
+          <section class="feature">
+            <img src="/images/education/event.svg">
+            <h2>Teach with Live Demos</h2>
+            <p>Lorem ipsum dolor amet...</p>
+          </section>
         </section>
-        <section class="feature">
-          <img src="/images/education/event.svg">
-          <h2>Teach with Live Demos</h2>
-          <p>Lorem ipsum dolor amet...</p>
-        </section>
-      </section>
-      <section id="video-series">
-        <div class="content">
-          <div class="description">
-            <h2>Coding With Qiskit Video Series</h2>
-            <p>
-              Accompany Abraham Asfaw through a series of video tutorials
-              in our YouTube Channel explaining quantum computing through
-              the use of Qiskit.
-            </p>
-            <ul class="actions">
-              <li>
-                <a class="button" href="https://www.youtube.com/watch?v=a1NZC5rqQD8">
-                  Last Episode: Installing Qiskit
-                </a>
-              </li>
-              <li>
-                <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
-                  All the episodes
-                </a>
-              </li>
-            </ul>
+        <section id="video-series">
+          <div class="content">
+            <div class="description">
+              <h2>Coding With Qiskit Video Series</h2>
+              <p>
+                Accompany Abraham Asfaw through a series of video tutorials
+                in our YouTube Channel explaining quantum computing through
+                the use of Qiskit.
+              </p>
+              <ul class="actions">
+                <li>
+                  <a class="button" href="https://www.youtube.com/watch?v=a1NZC5rqQD8">
+                    Last Episode: Installing Qiskit
+                  </a>
+                </li>
+                <li>
+                  <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+                    All the episodes
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <aside class="episode">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/M4EkW4VwhcI"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            </aside>
           </div>
-          <aside class="episode">
-            <iframe
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/M4EkW4VwhcI"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-          </aside>
-        </div>
-      </section>
-      <section id="textbook">
-        <div class="content">
-          <aside />
-          <div class="description">
-            <h2>Qiskit Textbook</h2>
-            <p>
-              Leverage the power of quantum computing using Qiskit with this
-              university course supplement covering introductory materials,
-              advanced algorithms and hardware. Include problems and
-              exercises.
-            </p>
-            <ul class="actions">
-              <li>
-                <a class="button" href="/textbook/">
-                  Go to index
-                </a>
-              </li>
-            </ul>
+        </section>
+        <section id="textbook">
+          <div class="content">
+            <aside />
+            <div class="description">
+              <h2>Qiskit Textbook</h2>
+              <p>
+                Leverage the power of quantum computing using Qiskit with this
+                university course supplement covering introductory materials,
+                advanced algorithms and hardware. Include problems and
+                exercises.
+              </p>
+              <ul class="actions">
+                <li>
+                  <a class="button" href="/textbook/">
+                    Go to index
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
     <footer>
       <div class="content">
@@ -217,6 +225,37 @@ p {
   flex-grow: 1;
 }
 
+.menu {
+  --link-color: white;
+  --active-color: var(--secondary-color-light);
+  height: 60px;
+  display: flex;
+  font-size: 0.88rem;
+  font-weight: 400;
+}
+
+.menu > * {
+  height: 100%;
+}
+
+.menu nav {
+  display: flex;
+}
+
+.menu a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1em;
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.menu .active {
+  position: relative;
+  top: 1px;
+  border-bottom: 4px solid var(--active-color);
+}
+
 .content {
   width: 100%;
   max-width: 1100px;
@@ -238,49 +277,15 @@ p {
   line-height: 4rem;
 }
 
-.global-nav {
+#navigation {
   min-height: 120px;
   border: none;
   border-bottom: 1px solid black;
   background-color: var(--primary-color);
 }
 
-.global-nav .content {
-  height: 50%;
-  display: flex;
-  font-size: 0.88rem;
-  font-weight: 400;
-  color: white;
-}
-
-.global-nav > div:last-child {
-  background-color: var(--secondary-color-lightmost);
-}
-
-.global-nav .content > * {
-  height: 100%;
-}
-
-.global-nav .content > *:first-child {
+#qiskit-org-menu > *:first-child {
   margin-left: -1rem;
-}
-
-.global-nav nav {
-  display: flex;
-}
-
-.global-nav a {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 1em;
-  color: inherit;
-  text-decoration: none;
-}
-
-.global-nav .active {
-  position: relative;
-  top: 1px;
-  border-bottom: 4px solid var(--secondary-color-light);
 }
 
 #elements-navigation::before {
@@ -290,26 +295,18 @@ p {
   margin: 12px 10px;
 }
 
-#section-navigation {
+#sections-navigation {
   margin-left: auto;
 }
 
-#community-nav {
-  display: flex;
-  justify-content: right;
-  height: 60px;
+#community-navigation {
+  --link-color: var(--body-color-dark);
+  --active-color: var(--secondary-color);
+  background-color: var(--secondary-color-lightmost);
 }
 
-#community-nav a {
-  height: 100%;
-  align-items: center;
-  text-decoration: none;
-  color: var(--body-color-dark);
-}
-
-#community-nav .active {
-  font-weight: bold;
-  border-bottom: 4px solid var(--secondary-color);
+#community-navigation nav {
+  justify-content: flex-end;
 }
 
 main {
@@ -368,6 +365,36 @@ main > header {
 
 .actions li:last-child {
   margin-right: 0;
+}
+
+#inner-navigation {
+  background-color: #fffe;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+#inner-navigation nav {
+  display: flex;
+  justify-content: center;
+  height: 90px;
+}
+
+#inner-navigation a {
+  display: inline-flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--body-color-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  width: calc(100% / 2);
+  border-right: 1px solid #3334;
+}
+
+#inner-navigation a:last-child {
+  border-right: none;
 }
 
 #video-series {
