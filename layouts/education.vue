@@ -97,7 +97,33 @@
         </div>
       </section>
     </main>
-    <footer>footer</footer>
+    <footer>
+      <div class="content">
+        <section id="qiskit-links">
+          <h2>Qiskit Elements</h2>
+          <ul>
+            <li>Terra</li>
+            <li>Aqua</li>
+            <li>Aer</li>
+            <li>Ignis</li>
+          </ul>
+        </section>
+        <section id="education-links">
+          <h2>Qiskit for Educators</h2>
+          <ul>
+            <li>Textbook</li>
+            <li>Coding With Qiskit</li>
+          </ul>
+        </section>
+        <section id="social-media-links">
+          <h2>Social Media</h2>
+          <ul>
+            <li>Textbook</li>
+            <li>Coding with Qiskit</li>
+          </ul>
+        </section>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -116,6 +142,7 @@
   --secondary-color-dark: #6f16fa;
   --secondary-color-darkmost: #6105f2;
   --body-color-light: #e0e0e0;
+  --body-color-dark: #333333;
 }
 
 * {
@@ -275,7 +302,7 @@ main > header {
 }
 
 #textbook {
-  color: #333;
+  color: var(--body-color-dark);
   background-color: white;
   background-image: linear-gradient(to right, #f2f4f8 0, #f2f4f8 50%, white 50.01%);
 }
@@ -341,6 +368,39 @@ main > header {
 }
 
 footer {
-  margin-top: 8rem;
+  margin-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+footer .content {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.9rem;
+  color: var(--primary-color-lightmost);
+}
+
+footer .content > section {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+footer .content > section:last-child {
+  margin-right: 0;
+}
+
+footer h2 {
+  font-size: inherit;
+  font-weight: normal;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--primary-color-lightmost);
+}
+
+footer ul {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+footer ul li {
+  margin-top: 0.5rem;
 }
 </style>
