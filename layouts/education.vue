@@ -19,6 +19,13 @@
     <main>
       <header>
         <div class="gates" aria-hidden="true" />
+        <nav id="community-nav" class="content">
+          <a href="/">Home</a>
+          <a href="/education" class="active">Education</a>
+          <a href="/advocates">Advocates</a>
+          <a href="/events">Events</a>
+          <a href="/experiments">Experiments</a>
+        </nav>
         <section id="intro" class="content">
           <iframe
             width="560"
@@ -289,7 +296,31 @@ main {
 
 main > header {
   position: relative;
-  z-index: 1;
+  z-index: 0;
+}
+
+#community-nav {
+  display: flex;
+  justify-content: right;
+  height: 60px;
+  background-color: var(--secondary-color-lightmost);
+  box-shadow: 0 15px 10px -5px rgba(50,50,93,.5),0 1px 3px rgba(0,0,0,.4);
+  border-radius: 5px;
+  z-index: 100;
+}
+
+#community-nav a {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+  margin: 0 1em;
+  text-decoration: none;
+  color: var(--body-color-dark);
+}
+
+#community-nav .active {
+  font-weight: bold;
+  border-bottom: 4px solid var(--secondary-color);
 }
 
 .gates {
@@ -298,6 +329,7 @@ main > header {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: -1;
   height: 100%;
   background-image: linear-gradient(150deg,#893ffc 15%,#a167fc 70%,#bc93fc 94%);
 }
