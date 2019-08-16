@@ -336,13 +336,13 @@ main > header {
 }
 
 #video-series {
-  margin-top: 5rem;
+  margin-top: 4rem;
   margin-bottom: 4rem;
 }
 
 #video-series .content {
   display: flex;
-  padding-top: 5rem;
+  padding-top: 4rem;
   border-top: 2px solid var(--primary-color);
 }
 
@@ -366,6 +366,7 @@ main > header {
   background-image: url('/images/education/illustration-ibmq-experience.png');
   background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
 }
 
 #textbook .content {
@@ -379,13 +380,13 @@ main > header {
 
 #textbook .description {
   background-color: white;
-  padding: 6rem 0 4rem 2rem;
+  padding: 4rem 0 4rem 2rem;
 }
 
 #highlights {
   display: flex;
   flex-direction: row;
-  padding-top: 8rem;
+  padding-top: 6rem;
 }
 
 #highlights .feature {
