@@ -1,7 +1,21 @@
 <template>
   <div class="content-root">
     <header class="global-nav">
-      <nav class="content">nav</nav>
+      <div class="content">
+        <a href="https://qiskit.org">Qiskit ™</a>
+        <nav id="elements-navigation">
+          <a href="https://qiskit.org/terra">Terra</a>
+          <a href="https://qiskit.org/aer">Aer</a>
+          <a href="https://qiskit.org/aqua">Aqua</a>
+          <a href="https://qiskit.org/ignis">Ignis</a>
+        </nav>
+        <nav id="section-navigation">
+          <a href="/education" class="active">Education</a>
+          <a href="/advocates">Advocates</a>
+          <a href="/events">Events</a>
+          <a href="/experiments">Experiments</a>
+        </nav>
+      </div>
     </header>
     <main>
       <header>
@@ -26,17 +40,17 @@
       </header>
       <section id="highlights" class="content">
         <section class="feature">
-          <img src="/images/education/event.svg" />
+          <img src="/images/education/event.svg">
           <h2>Attend Exclusive Events</h2>
           <p>Lorem ipsum dolor amet...</p>
         </section>
         <section class="feature">
-          <img src="/images/education/event.svg" />
+          <img src="/images/education/event.svg">
           <h2>Join a Global Community</h2>
           <p>Lorem ipsum dolor amet...</p>
         </section>
         <section class="feature">
-          <img src="/images/education/event.svg" />
+          <img src="/images/education/event.svg">
           <h2>Teach with Live Demos</h2>
           <p>Lorem ipsum dolor amet...</p>
         </section>
@@ -99,12 +113,12 @@
     </main>
     <footer>
       <div class="content">
-        <section id="qiskit-links">
+        <section id="elements-links">
           <h2>Qiskit Elements</h2>
           <ul>
             <li><a href="https://qiskit.org/terra">Terra</a></li>
-            <li><a href="https://qiskit.org/aqua">Aqua</a></li>
             <li><a href="https://qiskit.org/aer">Aer</a></li>
+            <li><a href="https://qiskit.org/aqua">Aqua</a></li>
             <li><a href="https://qiskit.org/ignis">Ignis</a></li>
           </ul>
         </section>
@@ -143,6 +157,7 @@
   --primary-color-light: #424c53;
   --primary-color-lightmost: #5d6870;
   --secondary-color: #893ffc;
+  --secondary-color-light: #a167fc;
   --secondary-color-lightmost: #bc93fc;
   --secondary-color-dark: #6f16fa;
   --secondary-color-darkmost: #6105f2;
@@ -196,7 +211,7 @@ p {
 
 .content {
   width: 100%;
-  max-width: 1040px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -216,15 +231,51 @@ p {
 }
 
 .global-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 50px;
+  min-height: 60px;
   border: none;
   border-bottom: 1px solid black;
   background-color: var(--primary-color);
-  z-index: 100;
+}
+
+.global-nav .content {
+  height: 100%;
+  display: flex;
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--body-color-light);
+}
+
+.global-nav .content > * {
+  height: 100%;
+}
+
+.global-nav nav {
+  display: flex;
+}
+
+.global-nav a {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 1em;
+  color: inherit;
+  text-decoration: none;
+}
+
+.global-nav .active {
+  position: relative;
+  top: 1px;
+  border-bottom: 4px solid var(--secondary-color-light);
+}
+
+#elements-navigation::before {
+  content: "";
+  background-color: var(--body-color-light);
+  width: 1px;
+  margin: 12px 10px;
+}
+
+#section-navigation {
+  margin-left: auto;
 }
 
 main {
@@ -235,7 +286,6 @@ main {
 
 main > header {
   position: relative;
-  top: 50px;
   z-index: 1;
 }
 
