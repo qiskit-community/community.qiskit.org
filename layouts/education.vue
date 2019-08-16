@@ -10,10 +10,9 @@
           <a href="https://qiskit.org/ignis">Ignis</a>
         </nav>
         <nav id="section-navigation">
-          <a href="/education" class="active">Education</a>
-          <a href="/advocates">Advocates</a>
-          <a href="/events">Events</a>
-          <a href="/experiments">Experiments</a>
+          <a href="/" class="active">Community</a>
+          <a href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
+          <a href="https://qiskit.org/documentation">Documentation</a>
         </nav>
       </div>
     </header>
@@ -213,7 +212,7 @@ p {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2rem;
 }
 
 .button {
@@ -240,13 +239,17 @@ p {
 .global-nav .content {
   height: 100%;
   display: flex;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 400;
-  color: var(--body-color-light);
+  color: white;
 }
 
 .global-nav .content > * {
   height: 100%;
+}
+
+.global-nav .content > *:first-child {
+  margin-left: -1rem;
 }
 
 .global-nav nav {
