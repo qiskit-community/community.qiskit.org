@@ -304,7 +304,7 @@ main > header {
   justify-content: right;
   height: 60px;
   background-color: var(--secondary-color-lightmost);
-  box-shadow: 0 15px 10px -5px rgba(50,50,93,.5),0 1px 3px rgba(0,0,0,.4);
+  box-shadow: 0 10px 10px -5px rgba(50,50,93,.2),0 1px 3px rgba(0,0,0,.4);
   border-radius: 5px;
   z-index: 100;
 }
@@ -316,6 +316,7 @@ main > header {
   margin: 0 1em;
   text-decoration: none;
   color: var(--body-color-dark);
+  font-size: 0.88rem;
 }
 
 #community-nav .active {
