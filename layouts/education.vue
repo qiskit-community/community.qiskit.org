@@ -102,24 +102,29 @@
         <section id="qiskit-links">
           <h2>Qiskit Elements</h2>
           <ul>
-            <li>Terra</li>
-            <li>Aqua</li>
-            <li>Aer</li>
-            <li>Ignis</li>
+            <li><a href="https://qiskit.org/terra">Terra</a></li>
+            <li><a href="https://qiskit.org/aqua">Aqua</a></li>
+            <li><a href="https://qiskit.org/aer">Aer</a></li>
+            <li><a href="https://qiskit.org/ignis">Ignis</a></li>
           </ul>
         </section>
-        <section id="education-links">
+        <section id="community-links">
           <h2>Qiskit for Educators</h2>
           <ul>
-            <li>Textbook</li>
-            <li>Coding With Qiskit</li>
+            <li><a href="/textbook">Textbook</a></li>
+            <li><a href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">Coding With Qiskit</a></li>
           </ul>
         </section>
         <section id="social-media-links">
           <h2>Social Media</h2>
           <ul>
-            <li>Textbook</li>
-            <li>Coding with Qiskit</li>
+            <li><a href="https://github.com/Qiskit">GitHub</a></li>
+            <li><a href="https://qiskit.slack.com/">Slack</a></li>
+            <li><a href="https://twitter.com/Qiskit">Twitter</a></li>
+            <li><a href="https://medium.com/Qiskit">Medium</a></li>
+            <li><a href="https://www.youtube.com/Qiskit">YouTube</a></li>
+            <li><a href="https://quantumcomputing.stackexchange.com/questions/tagged/qiskit">Stack Exchange</a></li>
+            <li><a href="https://www.facebook.com/Qiskit">Facebook</a></li>
           </ul>
         </section>
       </div>
@@ -400,7 +405,20 @@ footer ul {
   margin-top: 1.5rem;
 }
 
+footer a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+}
+
+footer a:hover {
+  color: var(--body-color-light);
+}
+
 footer ul li {
   margin-top: 0.5rem;
+  display: inline-block;
+  width: 100%;
 }
 </style>
