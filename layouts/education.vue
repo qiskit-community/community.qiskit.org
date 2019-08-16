@@ -15,10 +15,7 @@
           <a href="https://qiskit.org/documentation">Documentation</a>
         </nav>
       </div>
-    </header>
-    <main>
-      <header>
-        <div class="gates" aria-hidden="true" />
+      <div>
         <nav id="community-nav" class="content">
           <a href="/">Home</a>
           <a href="/education" class="active">Education</a>
@@ -26,6 +23,11 @@
           <a href="/events">Events</a>
           <a href="/experiments">Experiments</a>
         </nav>
+      </div>
+    </header>
+    <main>
+      <header>
+        <div class="gates" aria-hidden="true" />
         <section id="intro" class="content">
           <iframe
             width="560"
@@ -237,18 +239,22 @@ p {
 }
 
 .global-nav {
-  min-height: 60px;
+  min-height: 120px;
   border: none;
   border-bottom: 1px solid black;
   background-color: var(--primary-color);
 }
 
 .global-nav .content {
-  height: 100%;
+  height: 50%;
   display: flex;
   font-size: 0.88rem;
   font-weight: 400;
   color: white;
+}
+
+.global-nav > div:last-child {
+  background-color: var(--secondary-color-lightmost);
 }
 
 .global-nav .content > * {
@@ -288,6 +294,24 @@ p {
   margin-left: auto;
 }
 
+#community-nav {
+  display: flex;
+  justify-content: right;
+  height: 60px;
+}
+
+#community-nav a {
+  height: 100%;
+  align-items: center;
+  text-decoration: none;
+  color: var(--body-color-dark);
+}
+
+#community-nav .active {
+  font-weight: bold;
+  border-bottom: 4px solid var(--secondary-color);
+}
+
 main {
   color: var(--body-color-light);
   background-color: var(--primary-color-darkmost);
@@ -297,31 +321,6 @@ main {
 main > header {
   position: relative;
   z-index: 0;
-}
-
-#community-nav {
-  display: flex;
-  justify-content: right;
-  height: 60px;
-  background-color: var(--secondary-color-lightmost);
-  box-shadow: 0 10px 10px -5px rgba(50,50,93,.2),0 1px 3px rgba(0,0,0,.4);
-  border-radius: 5px;
-  z-index: 100;
-}
-
-#community-nav a {
-  height: 100%;
-  display: inline-flex;
-  align-items: center;
-  margin: 0 1em;
-  text-decoration: none;
-  color: var(--body-color-dark);
-  font-size: 0.88rem;
-}
-
-#community-nav .active {
-  font-weight: bold;
-  border-bottom: 4px solid var(--secondary-color);
 }
 
 .gates {
