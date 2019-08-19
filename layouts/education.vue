@@ -37,7 +37,7 @@
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
           />
-          <div>
+          <div class="description">
             <h1>Qiskit for Educators</h1>
             <p>Qiskit makes it easy to start learning quantum software to run on real quantum hardware. Teach your students with the same tools used by scientists and engineers worldwide to accelerate research towards practical applications for quantum computing.</p>
             <ul class="actions">
@@ -227,7 +227,6 @@ p {
 
 .menu {
   --link-color: white;
-  --active-color: var(--secondary-color-light);
   height: 60px;
   display: flex;
   font-size: 0.88rem;
@@ -253,7 +252,7 @@ p {
 .menu .active {
   position: relative;
   top: 1px;
-  border-bottom: 4px solid var(--active-color);
+  border-bottom: 4px solid var(--secondary-color);
 }
 
 .content {
@@ -345,12 +344,15 @@ main > header {
 #intro iframe {
   position: relative;
   margin-right: 2rem;
-  min-width: 560px;
   max-width: 560px;
   height: 315px;
   box-shadow: 0 13px 27px -5px rgba(50,50,93,.25),
               0 8px 16px -8px rgba(0,0,0,.5),
               0 -6px 16px -6px rgba(0,0,0,.025);
+}
+
+#intro .description {
+  max-width: 40%;
 }
 
 .actions {
