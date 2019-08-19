@@ -1,7 +1,31 @@
 <template>
-  <div class="content-root">
+  <div class="content-root" tabindex="-1">
     <header id="navigation">
       <div id="qiskit-org-menu" class="menu content">
+        <section class="drawer" tabindex="-1">
+          <svg class="drawer-toggle" height="24" viewBox="0 0 24 24" width="24">
+            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
+          </svg>
+          <div class="overlay" />
+          <nav id="unified-navigation">
+            <h2>Elements</h2>
+            <a href="https://qiskit.org/terra">Terra</a>
+            <a href="https://qiskit.org/aer">Aer</a>
+            <a href="https://qiskit.org/aqua">Aqua</a>
+            <a href="https://qiskit.org/ignis">Ignis</a>
+            <h2>Learn more</h2>
+            <a href="/" class="active">Community</a>
+            <nav class="embedded-submenu">
+              <a href="/">Home</a>
+              <a href="/education" class="active">Education</a>
+              <a href="/advocates">Advocates</a>
+              <a href="/events">Events</a>
+              <a href="/experiments">Experiments</a>
+            </nav>
+            <a href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
+            <a href="https://qiskit.org/documentation">Documentation</a>
+          </nav>
+        </section>
         <a href="https://qiskit.org">Qiskit&nbsp;™</a>
         <nav id="elements-navigation">
           <a href="https://qiskit.org/terra">Terra</a>
@@ -184,6 +208,7 @@
 * {
   padding: 0;
   margin: 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .content-root * {
@@ -219,6 +244,7 @@ p {
   flex-direction: column;
   height: 100%;
   min-height: 100%;
+  overflow-x: hidden;
 }
 
 .content-root > main {
@@ -283,8 +309,80 @@ p {
   background-color: var(--primary-color);
 }
 
-#qiskit-org-menu > *:first-child {
-  margin-left: -1rem;
+.drawer {
+  display: none;
+}
+
+#unified-navigation {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 200;
+  width: 256px;
+  padding: 1.3rem;
+  background-color: var(--primary-color);
+  transform: translateX(-100%);
+  transition: transform 200ms;
+  overflow-y: auto;
+}
+
+#unified-navigation h2 {
+  color: var(--primary-color-lightmost);
+  font-size: 0.9rem;
+  padding: 1rem;
+}
+
+#unified-navigation a {
+  padding: 0.5rem 1.5rem;
+}
+
+#unified-navigation .embedded-submenu {
+  display: flex;
+  flex-direction: column;
+  margin: 0 -1.3rem;
+  padding: 1rem 0;
+  background-color: var(--secondary-color-lightmost);
+}
+
+#unified-navigation .embedded-submenu a {
+  color: var(--body-color-dark);
+}
+
+#unified-navigation .embedded-submenu .active {
+  border: none;
+  border-left: 4px solid var(--secondary-color);
+}
+
+.drawer:focus-within #unified-navigation {
+  transform: translateX(0);
+}
+
+.drawer:focus-within .overlay {
+  opacity: 0.5;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0;
+  transition: opacity 200ms;
+  z-index: 150;
+  pointer-events: none;
+}
+
+.drawer .drawer-toggle {
+  fill: white;
+  height: 100%;
+  cursor: pointer;
+  margin: 0 0 0 1rem;
 }
 
 #elements-navigation::before {
@@ -393,6 +491,8 @@ main > header {
   letter-spacing: 0.2em;
   width: calc(100% / 2);
   border-right: 1px solid #3334;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 #inner-navigation a:last-child {
@@ -408,6 +508,10 @@ main > header {
   display: flex;
   padding-top: 4rem;
   border-top: 2px solid var(--primary-color);
+}
+
+#video-series .content > * {
+  width: 50%;
 }
 
 .episode {
@@ -438,7 +542,7 @@ main > header {
 }
 
 #textbook .content > * {
-  flex: 1;
+  width: 50%;
   box-sizing: border-box;
 }
 
@@ -535,5 +639,24 @@ footer ul li {
   margin-top: 0.5rem;
   display: inline-block;
   width: 100%;
+}
+
+@media (max-width: 800px) {
+
+  #navigation {
+    min-height: 60px;
+  }
+
+  .drawer {
+    display: unset;
+    margin-left: -2rem;
+  }
+
+  #elements-navigation,
+  #sections-navigation,
+  #community-navigation {
+    display: none;
+  }
+
 }
 </style>
