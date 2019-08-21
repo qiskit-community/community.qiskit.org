@@ -23,10 +23,10 @@
               <a href="/experiments">Experiments</a>
             </nav>
             <a href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
-            <a href="https://qiskit.org/documentation">Documentation</a>
+            <a href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
           </nav>
         </section>
-        <a href="https://qiskit.org">Qiskit&nbsp;™</a>
+        <a class="home" href="https://qiskit.org">Qiskit&nbsp;™</a>
         <nav id="elements-navigation">
           <a href="https://qiskit.org/terra">Terra</a>
           <a href="https://qiskit.org/aer">Aer</a>
@@ -36,7 +36,7 @@
         <nav id="sections-navigation">
           <a href="/" class="active">Community</a>
           <a href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
-          <a href="https://qiskit.org/documentation">Documentation</a>
+          <a href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
         </nav>
       </div>
       <section id="community-navigation" class="menu">
@@ -255,8 +255,7 @@ p {
   --link-color: white;
   height: 60px;
   display: flex;
-  font-size: 0.88rem;
-  font-weight: 400;
+  font-size: 0.80rem;
 }
 
 .menu > * {
@@ -307,6 +306,10 @@ p {
   border: none;
   border-bottom: 1px solid black;
   background-color: var(--primary-color);
+}
+
+.home {
+  margin-left: -1.2rem; /* fixings for mimicing qiskit.org menu */
 }
 
 .drawer {
@@ -387,12 +390,13 @@ p {
 
 #elements-navigation::before {
   content: "";
-  background-color: var(--body-color-light);
+  background-color: #fff4;
   width: 1px;
   margin: 12px 10px;
 }
 
 #sections-navigation {
+  margin-right: 0.2rem; /* fixings for mimicing qiskit.org menu */
   margin-left: auto;
 }
 
@@ -641,10 +645,14 @@ footer ul li {
   width: 100%;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 830px) {
 
   #navigation {
     min-height: 60px;
+  }
+
+  .home {
+    margin-left: 0;
   }
 
   .drawer {
