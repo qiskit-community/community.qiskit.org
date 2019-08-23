@@ -1,7 +1,7 @@
 <template>
   <div class="content-root" tabindex="-1">
     <header id="navigation">
-      <div id="qiskit-org-menu" class="menu content">
+      <div id="qiskit-org-menu" class="menu content-wrapper">
         <section class="drawer" tabindex="-1">
           <svg class="drawer-toggle" height="24" viewBox="0 0 24 24" width="24">
             <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
@@ -40,7 +40,7 @@
         </nav>
       </div>
       <section id="community-navigation" class="menu">
-        <nav class="content">
+        <nav class="content-wrapper">
           <a href="/">Home</a>
           <a href="/education" class="active">Education</a>
           <a href="/advocates">Advocates</a>
@@ -52,11 +52,11 @@
     <main>
       <header>
         <div class="gates" aria-hidden="true" />
-        <section id="intro" class="content">
+        <section id="intro" class="content-wrapper">
           <iframe
             width="560"
             height="315"
-            src="https://www.youtube.com/embed/_EweJlth2Sk"
+            src="https://www.youtube.com/embed/NHTDqdGfzcc"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
@@ -72,30 +72,27 @@
       </header>
       <div>
         <section id="inner-navigation">
-          <nav class="content">
+          <nav class="content-wrapper">
             <a href="#video-series">Coding With Qiskit Series</a>
             <a href="#textbook">Qiskit Textbook</a>
           </nav>
         </section>
-        <section id="highlights" class="content">
+        <section id="highlights" class="content-wrapper">
           <section class="feature">
-            <img src="/images/education/event.svg">
+            <img src="/images/education/iconEventsBase@3x.png">
             <h2>Attend Exclusive Events</h2>
-            <p>Lorem ipsum dolor amet...</p>
           </section>
           <section class="feature">
-            <img src="/images/education/event.svg">
+            <img src="/images/education/iconCommunityBase@3x.png">
             <h2>Join a Global Community</h2>
-            <p>Lorem ipsum dolor amet...</p>
           </section>
           <section class="feature">
-            <img src="/images/education/event.svg">
+            <img src="/images/education/iconDemoBase@3x.png">
             <h2>Teach with Live Demos</h2>
-            <p>Lorem ipsum dolor amet...</p>
           </section>
         </section>
         <section id="video-series">
-          <div class="content">
+          <div class="content-wrapper">
             <div class="description">
               <h2>Coding With Qiskit Video Series</h2>
               <p>
@@ -105,8 +102,8 @@
               </p>
               <ul class="actions">
                 <li>
-                  <a class="button" href="https://www.youtube.com/watch?v=a1NZC5rqQD8">
-                    Last Episode: Installing Qiskit
+                  <a class="button" href="https://www.youtube.com/watch?v=RrUTwq5jKM4&amp;list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY&amp;index=4&amp;t=0s">
+                    Last Episode: Hello World
                   </a>
                 </li>
                 <li>
@@ -120,7 +117,7 @@
               <iframe
                 width="560"
                 height="315"
-                src="https://www.youtube.com/embed/M4EkW4VwhcI"
+                src="https://www.youtube.com/embed/RrUTwq5jKM4"
                 frameborder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
@@ -129,8 +126,52 @@
           </div>
         </section>
         <section id="textbook">
-          <div class="content">
-            <aside />
+          <div class="content-wrapper">
+            <aside>
+              <section id="textbook-features">
+                <section>
+                  <div>
+                    <div class="content">
+                      <h3>Qiskit Textbook</h3>
+                      <ul>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                      </ul>
+                      <h3>Qiskit Textbook</h3>
+                      <ul>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                      </ul>
+                      <h3>Qiskit Textbook</h3>
+                      <ul>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                      </ul>
+                      <h3>Qiskit Textbook</h3>
+                      <ul>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                        <li>Lorem ipsum</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="selector">
+                    <p>Coompreshive Materials</p>
+                  </div>
+                </section>
+              </section>
+            </aside>
             <div class="description">
               <h2>Qiskit Textbook</h2>
               <p>
@@ -152,7 +193,7 @@
       </div>
     </main>
     <footer>
-      <div class="content">
+      <div class="content-wrapper">
         <section id="elements-links">
           <h2>Qiskit Elements</h2>
           <ul>
@@ -213,6 +254,62 @@
 
 .content-root * {
   box-sizing: border-box;
+}
+
+#textbook-features {
+  margin: 2rem 0;
+  padding: 2rem;
+}
+
+#textbook-features > section {
+  position: relative;
+  width: 90%;
+}
+
+#textbook-features > section > div {
+  position: relative;
+  height: 800px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+#textbook-features > section:hover .selector {
+  transform: translate(0);
+}
+
+#textbook-features > section > div:first-of-type {
+  position: relative;
+  z-index: 10;
+}
+
+#textbook-features > section > .selector {
+  --height: 8rem;
+  height: var(--height);
+  width: 10rem;
+  position: absolute;
+  bottom: calc(2 * var(--height));
+  left: 100%;
+  background-color: var(--secondary-color);
+  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
+  display: flex;
+  transform: translateX(-50%);
+  transition: transform 200ms;
+}
+
+#textbook-features > section > .selector p {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: white;
+  margin: 0;
+  max-width: 8rem;
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform-origin: left top;
+  transform: rotate(-90deg) translate(-50%, -100%);
 }
 
 html {
@@ -280,7 +377,7 @@ p {
   border-bottom: 4px solid var(--secondary-color);
 }
 
-.content {
+.content-wrapper {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
@@ -508,13 +605,13 @@ main > header {
   margin-bottom: 4rem;
 }
 
-#video-series .content {
+#video-series .content-wrapper {
   display: flex;
   padding-top: 4rem;
   border-top: 2px solid var(--primary-color);
 }
 
-#video-series .content > * {
+#video-series .content-wrapper > * {
   width: 50%;
 }
 
@@ -541,11 +638,11 @@ main > header {
   background-position: center;
 }
 
-#textbook .content {
+#textbook .content-wrapper {
   display: flex;
 }
 
-#textbook .content > * {
+#textbook .content-wrapper > * {
   width: 50%;
   box-sizing: border-box;
 }
@@ -581,7 +678,7 @@ main > header {
 }
 
 .feature img {
-  width: 20%;
+  width: 50%;
   padding-bottom: 2rem;
 }
 
@@ -600,19 +697,19 @@ footer {
   padding-bottom: 4rem;
 }
 
-footer .content {
+footer .content-wrapper {
   display: flex;
   flex-direction: row;
   font-size: 0.9rem;
   color: var(--primary-color-lightmost);
 }
 
-footer .content > section {
+footer .content-wrapper > section {
   flex: 1;
   margin-right: 2rem;
 }
 
-footer .content > section:last-child {
+footer .content-wrapper > section:last-child {
   margin-right: 0;
 }
 
