@@ -129,45 +129,119 @@
           <div class="content-wrapper">
             <aside>
               <section id="textbook-features">
+                <img class="selector" src="/images/education/iconTab.svg">
+                <img class="selector" src="/images/education/iconTab.svg">
                 <section>
-                  <div>
-                    <div class="content">
-                      <h3>Qiskit Textbook</h3>
-                      <ul>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                      </ul>
-                      <h3>Qiskit Textbook</h3>
-                      <ul>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                      </ul>
-                      <h3>Qiskit Textbook</h3>
-                      <ul>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                      </ul>
-                      <h3>Qiskit Textbook</h3>
-                      <ul>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                        <li>Lorem ipsum</li>
-                      </ul>
-                    </div>
+                  <div class="content">
+                    <h3>Primero</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
+                    <h3>Qiskit Textbook</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
+                    <h3>Qiskit Textbook</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
+                    <h3>Qiskit Textbook</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
                   </div>
-                  <div class="selector">
-                    <p>Coompreshive Materials</p>
+                </section>
+                <section>
+                  <div class="content">
+                    <h3>Segundo</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
+                    <h3>Qiskit Textbook</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
+                    <h3>Qiskit Textbook</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
+                    <h3>Qiskit Textbook</h3>
+                    <ul>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                      <li>Lorem ipsum</li>
+                    </ul>
+                  </div>
+                </section>
+                <section class="is-active">
+                  <img class="bookmark" src="/images/education/iconBookmark.svg">
+                  <div class="content">
+                    <h2>Table of Contents:</h2>
+                    <h3>Chapter 0. Introduction and Prerequisites</h3>
+                    <ul>
+                      <li>Hello World</li>
+                      <li>Python and Jupyter Notebooks</li>
+                      <li>Qiskit</li>
+                    </ul>
+                    <h3>Chapter 1. Quantum States and Qubits</h3>
+                    <ul>
+                      <li>Introduction</li>
+                      <li>The Atoms of Computation</li>
+                      <li>The Unique Properties of Qubits</li>
+                      <li>Writing Down Qubit States</li>
+                      <li>Pauli Matrices and the Bloch Sphere</li>
+                      <li>States for Many Qubits</li>
+                    </ul>
+                    <h3>Chapter 2. Single-Qubit and Multi-Qubit Gates</h3>
+                    <ul>
+                      <li>Introduction</li>
+                      <li>Quantum Gates</li>
+                      <li>Fun with Matrices</li>
+                      <li>The Stardard Gate Set</li>
+                      <li>Proving Universality</li>
+                      <li>Basic Circuit Identities</li>
+                    </ul>
+                    <h3>Chapter 3. Quantum Algorithms</h3>
+                    <ul>
+                      <li>Quantum Teleportation</li>
+                      <li>Deutsch-Josza Algorithm</li>
+                      <li>Bernstain-Vazirani Algorithm</li>
+                      <li>Simon's Algorithm</li>
+                      <li>Quantum Fourier Transform</li>
+                      <li>Quantum Phase Estimation</li>
+                      <li>Grover's Algorithm</li>
+                      <li>Shor's Algorithm</li>
+                    </ul>
                   </div>
                 </section>
               </section>
@@ -183,7 +257,7 @@
               <ul class="actions">
                 <li>
                   <a class="button" href="/textbook/">
-                    Go to index
+                    Discover more
                   </a>
                 </li>
               </ul>
@@ -257,59 +331,101 @@
 }
 
 #textbook-features {
-  margin: 2rem 0;
-  padding: 2rem;
+  position: relative;
+  min-height: calc(600px + 8rem);
+  padding: 4rem 0;
 }
 
 #textbook-features > section {
-  position: relative;
-  width: 90%;
+  position: absolute;
+  width: 100%;
 }
 
-#textbook-features > section > div {
-  position: relative;
-  height: 800px;
+#textbook-features::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 4rem;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
+  border-radius: 8px;
+  transform-origin: center bottom;
+  transform: scale(0.95);
+  z-index: 1;
+}
+
+#textbook-features > section {
+  opacity: 0;
+  position: absolute;
+  bottom: 5rem;
+  height: 600px;
   background: white;
   border-radius: 8px;
-  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
   padding: 2rem;
-  margin-bottom: 2rem;
+  transform-origin: center bottom;
+  transform: scale(0.95) translateY(1rem);
+  transition: transform 300ms, opacity 300ms;
 }
 
-#textbook-features > section:hover .selector {
-  transform: translate(0);
-}
-
-#textbook-features > section > div:first-of-type {
-  position: relative;
-  z-index: 10;
-}
-
-#textbook-features > section > .selector {
-  --height: 8rem;
-  height: var(--height);
-  width: 10rem;
-  position: absolute;
-  bottom: calc(2 * var(--height));
-  left: 100%;
-  background-color: var(--secondary-color);
+#textbook-features > section.is-active {
+  opacity: 1;
+  z-index: 2;
+  transform: scale(1);
   box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
-  display: flex;
-  transform: translateX(-50%);
-  transition: transform 200ms;
 }
 
-#textbook-features > section > .selector p {
-  font-size: 0.9rem;
-  font-weight: bold;
-  color: white;
-  margin: 0;
-  max-width: 8rem;
+#textbook-features > .is-out {
+  opacity: 0;
+  z-index: 2;
+  transform: scale(1.3) translateY(-2rem);
+  transition: transform 400ms, opacity 400ms;
+}
+
+#textbook-features .bookmark {
   position: absolute;
-  top: 50%;
-  left: 100%;
-  transform-origin: left top;
-  transform: rotate(-90deg) translate(-50%, -100%);
+  top: -16px;
+  left: 1rem;
+  z-index: 3;
+  width: 3.8rem;
+  height: auto;
+}
+
+#textbook-features .selector {
+  position: absolute;
+  bottom: 5rem;
+  left: calc(100% - 3rem);
+  height: 4rem;
+  width: auto;
+  transition: transform 200ms;
+  cursor: pointer;
+}
+
+#textbook-features .selector:nth-child(2) {
+  bottom: 9rem;
+  left: calc(100% - 2.1rem);
+}
+
+#textbook-features .selector.is-active,
+#textbook-features .selector:hover {
+  transform: translateX(1rem);
+}
+
+#textbook-features .content {
+  z-index: 1;
+  max-height: 100%;
+  overflow-y: auto;
+  padding-left: 3.5rem;
+  font-size: 0.8rem;
+}
+
+#textbook-features .content ul {
+  margin: 0.5rem 0 0 2rem;
+}
+
+#textbook-features .content h3 {
+  margin: 1rem 0 0 0;
+  color: var(--secondary-color);
 }
 
 html {
@@ -628,26 +744,20 @@ main > header {
 #textbook {
   color: var(--body-color-dark);
   background-color: white;
-  background-image: linear-gradient(to right, #f2f4f8 0, #f2f4f8 50%, white 50.01%);
-}
-
-#textbook aside {
-  background-image: url('/images/education/illustration-ibmq-experience.png');
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
+  min-height: 600px;
 }
 
 #textbook .content-wrapper {
   display: flex;
 }
 
-#textbook .content-wrapper > * {
-  width: 50%;
-  box-sizing: border-box;
+#textbook aside {
+  width: 60%;
+  margin-left: -10%;
 }
 
 #textbook .description {
+  width: 50%;
   background-color: white;
   padding: 4rem 0 4rem 2rem;
 }
