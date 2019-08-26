@@ -129,81 +129,37 @@
           <div class="content-wrapper">
             <aside>
               <section id="textbook-features">
-                <img class="selector" src="/images/education/iconTab.svg">
-                <img class="selector" src="/images/education/iconTab.svg">
-                <section>
+                <div
+                  class="selector is-active"
+                  data-to="toc"
+                  @click.capture="activate"
+                >
+                  <img src="/images/education/iconTab.svg">
+                  <p>Table of Contents</p>
+                </div>
+                <div
+                  class="selector"
+                  data-to="live-code"
+                  @click.capture="activate"
+                >
+                  <img src="/images/education/iconTab.svg">
+                  <p>Code Samples</p>
+                </div>
+                <section id="live-code">
                   <div class="content">
-                    <h3>Primero</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
-                    <h3>Qiskit Textbook</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
-                    <h3>Qiskit Textbook</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
-                    <h3>Qiskit Textbook</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
+                    <iframe
+                      height="600px"
+                      width="100%"
+                      src="https://repl.it/@delapuente/BellState?lite=true"
+                      scrolling="no"
+                      frameborder="no"
+                      allowtransparency="true"
+                      allowfullscreen="true"
+                      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
+                    />
                   </div>
                 </section>
-                <section>
-                  <div class="content">
-                    <h3>Segundo</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
-                    <h3>Qiskit Textbook</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
-                    <h3>Qiskit Textbook</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
-                    <h3>Qiskit Textbook</h3>
-                    <ul>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                      <li>Lorem ipsum</li>
-                    </ul>
-                  </div>
-                </section>
-                <section class="is-active">
+                <section id="toc" class="is-active">
                   <img class="bookmark" src="/images/education/iconBookmark.svg">
                   <div class="content">
                     <h2>Table of Contents:</h2>
@@ -301,6 +257,59 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from 'vue'
+import { Component } from 'vue-property-decorator'
+
+@Component({
+  head() {
+    return {
+      title: 'Qiskit for Educators'
+    }
+  }
+})
+export default class extends Vue {
+  activate(evt: PointerEvent) {
+    const thisSelector = evt.currentTarget && evt.currentTarget as HTMLElement
+    if (!thisSelector || thisSelector.classList.contains('is-active')) {
+      return
+    }
+
+    // Change selector enabled
+    const previouslyEnabled = document.querySelector('.selector.is-active')
+    if (previouslyEnabled) {
+      previouslyEnabled.classList.remove('is-active')
+    }
+    thisSelector.classList.add('is-active')
+
+    // Dismiss the current active section
+    const self = this
+    function clearOut(evt: Event) {
+      if (evt.currentTarget) {
+        evt.currentTarget.removeEventListener('transitionend', clearOut)
+        self.clearIsOut(evt.currentTarget as HTMLElement)
+      }
+    }
+    const activeSection = document.querySelector('section.is-active')
+    if (activeSection) {
+      activeSection.addEventListener('transitionend', clearOut)
+      activeSection.classList.add('is-out')
+      activeSection.classList.remove('is-active')
+    }
+
+    // Activate the new one
+    const newSection = document.querySelector(`#${thisSelector.dataset.to}`)
+    if (newSection) {
+      newSection.classList.add('is-active')
+    }
+  }
+
+  clearIsOut(target: HTMLElement) {
+    target.classList.remove('is-out')
+  }
+}
+</script>
+
 <style>
 @import url(~/static/css/fonts.css);
 
@@ -328,104 +337,6 @@
 
 .content-root * {
   box-sizing: border-box;
-}
-
-#textbook-features {
-  position: relative;
-  min-height: calc(600px + 8rem);
-  padding: 4rem 0;
-}
-
-#textbook-features > section {
-  position: absolute;
-  width: 100%;
-}
-
-#textbook-features::before {
-  content: "";
-  display: block;
-  position: absolute;
-  bottom: 4rem;
-  width: 100%;
-  height: 100px;
-  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
-  border-radius: 8px;
-  transform-origin: center bottom;
-  transform: scale(0.95);
-  z-index: 1;
-}
-
-#textbook-features > section {
-  opacity: 0;
-  position: absolute;
-  bottom: 5rem;
-  height: 600px;
-  background: white;
-  border-radius: 8px;
-  padding: 2rem;
-  transform-origin: center bottom;
-  transform: scale(0.95) translateY(1rem);
-  transition: transform 300ms, opacity 300ms;
-}
-
-#textbook-features > section.is-active {
-  opacity: 1;
-  z-index: 2;
-  transform: scale(1);
-  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
-}
-
-#textbook-features > .is-out {
-  opacity: 0;
-  z-index: 2;
-  transform: scale(1.3) translateY(-2rem);
-  transition: transform 400ms, opacity 400ms;
-}
-
-#textbook-features .bookmark {
-  position: absolute;
-  top: -16px;
-  left: 1rem;
-  z-index: 3;
-  width: 3.8rem;
-  height: auto;
-}
-
-#textbook-features .selector {
-  position: absolute;
-  bottom: 5rem;
-  left: calc(100% - 3rem);
-  height: 4rem;
-  width: auto;
-  transition: transform 200ms;
-  cursor: pointer;
-}
-
-#textbook-features .selector:nth-child(2) {
-  bottom: 9rem;
-  left: calc(100% - 2.1rem);
-}
-
-#textbook-features .selector.is-active,
-#textbook-features .selector:hover {
-  transform: translateX(1rem);
-}
-
-#textbook-features .content {
-  z-index: 1;
-  max-height: 100%;
-  overflow-y: auto;
-  padding-left: 3.5rem;
-  font-size: 0.8rem;
-}
-
-#textbook-features .content ul {
-  margin: 0.5rem 0 0 2rem;
-}
-
-#textbook-features .content h3 {
-  margin: 1rem 0 0 0;
-  color: var(--secondary-color);
 }
 
 html {
@@ -760,6 +671,127 @@ main > header {
   width: 50%;
   background-color: white;
   padding: 4rem 0 4rem 2rem;
+}
+
+#textbook-features {
+  position: relative;
+  min-height: calc(600px + 8rem);
+  padding: 4rem 0;
+}
+
+#textbook-features > section {
+  position: absolute;
+  width: 100%;
+}
+
+#textbook-features::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 4rem;
+  width: 100%;
+  height: 100px;
+  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
+  border-radius: 8px;
+  transform-origin: center bottom;
+  transform: scale(0.95);
+  z-index: 1;
+}
+
+#textbook-features > section {
+  opacity: 0;
+  position: absolute;
+  bottom: 5rem;
+  height: 600px;
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+  transform-origin: center bottom;
+  transform: scale(0.95) translateY(1rem);
+  transition: transform 300ms, opacity 300ms;
+}
+
+#textbook-features > section.is-active {
+  opacity: 1;
+  z-index: 2;
+  transform: scale(1);
+  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
+}
+
+#textbook-features > .is-out {
+  opacity: 0;
+  z-index: 2;
+  transform: scale(1.3) translateY(-2rem);
+  transition: transform 400ms, opacity 400ms;
+}
+
+#textbook-features .bookmark {
+  position: absolute;
+  top: -16px;
+  left: 1rem;
+  z-index: 3;
+  width: 3.8rem;
+  height: auto;
+}
+
+#textbook-features .selector {
+  position: absolute;
+  bottom: 5rem;
+  left: calc(100% - 2.8rem);
+  transition: transform 200ms;
+  cursor: pointer;
+}
+
+#textbook-features .selector img {
+  height: 4rem;
+  width: auto;
+}
+
+#textbook-features .selector p {
+  margin: 0;
+  position: absolute;
+  bottom: 0.7rem;
+  right: 1rem;
+  writing-mode: vertical-rl;
+  height: 100%;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  transform: rotate(180deg);
+}
+
+#textbook-features .selector:nth-child(2) {
+  bottom: 9rem;
+  left: calc(100% - 2.8rem);
+}
+
+#textbook-features .selector.is-active,
+#textbook-features .selector:hover {
+  transform: translateX(1rem);
+}
+
+#textbook-features .content {
+  z-index: 1;
+  max-height: 100%;
+  overflow-y: auto;
+  padding-left: 3.5rem;
+  font-size: 0.8rem;
+}
+
+#textbook-features .content ul {
+  margin: 0.5rem 0 0 2rem;
+}
+
+#textbook-features .content h3 {
+  margin: 1rem 0 0 0;
+  color: var(--secondary-color);
+}
+
+#textbook-features #live-code,
+#textbook-features #live-code * {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
 }
 
 #highlights {
