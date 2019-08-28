@@ -906,6 +906,9 @@ footer ul li {
     display: none;
   }
 
+  #inner-navigation {
+    position: static;
+  }
 }
 
 @media (max-width: 600px) {
