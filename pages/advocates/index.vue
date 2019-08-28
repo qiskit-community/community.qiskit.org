@@ -246,6 +246,7 @@ section > h2::before {
   position: relative;
   counter-increment: my-awesome-counter;
   --size: 1.5rem;
+  padding-left: calc(var(--size) + 0.5rem);
 }
 
 .apply > ol > li::before {
@@ -262,6 +263,7 @@ section > h2::before {
   background: white;
   border-radius: 50%;
   text-align: center;
+  margin-left: calc(-1 * (var(--size) + 0.5rem));
 }
 
 @media (max-width: 800px) {
