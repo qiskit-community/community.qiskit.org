@@ -207,16 +207,15 @@ section > h2::before {
 }
 
 .card-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 33.333%);
 }
 
 .advocate-card {
   padding: 1em;
   box-shadow: 10px 10px 11px -10px var(--shadow-color);
   border: 1px solid var(--shadow-color);
-  width: 25%;
+  width: auto;
   margin: 0.5em;
 }
 
