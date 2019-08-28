@@ -621,6 +621,7 @@ main > header {
   border-right: 1px solid #3334;
   text-align: center;
   padding: 0.5rem;
+  font-size: 0.8rem;
 }
 
 #inner-navigation a:last-child {
@@ -905,5 +906,54 @@ footer ul li {
     display: none;
   }
 
+}
+
+@media (max-width: 600px) {
+  #intro,
+  #video-series .content-wrapper {
+    display: block;
+  }
+
+  iframe,
+  section > aside,
+  #textbook aside {
+    display: none;
+  }
+
+  #highlights {
+    display: none;
+  }
+
+  #video-series {
+    margin-top: 0;
+  }
+
+  #textbook {
+    min-height: unset;
+  }
+
+  #intro .description,
+  #video-series .description,
+  #textbook .description {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  footer {
+    margin-top: 0;
+  }
+
+  footer .content-wrapper {
+    display: block;
+  }
+
+  footer h2 {
+    margin: 4rem 0 0;
+  }
+
+  footer .content-wrapper > section:last-child {
+    margin-right: 2rem;
+  }
 }
 </style>
