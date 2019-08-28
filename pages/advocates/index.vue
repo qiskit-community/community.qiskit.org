@@ -209,14 +209,14 @@ section > h2::before {
 .card-container {
   display: grid;
   grid-template-columns: repeat(3, 33.333%);
+  grid-gap: 1rem;
+  align-items: stretch;
 }
 
 .advocate-card {
   padding: 1em;
   box-shadow: 10px 10px 11px -10px var(--shadow-color);
   border: 1px solid var(--shadow-color);
-  width: auto;
-  margin: 0.5em;
 }
 
 .apply {
@@ -263,12 +263,24 @@ section > h2::before {
   }
 
   .card-container {
+    grid-gap: 0;
+  }
+}
+
+@media (max-width: 550px) {
+  .join > ul {
+    display: block;
+  }
+
+  .card-container {
+    display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 0 0.5rem;
   }
 
   .advocate-card {
-    width: 70%;
+    width: 100%;
   }
 }
 </style>
