@@ -195,8 +195,14 @@ section > h2::before {
   margin: 1em 1em 2em;
 }
 
+.join p,
+.join h2 {
+  margin-left: 4rem;
+}
+
 .join > ul > li > p:first-of-type {
   float: left;
+  margin-left: 0;
 }
 
 .join > ul > li > p > img {
