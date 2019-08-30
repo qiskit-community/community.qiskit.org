@@ -2,12 +2,7 @@
   <!-- tabindex is needed to allow hiding the menu in iOS Safari -->
   <div class="content-root" tabindex="-1">
     <header id="navigation">
-      <QiskitOrgMenu
-        :links="[
-          { to: '/education', label: 'Education' },
-          { to: '/advocates', label: 'Advocates' }
-        ]"
-      />
+      <QiskitOrgMenu />
     </header>
     <main>
       <header>

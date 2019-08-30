@@ -68,7 +68,13 @@ import { Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class extends Vue {
-  @Prop({ type: Array, default: [] }) links
+  @Prop({
+    type: Array,
+    default: [
+      { to: '/education', label: 'Education' },
+      { to: '/advocates', label: 'Advocates' }
+    ]
+  }) links
 }
 </script>
 
