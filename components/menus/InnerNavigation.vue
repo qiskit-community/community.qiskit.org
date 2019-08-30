@@ -7,7 +7,7 @@
             v-for="(section, index) in sections"
             :key="index"
             class="navigation-group__item"
-            :to="section.to"
+            :href="`#${section.anchor}`"
             :style="`width: calc(100% / ${sections.length})`"
           >
             {{ section.label }}

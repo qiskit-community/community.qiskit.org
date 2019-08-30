@@ -7,7 +7,7 @@
     <main>
       <header>
         <GatesHeader
-          class="presentation"
+          id="presentation"
           main-title="Qiskit for Educators"
           extra-position="start"
         >
@@ -188,98 +188,25 @@ export default class extends Vue {
 
 <style lang="scss">
 @import '~/assets/scss/mixins.scss';
+@import '~/assets/scss/theme.scss';
+@import '~/assets/scss/layout.scss';
+
 @import url(~/static/css/fonts.css);
 
-:root {
-  --ibm-blue: #0a1d8f;
-  --primary-color: #242a2e;
-  --primary-color-dark: #161f25;
-  --primary-color-darkmost: #0d1a22;
-  --primary-color-light: #424c53;
-  --primary-color-lightmost: #5d6870;
-  --secondary-color: #893ffc;
-  --secondary-color-light: #a167fc;
-  --secondary-color-lightmost: #bc93fc;
-  --secondary-color-dark: #6f16fa;
-  --secondary-color-darkmost: #6105f2;
-  --body-color-light: #e0e0e0;
-  --body-color-dark: #333333;
+html {
+  background-color: var(--primary-color);
+}
+
+main {
+  color: var(--body-color-light);
+  background-color: var(--primary-color-darkmost);
+  background-image: linear-gradient(150deg, var(--primary-color-darkmost) 15%,var(--primary-color-dark) 70%,var(--primary-color) 94%);
 }
 
 .inner-navigation {
   position: sticky;
   top: 0;
   z-index: 100;
-}
-
-.presentation .extra-container {
-  margin-right: 1rem;
-}
-
-.presentation .copy-container {
-  max-width: 40%;
-}
-
-.header-video {
-  width: 100%;
-  max-width: 560px;
-  height: 315px;
-  box-shadow: 0 13px 27px -5px rgba(50,50,93,.25),
-              0 8px 16px -8px rgba(0,0,0,.5),
-              0 -6px 16px -6px rgba(0,0,0,.025);
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  -webkit-overflow-scrolling: touch;
-}
-
-.content-root * {
-  box-sizing: border-box;
-}
-
-html {
-  background-color: var(--primary-color);
-}
-
-html,
-body,
-#__nuxt,
-#__layout {
-  height: 100%;
-  min-height: 100%;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-p {
-  margin-top: 1.5rem;
-}
-
-.content-root {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  min-height: 100%;
-  overflow-x: hidden;
-}
-
-.content-root > main {
-  flex-grow: 1;
-}
-
-.content-wrapper {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2rem;
 }
 
 .actions {
@@ -289,26 +216,36 @@ p {
   flex-direction: row;
 }
 
-main {
-  color: var(--body-color-light);
-  background-color: var(--primary-color-darkmost);
-  background-image: linear-gradient(150deg, var(--primary-color-darkmost) 15%,var(--primary-color-dark) 70%,var(--primary-color) 94%);
+#presentation {
+  .extra-container {
+    margin-right: 1rem;
+  }
+
+  .copy-container {
+    max-width: 40%;
+  }
+
+  .header-video {
+    width: 100%;
+    max-width: 560px;
+    height: 315px;
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,.25),
+                0 8px 16px -8px rgba(0,0,0,.5),
+                0 -6px 16px -6px rgba(0,0,0,.025);
+  }
 }
 
 #video-series {
   .page-section {
     @include framed();
   }
-}
 
-.episode {
-  margin-left: 2rem;
-  transform: perspective(1200px) rotateY(-20deg) rotateX(5deg);
-}
-
-.episode iframe {
-  border-radius: 10px;
-  box-shadow: 0 10px 30px 0 #000000b0;
+  .episode {
+    margin-left: 2rem;
+    transform: perspective(1200px) rotateY(-20deg) rotateX(5deg);
+    border-radius: 10px;
+    box-shadow: 25px 35px 30px 0 #000f;
+  }
 }
 
 #textbook {
@@ -338,5 +275,28 @@ main {
   }
 }
 
+@media (max-width: 600px) {
+  #presentation {
+    .intro {
+      display: block;
+    }
 
+    .copy-container {
+      max-width: 100%;
+    }
+
+    .header-video {
+      display: none;
+    }
+  }
+
+  #textbook {
+    min-height: auto;
+
+    .copy-container {
+      width: 100%;
+      padding-left: 0;
+    }
+  }
+}
 </style>
