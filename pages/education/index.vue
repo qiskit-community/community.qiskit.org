@@ -43,9 +43,9 @@
           </p>
           <ul class="actions">
             <li>
-              <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+              <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
                 View all episodes
-              </a>
+              </Cta>
             </li>
           </ul>
           <template #extra>
@@ -70,9 +70,9 @@
           </p>
           <ul class="actions">
             <li>
-              <a class="button" href="/textbook/">
+              <Cta to="/textbook/">
                 Discover more
-              </a>
+              </Cta>
             </li>
           </ul>
 
@@ -92,9 +92,9 @@
           </p>
           <ul class="actions">
             <li>
-              <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+              <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
                 Request an event
-              </a>
+              </Cta>
             </li>
           </ul>
           <template #extra>
@@ -140,6 +140,7 @@ import FeaturesSection from '~/components/sections/FeaturesSection.vue'
 import PageFooter from '~/components/footers/PageFooter.vue'
 import TextbookPreview from '~/components/education/TextbookPreview.vue'
 import MdContent from '~/components/MdContent.vue'
+import Cta from '~/components/ctas/Cta.vue'
 
 @Component({
   layout: 'education',
@@ -152,7 +153,8 @@ import MdContent from '~/components/MdContent.vue'
     FeaturesSection,
     PageFooter,
     TextbookPreview,
-    MdContent
+    MdContent,
+    Cta
   },
 
   head() {
@@ -305,20 +307,6 @@ p {
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 2rem;
-}
-
-.button {
-  padding: 0.66rem 1rem;
-  background-color: var(--primary-color);
-  border: 2px solid var(--secondary-color);
-  font-size: 0.75em;
-  font-weight: 100;
-  color: white;
-  text-transform: uppercase;
-  text-decoration: none;
-  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
-  white-space: nowrap;
-  line-height: 4rem;
 }
 
 main {
