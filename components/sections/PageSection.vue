@@ -67,7 +67,7 @@ export default class extends Vue {
   width: 50%;
 }
 
-@media (max-width: 830px) {
+@media (max-width: 600px) {
   .importance--decoration {
     display: none;
   }

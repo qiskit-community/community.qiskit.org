@@ -338,36 +338,5 @@ main {
   }
 }
 
-@media (max-width: 600px) {
-  #intro,
-  #video-series .content-wrapper {
-    display: block;
-  }
 
-  iframe,
-  section > aside,
-  #textbook aside {
-    display: none;
-  }
-
-  #highlights {
-    display: none;
-  }
-
-  #video-series {
-    margin-top: 0;
-  }
-
-  #textbook {
-    min-height: unset;
-  }
-
-  #intro .description,
-  #video-series .description,
-  #textbook .description {
-    width: 100%;
-    max-width: 100%;
-    padding-left: 0;
-  }
-}
 </style>
