@@ -7,7 +7,12 @@
           ${extraPosition == 'start' ? 'page-section--reversed' : ''}
         `"
       >
-        <div class="copy-container">
+        <div
+          :class="`
+            copy-container
+            ${!this.$slots.extra ? 'copy-container--alone' : ''}
+          `"
+        >
           <slot />
         </div>
         <aside
@@ -48,5 +53,17 @@ export default class extends Vue {
   &--reversed {
     flex-direction: row-reverse;
   }
+}
+
+.copy-container {
+  width: 50%;
+
+  &--alone {
+    width: 100%;
+  }
+}
+
+.extra-container {
+  width: 50%;
 }
 </style>
