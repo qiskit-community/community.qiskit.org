@@ -34,158 +34,149 @@
             { anchor: 'host-an-event', label: 'Host Qiskit Events' }
           ]"
         />
-        <section id="video-series">
-          <div class="content-wrapper">
-            <div class="description">
-              <h2>Coding With Qiskit Video Series</h2>
-              <p>
-                Accompany Abraham Asfaw through a series of video tutorials
-                in our YouTube Channel explaining quantum computing through
-                the use of Qiskit.
-              </p>
-              <ul class="actions">
-                <li>
-                  <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
-                    View all episodes
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <aside class="episode">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/RrUTwq5jKM4"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              />
-            </aside>
-          </div>
-        </section>
-        <section id="textbook">
-          <div class="content-wrapper">
-            <aside>
-              <section id="textbook-features">
-                <div
-                  class="selector is-active"
-                  data-to="toc"
-                  @click.capture="activate"
-                >
-                  <img src="/images/education/iconTab.svg">
-                  <p>Table of Contents</p>
+        <PageSection id="video-series">
+          <h2>Coding With Qiskit Video Series</h2>
+          <p>
+            Accompany Abraham Asfaw through a series of video tutorials
+            in our YouTube Channel explaining quantum computing through
+            the use of Qiskit.
+          </p>
+          <ul class="actions">
+            <li>
+              <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+                View all episodes
+              </a>
+            </li>
+          </ul>
+          <template #extra>
+            <iframe
+              class="episode"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/RrUTwq5jKM4"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </template>
+        </PageSection>
+        <PageSection id="textbook" extra-position="start">
+          <h2>Qiskit Textbook</h2>
+          <p>
+            Leverage the power of quantum computing using Qiskit with this
+            university course supplement covering introductory materials,
+            advanced algorithms and hardware. Include problem sets and
+            exercises for students.
+          </p>
+          <ul class="actions">
+            <li>
+              <a class="button" href="/textbook/">
+                Discover more
+              </a>
+            </li>
+          </ul>
+
+          <template #extra>
+            <section id="textbook-features">
+              <div
+                class="selector is-active"
+                data-to="toc"
+                @click.capture="activate"
+              >
+                <img src="/images/education/iconTab.svg">
+                <p>Table of Contents</p>
+              </div>
+              <div
+                class="selector"
+                data-to="live-code"
+                @click.capture="activate"
+              >
+                <img src="/images/education/iconTab.svg">
+                <p>Code Samples</p>
+              </div>
+              <section id="live-code">
+                <div class="content">
+                  <iframe
+                    height="600px"
+                    width="100%"
+                    src="https://repl.it/@delapuente/BellState?lite=true"
+                    scrolling="no"
+                    frameborder="no"
+                    allowtransparency="true"
+                    allowfullscreen="true"
+                    sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
+                  />
                 </div>
-                <div
-                  class="selector"
-                  data-to="live-code"
-                  @click.capture="activate"
-                >
-                  <img src="/images/education/iconTab.svg">
-                  <p>Code Samples</p>
-                </div>
-                <section id="live-code">
-                  <div class="content">
-                    <iframe
-                      height="600px"
-                      width="100%"
-                      src="https://repl.it/@delapuente/BellState?lite=true"
-                      scrolling="no"
-                      frameborder="no"
-                      allowtransparency="true"
-                      allowfullscreen="true"
-                      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-                    />
-                  </div>
-                </section>
-                <section id="toc" class="is-active">
-                  <img class="bookmark" src="/images/education/iconBookmark.svg">
-                  <div class="content">
-                    <h2>Table of Contents:</h2>
-                    <h3>Chapter 0. Introduction and Prerequisites</h3>
-                    <ul>
-                      <li>Hello World</li>
-                      <li>Python and Jupyter Notebooks</li>
-                      <li>Qiskit</li>
-                    </ul>
-                    <h3>Chapter 1. Quantum States and Qubits</h3>
-                    <ul>
-                      <li>Introduction</li>
-                      <li>The Atoms of Computation</li>
-                      <li>The Unique Properties of Qubits</li>
-                      <li>Writing Down Qubit States</li>
-                      <li>Pauli Matrices and the Bloch Sphere</li>
-                      <li>States for Many Qubits</li>
-                    </ul>
-                    <h3>Chapter 2. Single-Qubit and Multi-Qubit Gates</h3>
-                    <ul>
-                      <li>Introduction</li>
-                      <li>Quantum Gates</li>
-                      <li>Fun with Matrices</li>
-                      <li>The Stardard Gate Set</li>
-                      <li>Proving Universality</li>
-                      <li>Basic Circuit Identities</li>
-                    </ul>
-                    <h3>Chapter 3. Quantum Algorithms</h3>
-                    <ul>
-                      <li>Quantum Teleportation</li>
-                      <li>Deutsch-Josza Algorithm</li>
-                      <li>Bernstain-Vazirani Algorithm</li>
-                      <li>Simon's Algorithm</li>
-                      <li>Quantum Fourier Transform</li>
-                      <li>Quantum Phase Estimation</li>
-                      <li>Grover's Algorithm</li>
-                      <li>Shor's Algorithm</li>
-                    </ul>
-                  </div>
-                </section>
               </section>
-            </aside>
-            <div class="description">
-              <h2>Qiskit Textbook</h2>
-              <p>
-                Leverage the power of quantum computing using Qiskit with this
-                university course supplement covering introductory materials,
-                advanced algorithms and hardware. Include problem sets and
-                exercises for students.
-              </p>
-              <ul class="actions">
-                <li>
-                  <a class="button" href="/textbook/">
-                    Discover more
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-        <section id="host-an-event">
-          <div class="content-wrapper">
-            <div class="description">
-              <h2>Host Qiskit Events</h2>
-              <p>
-                Bring Qiskit experts to your campus for guest lectures, hackathons, and other events. Guest lecture topics can range from quantum basics to advanced algorithms.
-              </p>
-              <ul class="actions">
-                <li>
-                  <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
-                    Request an event
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <aside class="episode">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/RrUTwq5jKM4"
-                frameborder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              />
-            </aside>
-          </div>
-        </section>
-        <section id="highlights" class="content-wrapper">
+              <section id="toc" class="is-active">
+                <img class="bookmark" src="/images/education/iconBookmark.svg">
+                <div class="content">
+                  <h2>Table of Contents:</h2>
+                  <h3>Chapter 0. Introduction and Prerequisites</h3>
+                  <ul>
+                    <li>Hello World</li>
+                    <li>Python and Jupyter Notebooks</li>
+                    <li>Qiskit</li>
+                  </ul>
+                  <h3>Chapter 1. Quantum States and Qubits</h3>
+                  <ul>
+                    <li>Introduction</li>
+                    <li>The Atoms of Computation</li>
+                    <li>The Unique Properties of Qubits</li>
+                    <li>Writing Down Qubit States</li>
+                    <li>Pauli Matrices and the Bloch Sphere</li>
+                    <li>States for Many Qubits</li>
+                  </ul>
+                  <h3>Chapter 2. Single-Qubit and Multi-Qubit Gates</h3>
+                  <ul>
+                    <li>Introduction</li>
+                    <li>Quantum Gates</li>
+                    <li>Fun with Matrices</li>
+                    <li>The Stardard Gate Set</li>
+                    <li>Proving Universality</li>
+                    <li>Basic Circuit Identities</li>
+                  </ul>
+                  <h3>Chapter 3. Quantum Algorithms</h3>
+                  <ul>
+                    <li>Quantum Teleportation</li>
+                    <li>Deutsch-Josza Algorithm</li>
+                    <li>Bernstain-Vazirani Algorithm</li>
+                    <li>Simon's Algorithm</li>
+                    <li>Quantum Fourier Transform</li>
+                    <li>Quantum Phase Estimation</li>
+                    <li>Grover's Algorithm</li>
+                    <li>Shor's Algorithm</li>
+                  </ul>
+                </div>
+              </section>
+            </section>
+          </template>
+        </PageSection>
+        <PageSection id="host-an-event">
+          <h2>Host Qiskit Events</h2>
+          <p>
+            Bring Qiskit experts to your campus for guest lectures, hackathons, and other events. Guest lecture topics can range from quantum basics to advanced algorithms.
+          </p>
+          <ul class="actions">
+            <li>
+              <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+                Request an event
+              </a>
+            </li>
+          </ul>
+          <template #extra>
+            <iframe
+              class="episode"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/RrUTwq5jKM4"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </template>
+        </PageSection>
+        <FeaturesSection id="highlights">
           <section class="feature">
             <img src="/images/education/iconEventsBase@3x.png">
             <h2>Attend Exclusive Events</h2>
@@ -198,7 +189,7 @@
             <img src="/images/education/iconDemoBase@3x.png">
             <h2>Teach with Live Demos</h2>
           </section>
-        </section>
+        </FeaturesSection>
       </div>
     </main>
     <footer>
@@ -242,12 +233,16 @@ import { Component } from 'vue-property-decorator'
 import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
 import InnerNavigation from '~/components/menus/InnerNavigation.vue'
 import GatesHeader from '~/components/headers/GatesHeader.vue'
+import PageSection from '~/components/sections/PageSection.vue'
+import FeaturesSection from '~/components/sections/FeaturesSection.vue'
 
 @Component({
   components: {
     QiskitOrgMenu,
     InnerNavigation,
-    GatesHeader
+    GatesHeader,
+    PageSection,
+    FeaturesSection
   },
 
   head() {
@@ -298,7 +293,8 @@ export default class extends Vue {
 }
 </script>
 
-<style>
+<style lang="scss">
+@import '~/assets/scss/mixins.scss';
 @import url(~/static/css/fonts.css);
 
 :root {
@@ -414,18 +410,9 @@ main {
 }
 
 #video-series {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
-}
-
-#video-series .content-wrapper {
-  display: flex;
-  padding-top: 4rem;
-  border-top: 2px solid var(--primary-color);
-}
-
-#video-series .content-wrapper > * {
-  width: 50%;
+  .page-section {
+    @include framed();
+  }
 }
 
 .episode {
@@ -442,21 +429,21 @@ main {
   color: var(--body-color-dark);
   background-color: white;
   min-height: 600px;
-}
 
-#textbook .content-wrapper {
-  display: flex;
-}
+  .page-section {
+    @include framed();
+  }
 
-#textbook aside {
-  width: 60%;
-  margin-left: -10%;
-}
+  .copy-container {
+    width: 50%;
+    background-color: white;
+    padding: 4rem 0 4rem 2rem;
+  }
 
-#textbook .description {
-  width: 50%;
-  background-color: white;
-  padding: 4rem 0 4rem 2rem;
+  .extra-container {
+    width: 60%;
+    margin-left: -10%;
+  }
 }
 
 #textbook-features {
@@ -580,10 +567,17 @@ main {
   overflow: hidden;
 }
 
+#host-an-event {
+  .page-section {
+    @include framed();
+  }
+}
+
 #highlights {
-  display: flex;
-  flex-direction: row;
-  padding-top: 6rem;
+  .features-section {
+    display: flex;
+    flex-direction: row;
+  }
 }
 
 #highlights .feature {
