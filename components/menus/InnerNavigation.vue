@@ -3,15 +3,15 @@
     <div class="menu-container">
       <div class="menu menu--framed">
         <nav class="navigation-group">
-          <nuxt-link
+          <a
             v-for="(section, index) in sections"
             :key="index"
             class="navigation-group__item"
-            :to="`#${section.anchor}`"
+            :href="`#${section.anchor}`"
             :style="`width: calc(100% / ${sections.length})`"
           >
             {{ section.label }}
-          </nuxt-link>
+          </a>
         </nav>
       </div>
     </div>

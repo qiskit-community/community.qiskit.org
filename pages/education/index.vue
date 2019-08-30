@@ -137,7 +137,8 @@ import Cta from '~/components/ctas/Cta.vue'
   },
 
   async asyncData() {
-    const textbookToc = await import('~/content/education/textbook-toc.md')
+    const filename = 'textbook-toc.md'
+    const textbookToc = await import(`~/content/education/${filename}`)
     return {
       tocRenderFn: textbookToc.vue.render,
       tocStaticRenderFns: textbookToc.vue.staticRenderFns

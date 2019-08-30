@@ -19,7 +19,7 @@
           </h2>
           <ul>
             <li><a class="footer-column__link" href="/textbook">Textbook</a></li>
-            <li><a class="footer-column__link" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">Coding With Qiskit</a></li>
+            <li><a class="footer-column__link" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY" target="_blank" rel="noopener">Coding With Qiskit</a></li>
           </ul>
         </section>
         <section class="footer-column">
@@ -27,13 +27,13 @@
             Social Media
           </h2>
           <ul>
-            <li><a class="footer-column__link" href="https://github.com/Qiskit">GitHub</a></li>
-            <li><a class="footer-column__link" href="https://qiskit.slack.com/">Slack</a></li>
-            <li><a class="footer-column__link" href="https://twitter.com/Qiskit">Twitter</a></li>
-            <li><a class="footer-column__link" href="https://medium.com/Qiskit">Medium</a></li>
-            <li><a class="footer-column__link" href="https://www.youtube.com/Qiskit">YouTube</a></li>
-            <li><a class="footer-column__link" href="https://quantumcomputing.stackexchange.com/questions/tagged/qiskit">Stack Exchange</a></li>
-            <li><a class="footer-column__link" href="https://www.facebook.com/Qiskit">Facebook</a></li>
+            <li><a class="footer-column__link" href="https://github.com/Qiskit" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a class="footer-column__link" href="https://qiskit.slack.com/" target="_blank" rel="noopener">Slack</a></li>
+            <li><a class="footer-column__link" href="https://twitter.com/Qiskit" target="_blank" rel="noopener">Twitter</a></li>
+            <li><a class="footer-column__link" href="https://medium.com/Qiskit" target="_blank" rel="noopener">Medium</a></li>
+            <li><a class="footer-column__link" href="https://www.youtube.com/Qiskit" target="_blank" rel="noopener">YouTube</a></li>
+            <li><a class="footer-column__link" href="https://quantumcomputing.stackexchange.com/questions/tagged/qiskit" target="_blank" rel="noopener">Stack Exchange</a></li>
+            <li><a class="footer-column__link" href="https://www.facebook.com/Qiskit" target="_blank" rel="noopener">Facebook</a></li>
           </ul>
         </section>
       </div>
