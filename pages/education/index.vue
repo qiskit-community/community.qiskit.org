@@ -109,20 +109,6 @@
             />
           </template>
         </PageSection>
-        <FeaturesSection id="highlights">
-          <section class="feature">
-            <img src="/images/education/iconEventsBase@3x.png">
-            <h2>Attend Exclusive Events</h2>
-          </section>
-          <section class="feature">
-            <img src="/images/education/iconCommunityBase@3x.png">
-            <h2>Join a Global Community</h2>
-          </section>
-          <section class="feature">
-            <img src="/images/education/iconDemoBase@3x.png">
-            <h2>Teach with Live Demos</h2>
-          </section>
-        </FeaturesSection>
       </div>
     </main>
     <PageFooter />
@@ -136,7 +122,6 @@ import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
 import InnerNavigation from '~/components/menus/InnerNavigation.vue'
 import GatesHeader from '~/components/headers/GatesHeader.vue'
 import PageSection from '~/components/sections/PageSection.vue'
-import FeaturesSection from '~/components/sections/FeaturesSection.vue'
 import PageFooter from '~/components/footers/PageFooter.vue'
 import TextbookPreview from '~/components/education/TextbookPreview.vue'
 import MdContent from '~/components/MdContent.vue'
@@ -150,7 +135,6 @@ import Cta from '~/components/ctas/Cta.vue'
     InnerNavigation,
     GatesHeader,
     PageSection,
-    FeaturesSection,
     PageFooter,
     TextbookPreview,
     MdContent,
@@ -309,6 +293,13 @@ p {
   padding: 0 2rem;
 }
 
+.actions {
+  margin-top: 1rem;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+}
+
 main {
   color: var(--body-color-light);
   background-color: var(--primary-color-darkmost);
@@ -356,47 +347,6 @@ main {
   .page-section {
     @include framed();
   }
-}
-
-#highlights {
-  .features-section {
-    display: flex;
-    flex-direction: row;
-  }
-}
-
-#highlights .feature {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.feature {
-  box-sizing: border-box;
-  border: 4px solid var(--secondary-color);
-  border-radius: 10px;
-  margin: 0 1rem 0 0;
-  padding: 2rem 1rem;
-}
-
-.feature:last-child {
-  margin-right: 0;
-}
-
-.feature img {
-  width: 50%;
-  padding-bottom: 2rem;
-}
-
-.feature h2 {
-  font-size: 1.1rem;
-  text-align: center;
-}
-
-.feature p {
-  text-align: center;
-  margin-top: 1rem;
 }
 
 @media (max-width: 600px) {
