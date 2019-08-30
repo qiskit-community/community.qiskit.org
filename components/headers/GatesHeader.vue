@@ -37,7 +37,7 @@ import { Component, Prop } from 'vue-property-decorator'
 @Component
 export default class extends Vue {
   @Prop(String) mainTitle;
-  @Prop({ type: String, default: 'start' }) extraPosition;
+  @Prop({ type: String, default: 'end' }) extraPosition;
 }
 </script>
 
