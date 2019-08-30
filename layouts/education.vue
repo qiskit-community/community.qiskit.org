@@ -1,53 +1,13 @@
 <template>
+  <!-- tabindex is needed to allow hiding the menu in iOS Safari -->
   <div class="content-root" tabindex="-1">
     <header id="navigation">
-      <div id="qiskit-org-menu" class="menu content-wrapper">
-        <section class="drawer" tabindex="-1">
-          <svg class="drawer-toggle" height="24" viewBox="0 0 24 24" width="24">
-            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" />
-          </svg>
-          <div class="overlay" />
-          <nav id="unified-navigation">
-            <h2>Elements</h2>
-            <a href="https://qiskit.org/terra">Terra</a>
-            <a href="https://qiskit.org/aer">Aer</a>
-            <a href="https://qiskit.org/aqua">Aqua</a>
-            <a href="https://qiskit.org/ignis">Ignis</a>
-            <h2>Learn more</h2>
-            <a href="/" class="active">Community</a>
-            <nav class="embedded-submenu">
-              <a href="/">Home</a>
-              <a href="/education" class="active">Education</a>
-              <a href="/advocates">Advocates</a>
-              <a href="/events">Events</a>
-              <a href="/experiments">Experiments</a>
-            </nav>
-            <a href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
-            <a href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
-          </nav>
-        </section>
-        <a class="home" href="https://qiskit.org">Qiskit&nbsp;™</a>
-        <nav id="elements-navigation">
-          <a href="https://qiskit.org/terra">Terra</a>
-          <a href="https://qiskit.org/aer">Aer</a>
-          <a href="https://qiskit.org/aqua">Aqua</a>
-          <a href="https://qiskit.org/ignis">Ignis</a>
-        </nav>
-        <nav id="sections-navigation">
-          <a href="/" class="active">Community</a>
-          <a href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
-          <a href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
-        </nav>
-      </div>
-      <section id="community-navigation" class="menu">
-        <nav class="content-wrapper">
-          <a href="/">Home</a>
-          <a href="/education" class="active">Education</a>
-          <a href="/advocates">Advocates</a>
-          <a href="/events">Events</a>
-          <a href="/experiments">Experiments</a>
-        </nav>
-      </section>
+      <QiskitOrgMenu
+        :links="[
+          { to: '/education', label: 'Education' },
+          { to: '/advocates', label: 'Advocates' }
+        ]"
+      />
     </header>
     <main>
       <header>
@@ -64,9 +24,6 @@
           <div class="description">
             <h1>Qiskit for Educators</h1>
             <p>Qiskit makes it easy to start learning quantum software to run on real quantum hardware. Teach your students with the same tools used by scientists and engineers worldwide to accelerate research towards practical applications for quantum computing.</p>
-            <ul class="actions">
-              <li><a class="button" href="#">Contact Us</a></li>
-            </ul>
           </div>
         </section>
       </header>
@@ -76,20 +33,6 @@
             <a href="#video-series">Coding With Qiskit Series</a>
             <a href="#textbook">Qiskit Textbook</a>
           </nav>
-        </section>
-        <section id="highlights" class="content-wrapper">
-          <section class="feature">
-            <img src="/images/education/iconEventsBase@3x.png">
-            <h2>Attend Exclusive Events</h2>
-          </section>
-          <section class="feature">
-            <img src="/images/education/iconCommunityBase@3x.png">
-            <h2>Join a Global Community</h2>
-          </section>
-          <section class="feature">
-            <img src="/images/education/iconDemoBase@3x.png">
-            <h2>Teach with Live Demos</h2>
-          </section>
         </section>
         <section id="video-series">
           <div class="content-wrapper">
@@ -102,13 +45,8 @@
               </p>
               <ul class="actions">
                 <li>
-                  <a class="button" href="https://www.youtube.com/watch?v=RrUTwq5jKM4&amp;list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY&amp;index=4&amp;t=0s">
-                    Last Episode: Hello World
-                  </a>
-                </li>
-                <li>
                   <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
-                    All the episodes
+                    View all episodes
                   </a>
                 </li>
               </ul>
@@ -207,8 +145,8 @@
               <p>
                 Leverage the power of quantum computing using Qiskit with this
                 university course supplement covering introductory materials,
-                advanced algorithms and hardware. Include problems and
-                exercises.
+                advanced algorithms and hardware. Include problem sets and
+                exercises for students.
               </p>
               <ul class="actions">
                 <li>
@@ -219,6 +157,47 @@
               </ul>
             </div>
           </div>
+        </section>
+        <section id="host-an-event">
+          <div class="content-wrapper">
+            <div class="description">
+              <h2>Host Qiskit Events</h2>
+              <p>
+                Bring Qiskit experts to your campus for guest lectures, hackathons, and other events. Guest lecture topics can range from quantum basics to advanced algorithms.
+              </p>
+              <ul class="actions">
+                <li>
+                  <a class="button" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+                    Request an event
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <aside class="episode">
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/RrUTwq5jKM4"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              />
+            </aside>
+          </div>
+        </section>
+        <section id="highlights" class="content-wrapper">
+          <section class="feature">
+            <img src="/images/education/iconEventsBase@3x.png">
+            <h2>Attend Exclusive Events</h2>
+          </section>
+          <section class="feature">
+            <img src="/images/education/iconCommunityBase@3x.png">
+            <h2>Join a Global Community</h2>
+          </section>
+          <section class="feature">
+            <img src="/images/education/iconDemoBase@3x.png">
+            <h2>Teach with Live Demos</h2>
+          </section>
         </section>
       </div>
     </main>
@@ -260,8 +239,13 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
+import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
 
 @Component({
+  components: {
+    QiskitOrgMenu
+  },
+
   head() {
     return {
       title: 'Qiskit for Educators'
@@ -352,11 +336,11 @@ body,
 }
 
 h1 {
-  font-size: 2.2rem;
+  font-size: 2.5rem;
 }
 
 h2 {
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 p {
@@ -373,35 +357,6 @@ p {
 
 .content-root > main {
   flex-grow: 1;
-}
-
-.menu {
-  --link-color: white;
-  height: 60px;
-  display: flex;
-  font-size: 0.80rem;
-}
-
-.menu > * {
-  height: 100%;
-}
-
-.menu nav {
-  display: flex;
-}
-
-.menu a {
-  display: inline-flex;
-  align-items: center;
-  padding: 0 1em;
-  color: var(--link-color);
-  text-decoration: none;
-}
-
-.menu .active {
-  position: relative;
-  top: 1px;
-  border-bottom: 4px solid var(--secondary-color);
 }
 
 .content-wrapper {
@@ -423,115 +378,6 @@ p {
   box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
   white-space: nowrap;
   line-height: 4rem;
-}
-
-#navigation {
-  min-height: 120px;
-  border: none;
-  border-bottom: 1px solid black;
-  background-color: var(--primary-color);
-}
-
-.home {
-  margin-left: -1.2rem; /* fixings for mimicing qiskit.org menu */
-}
-
-.drawer {
-  display: none;
-}
-
-#unified-navigation {
-  display: flex;
-  flex-direction: column;
-  color: white;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 200;
-  width: 256px;
-  padding: 1.3rem;
-  background-color: var(--primary-color);
-  transform: translateX(-100%);
-  transition: transform 200ms;
-  overflow-y: auto;
-}
-
-#unified-navigation h2 {
-  color: var(--primary-color-lightmost);
-  font-size: 0.9rem;
-  padding: 1rem;
-}
-
-#unified-navigation a {
-  padding: 0.5rem 1.5rem;
-}
-
-#unified-navigation .embedded-submenu {
-  display: flex;
-  flex-direction: column;
-  margin: 0 -1.3rem;
-  padding: 1rem 0;
-  background-color: var(--secondary-color-lightmost);
-}
-
-#unified-navigation .embedded-submenu a {
-  color: var(--body-color-dark);
-}
-
-#unified-navigation .embedded-submenu .active {
-  border: none;
-  border-left: 4px solid var(--secondary-color);
-}
-
-.drawer:focus-within #unified-navigation {
-  transform: translateX(0);
-}
-
-.drawer:focus-within .overlay {
-  opacity: 0.5;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: black;
-  opacity: 0;
-  transition: opacity 200ms;
-  z-index: 150;
-  pointer-events: none;
-}
-
-.drawer .drawer-toggle {
-  fill: white;
-  height: 100%;
-  cursor: pointer;
-  margin: 0 0 0 1rem;
-}
-
-#elements-navigation::before {
-  content: "";
-  background-color: #fff4;
-  width: 1px;
-  margin: 12px 10px;
-}
-
-#sections-navigation {
-  margin-right: 0.2rem; /* fixings for mimicing qiskit.org menu */
-  margin-left: auto;
-}
-
-#community-navigation {
-  --link-color: var(--body-color-dark);
-  --active-color: var(--secondary-color);
-  background-color: var(--secondary-color-lightmost);
-}
-
-#community-navigation nav {
-  justify-content: flex-end;
 }
 
 main {
@@ -883,32 +729,6 @@ footer ul li {
   margin-top: 0.5rem;
   display: inline-block;
   width: 100%;
-}
-
-@media (max-width: 830px) {
-
-  #navigation {
-    min-height: 60px;
-  }
-
-  .home {
-    margin-left: 0;
-  }
-
-  .drawer {
-    display: unset;
-    margin-left: -2rem;
-  }
-
-  #elements-navigation,
-  #sections-navigation,
-  #community-navigation {
-    display: none;
-  }
-
-  #inner-navigation {
-    position: static;
-  }
 }
 
 @media (max-width: 600px) {
