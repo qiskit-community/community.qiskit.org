@@ -66,4 +66,14 @@ export default class extends Vue {
 .extra-container {
   width: 50%;
 }
+
+@media (max-width: 830px) {
+  .importance--decoration {
+    display: none;
+  }
+
+  .copy-container {
+    width: 100%;
+  }
+}
 </style>

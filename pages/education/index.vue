@@ -369,21 +369,5 @@ main {
     max-width: 100%;
     padding-left: 0;
   }
-
-  footer {
-    margin-top: 0;
-  }
-
-  footer .content-wrapper {
-    display: block;
-  }
-
-  footer h2 {
-    margin: 4rem 0 0;
-  }
-
-  footer .content-wrapper > section:last-child {
-    margin-right: 2rem;
-  }
 }
 </style>

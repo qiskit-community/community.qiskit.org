@@ -97,4 +97,18 @@
     margin-right: 0;
   }
 }
+
+@media (max-width: 600px) {
+  .page-footer {
+    display: block;
+  }
+
+  .footer-column {
+    margin-right: 0;
+
+    h2 {
+      margin-top: 2rem;
+    }
+  }
+}
 </style>
