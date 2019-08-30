@@ -111,7 +111,7 @@
           </p>
           <ul class="actions">
             <li>
-              <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+              <Cta to="mailto:hello@qiskit.org">
                 Request an event
               </Cta>
             </li>
@@ -319,7 +319,7 @@ main {
 #textbook {
   color: var(--body-color-dark);
   background-color: white;
-  min-height: 600px;
+  padding-bottom: 0rem;
 
   .page-section {
     @include framed();
@@ -328,7 +328,7 @@ main {
   .copy-container {
     width: 50%;
     background-color: white;
-    padding: 4rem 0 4rem 2rem;
+    padding: 4rem 0 4rem 4rem;
   }
 
   .extra-container {
@@ -338,6 +338,13 @@ main {
 }
 
 #host-an-event {
+  background-image:
+    linear-gradient(#000000a0 0%, #000000a0 100%),
+    url('/images/education/host-an-event-bg.jpg');
+  background-position: 0, top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
   .page-section {
     @include framed();
   }

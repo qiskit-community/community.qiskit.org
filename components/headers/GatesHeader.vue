@@ -89,7 +89,7 @@ export default class extends Vue {
   display: flex;
   flex-direction: row;
   color: white;
-  margin-top: 6rem;
+  margin-top: 4rem;
 
   &--framed {
     @include framed()
