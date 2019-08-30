@@ -23,6 +23,25 @@
               allowfullscreen
             />
           </template>
+          <template #features>
+            <div id="education-benefits">
+              <section class="feature">
+                <img class="feature__icon" src="/images/education/iconEventsWhite@3x.png">
+                <h2>Attend Exclusive Events</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, accusantium ducimus. Iure quae quos labore eaque, reiciendis eius exercitationem possimus, aliquid doloremque nesciunt eum qui sed dicta. Eligendi, itaque sunt.</p>
+              </section>
+              <section class="feature">
+                <img class="feature__icon" src="/images/education/iconCommunityWhite@3x.png">
+                <h2>Join a Global Community</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, accusantium ducimus. Iure quae quos labore eaque, reiciendis eius exercitationem possimus, aliquid doloremque nesciunt eum qui sed dicta. Eligendi, itaque sunt.</p>
+              </section>
+              <section class="feature">
+                <img class="feature__icon" src="/images/education/iconDemoWhite@3x.png">
+                <h2>Teach with Live Demos</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, accusantium ducimus. Iure quae quos labore eaque, reiciendis eius exercitationem possimus, aliquid doloremque nesciunt eum qui sed dicta. Eligendi, itaque sunt.</p>
+              </section>
+            </div>
+          </template>
         </GatesHeader>
       </header>
       <div class="inner-navigation-scope">
@@ -193,6 +212,54 @@ export default class extends Vue {
 @import '~/assets/scss/layout.scss';
 
 @import url(~/static/css/fonts.css);
+
+#education-benefits {
+  display: flex;
+  flex-direction: row;
+
+  & > * {
+    flex: 1;
+  }
+}
+
+.feature {
+  padding-right: 1rem;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.feature__icon {
+  position: relative;
+  width: 3rem;
+  height: 3rem;
+}
+
+.feature p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.feature h2 {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  #education-benefits {
+    display: block;
+  }
+
+  .feature {
+    padding-right: 0;
+    padding-bottom: 3rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+}
 
 html {
   background-color: var(--primary-color);

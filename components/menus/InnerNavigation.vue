@@ -8,7 +8,6 @@
             :key="index"
             class="navigation-group__item"
             :href="`#${section.anchor}`"
-            :style="`width: calc(100% / ${sections.length})`"
           >
             {{ section.label }}
           </a>
@@ -54,6 +53,7 @@ export default class extends Vue {
   width: 100%;
 
   &__item {
+    flex: 1;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -68,6 +68,23 @@ export default class extends Vue {
 
     &:last-child {
       border-right: none;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .menu {
+    height: auto;
+  }
+
+  .navigation-group {
+    flex-direction: column;
+
+    &__item {
+      border: none;
+      border-bottom: 1px solid #3334;
+      padding: 1rem;
+      width: 100%;
     }
   }
 }

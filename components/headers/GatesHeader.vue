@@ -25,6 +25,12 @@
             <slot name="extra" />
           </aside>
         </article>
+        <aside
+          v-if="this.$slots.features"
+          class="features features--framed"
+        >
+          <slot name="features" />
+        </aside>
       </section>
     </div>
   </div>
@@ -76,6 +82,17 @@ export default class extends Vue {
 
   &--reversed {
     flex-direction: row-reverse;
+  }
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  color: white;
+  margin-top: 6rem;
+
+  &--framed {
+    @include framed()
   }
 }
 
