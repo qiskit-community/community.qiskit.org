@@ -20,6 +20,7 @@
           <ul>
             <li><a class="footer-column__link" href="/textbook">Textbook</a></li>
             <li><a class="footer-column__link" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY" target="_blank" rel="noopener">Coding With Qiskit</a></li>
+            <li><a class="footer-column__link" href="mailto:hello@qiskit.camp" target="_blank" rel="noopener">Host an Event</a></li>
           </ul>
         </section>
         <section class="footer-column">
