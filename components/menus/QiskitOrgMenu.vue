@@ -70,7 +70,7 @@ import { Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop({
     type: Array,
-    default: [
+    default: () => [
       { to: '/education', label: 'Education' },
       { to: '/advocates', label: 'Advocates' }
     ]
