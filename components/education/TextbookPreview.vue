@@ -101,8 +101,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .textbook-features {
   position: relative;
-  min-height: calc(600px + 8rem);
-  padding: 4rem 0;
+  min-height: calc(600px);
 
   &::before {
     content: "";
