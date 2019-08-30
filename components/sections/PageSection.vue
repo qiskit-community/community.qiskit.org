@@ -1,27 +1,25 @@
 <template>
-  <article>
-    <div class="page-section-container">
+  <article class="page-section-container">
+    <div
+      :class="`
+        page-section
+        ${extraPosition == 'start' ? 'page-section--reversed' : ''}
+      `"
+    >
       <div
         :class="`
-          page-section
-          ${extraPosition == 'start' ? 'page-section--reversed' : ''}
+          copy-container
+          ${!this.$slots.extra ? 'copy-container--alone' : ''}
         `"
       >
-        <div
-          :class="`
-            copy-container
-            ${!this.$slots.extra ? 'copy-container--alone' : ''}
-          `"
-        >
-          <slot />
-        </div>
-        <aside
-          v-if="this.$slots.extra"
-          class="extra-container importance--decoration"
-        >
-          <slot name="extra" />
-        </aside>
+        <slot />
       </div>
+      <aside
+        v-if="this.$slots.extra"
+        class="extra-container importance--decoration"
+      >
+        <slot name="extra" />
+      </aside>
     </div>
   </article>
 </template>
@@ -38,8 +36,8 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 .page-section-container {
-  margin-top: 4rem;
-  margin-bottom: 4rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 .page-section {
