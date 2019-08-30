@@ -276,6 +276,10 @@ main {
 }
 
 @media (max-width: 600px) {
+  .inner-navigation {
+    position: static;
+  }
+
   #presentation {
     .intro {
       display: block;
