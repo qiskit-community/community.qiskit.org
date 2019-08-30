@@ -192,38 +192,7 @@
         </FeaturesSection>
       </div>
     </main>
-    <footer>
-      <div class="content-wrapper">
-        <section id="elements-links">
-          <h2>Qiskit Elements</h2>
-          <ul>
-            <li><a href="https://qiskit.org/terra">Terra</a></li>
-            <li><a href="https://qiskit.org/aer">Aer</a></li>
-            <li><a href="https://qiskit.org/aqua">Aqua</a></li>
-            <li><a href="https://qiskit.org/ignis">Ignis</a></li>
-          </ul>
-        </section>
-        <section id="community-links">
-          <h2>Qiskit for Educators</h2>
-          <ul>
-            <li><a href="/textbook">Textbook</a></li>
-            <li><a href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">Coding With Qiskit</a></li>
-          </ul>
-        </section>
-        <section id="social-media-links">
-          <h2>Social Media</h2>
-          <ul>
-            <li><a href="https://github.com/Qiskit">GitHub</a></li>
-            <li><a href="https://qiskit.slack.com/">Slack</a></li>
-            <li><a href="https://twitter.com/Qiskit">Twitter</a></li>
-            <li><a href="https://medium.com/Qiskit">Medium</a></li>
-            <li><a href="https://www.youtube.com/Qiskit">YouTube</a></li>
-            <li><a href="https://quantumcomputing.stackexchange.com/questions/tagged/qiskit">Stack Exchange</a></li>
-            <li><a href="https://www.facebook.com/Qiskit">Facebook</a></li>
-          </ul>
-        </section>
-      </div>
-    </footer>
+    <PageFooter />
   </div>
 </template>
 
@@ -235,6 +204,7 @@ import InnerNavigation from '~/components/menus/InnerNavigation.vue'
 import GatesHeader from '~/components/headers/GatesHeader.vue'
 import PageSection from '~/components/sections/PageSection.vue'
 import FeaturesSection from '~/components/sections/FeaturesSection.vue'
+import PageFooter from '~/components/footers/PageFooter.vue'
 
 @Component({
   components: {
@@ -242,7 +212,8 @@ import FeaturesSection from '~/components/sections/FeaturesSection.vue'
     InnerNavigation,
     GatesHeader,
     PageSection,
-    FeaturesSection
+    FeaturesSection,
+    PageFooter
   },
 
   head() {
@@ -612,56 +583,6 @@ main {
 .feature p {
   text-align: center;
   margin-top: 1rem;
-}
-
-footer {
-  margin-top: 4rem;
-  padding-bottom: 4rem;
-}
-
-footer .content-wrapper {
-  display: flex;
-  flex-direction: row;
-  font-size: 0.9rem;
-  color: var(--primary-color-lightmost);
-}
-
-footer .content-wrapper > section {
-  flex: 1;
-  margin-right: 2rem;
-}
-
-footer .content-wrapper > section:last-child {
-  margin-right: 0;
-}
-
-footer h2 {
-  font-size: inherit;
-  font-weight: normal;
-  padding-bottom: 0.5rem;
-  border-bottom: 1px solid var(--primary-color-lightmost);
-}
-
-footer ul {
-  list-style: none;
-  margin-top: 1.5rem;
-}
-
-footer a {
-  color: inherit;
-  text-decoration: none;
-  display: inline-block;
-  width: 100%;
-}
-
-footer a:hover {
-  color: var(--body-color-light);
-}
-
-footer ul li {
-  margin-top: 0.5rem;
-  display: inline-block;
-  width: 100%;
 }
 
 @media (max-width: 600px) {
