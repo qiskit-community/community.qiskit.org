@@ -11,21 +11,24 @@
     </header>
     <main>
       <header>
-        <div class="gates" aria-hidden="true" />
-        <section id="intro" class="content-wrapper">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/NHTDqdGfzcc"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          />
-          <div class="description">
-            <h1>Qiskit for Educators</h1>
-            <p>Qiskit makes it easy to start learning quantum software to run on real quantum hardware. Teach your students with the same tools used by scientists and engineers worldwide to accelerate research towards practical applications for quantum computing.</p>
-          </div>
-        </section>
+        <GatesHeader
+          class="presentation"
+          main-title="Qiskit for Educators"
+          extra-position="start"
+        >
+          <p>Qiskit makes it easy to start learning quantum software to run on real quantum hardware. Teach your students with the same tools used by scientists and engineers worldwide to accelerate research towards practical applications for quantum computing.</p>
+          <template #extra>
+            <iframe
+              class="header-video"
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/NHTDqdGfzcc"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            />
+          </template>
+        </GatesHeader>
       </header>
       <div>
         <InnerNavigation
@@ -243,11 +246,13 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
 import InnerNavigation from '~/components/menus/InnerNavigation.vue'
+import GatesHeader from '~/components/headers/GatesHeader.vue'
 
 @Component({
   components: {
     QiskitOrgMenu,
-    InnerNavigation
+    InnerNavigation,
+    GatesHeader
   },
 
   head() {
@@ -323,6 +328,23 @@ export default class extends Vue {
   z-index: 100;
 }
 
+.presentation .extra-container {
+  margin-right: 1rem;
+}
+
+.presentation .copy-container {
+  max-width: 40%;
+}
+
+.header-video {
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  box-shadow: 0 13px 27px -5px rgba(50,50,93,.25),
+              0 8px 16px -8px rgba(0,0,0,.5),
+              0 -6px 16px -6px rgba(0,0,0,.025);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -394,61 +416,6 @@ main {
   color: var(--body-color-light);
   background-color: var(--primary-color-darkmost);
   background-image: linear-gradient(150deg, var(--primary-color-darkmost) 15%,var(--primary-color-dark) 70%,var(--primary-color) 94%);
-}
-
-main > header {
-  position: relative;
-  z-index: 0;
-}
-
-.gates {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-  height: 100%;
-  background-image: linear-gradient(150deg,#893ffc 15%,#a167fc 70%,#bc93fc 94%);
-}
-
-#intro {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  height: 100%;
-  margin: 0 auto;
-  position: relative;
-  color: white;
-  padding: 2rem;
-}
-
-#intro iframe {
-  position: relative;
-  margin-right: 2rem;
-  max-width: 560px;
-  height: 315px;
-  box-shadow: 0 13px 27px -5px rgba(50,50,93,.25),
-              0 8px 16px -8px rgba(0,0,0,.5),
-              0 -6px 16px -6px rgba(0,0,0,.025);
-}
-
-#intro .description {
-  max-width: 40%;
-}
-
-.actions {
-  list-style: none;
-  margin-top: 1.5rem;
-}
-
-.actions li {
-  display: inline-block;
-  margin-right: 1rem;
-}
-
-.actions li:last-child {
-  margin-right: 0;
 }
 
 #video-series {
