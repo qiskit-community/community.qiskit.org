@@ -73,12 +73,7 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@mixin framed() {
-  max-width: 1100px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0 2rem;
-}
+@import '~/assets/scss/mixins.scss';
 
 @mixin vertical-navigation-item() {
   font-size: 0.9rem;

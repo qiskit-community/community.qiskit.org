@@ -28,12 +28,14 @@
         </section>
       </header>
       <div>
-        <section id="inner-navigation">
-          <nav class="content-wrapper">
-            <a href="#video-series">Coding With Qiskit Series</a>
-            <a href="#textbook">Qiskit Textbook</a>
-          </nav>
-        </section>
+        <InnerNavigation
+          class="inner-navigation"
+          :sections="[
+            { anchor: 'video-series', label: 'Coding With Qiskit Series' },
+            { anchor: 'textbook', label: 'Qiskit Textbook' },
+            { anchor: 'host-an-event', label: 'Host Qiskit Events' }
+          ]"
+        />
         <section id="video-series">
           <div class="content-wrapper">
             <div class="description">
@@ -240,10 +242,12 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
+import InnerNavigation from '~/components/menus/InnerNavigation.vue'
 
 @Component({
   components: {
-    QiskitOrgMenu
+    QiskitOrgMenu,
+    InnerNavigation
   },
 
   head() {
@@ -311,6 +315,12 @@ export default class extends Vue {
   --secondary-color-darkmost: #6105f2;
   --body-color-light: #e0e0e0;
   --body-color-dark: #333333;
+}
+
+.inner-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 * {
@@ -439,39 +449,6 @@ main > header {
 
 .actions li:last-child {
   margin-right: 0;
-}
-
-#inner-navigation {
-  background-color: #fffe;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-#inner-navigation nav {
-  display: flex;
-  justify-content: center;
-  height: 90px;
-}
-
-#inner-navigation a {
-  display: inline-flex;
-  height: 100%;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: var(--body-color-dark);
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  width: calc(100% / 2);
-  border-right: 1px solid #3334;
-  text-align: center;
-  padding: 0.5rem;
-  font-size: 0.8rem;
-}
-
-#inner-navigation a:last-child {
-  border-right: none;
 }
 
 #video-series {
