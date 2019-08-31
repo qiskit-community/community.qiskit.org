@@ -23,7 +23,7 @@
               allowfullscreen
             />
           </template>
-          <template #features>
+          <!--<template #features>
             <div id="education-benefits">
               <section class="feature">
                 <img class="feature__icon" src="/images/education/iconEventsWhite@3x.png">
@@ -41,7 +41,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores, accusantium ducimus. Iure quae quos labore eaque, reiciendis eius exercitationem possimus, aliquid doloremque nesciunt eum qui sed dicta. Eligendi, itaque sunt.</p>
               </section>
             </div>
-          </template>
+          </template>-->
         </GatesHeader>
       </header>
       <div class="inner-navigation-scope">
@@ -97,10 +97,7 @@
 
           <template #extra>
             <TextbookPreview>
-              <MdContent
-                :render-fn="tocRenderFn"
-                :static-render-fns="tocStaticRenderFns"
-              />
+              <TextbookTOC />
             </TextbookPreview>
           </template>
         </PageSection>
@@ -134,6 +131,8 @@ import PageFooter from '~/components/footers/PageFooter.vue'
 import TextbookPreview from '~/components/education/TextbookPreview.vue'
 import MdContent from '~/components/MdContent.vue'
 import Cta from '~/components/ctas/Cta.vue'
+// @ts-ignore: Cannot find module
+import TextbookTOC from '~/content/education/textbook-toc.md'
 
 @Component({
   layout: 'education',
@@ -146,7 +145,8 @@ import Cta from '~/components/ctas/Cta.vue'
     PageFooter,
     TextbookPreview,
     MdContent,
-    Cta
+    Cta,
+    TextbookTOC: TextbookTOC.vue.component,
   },
 
   head() {

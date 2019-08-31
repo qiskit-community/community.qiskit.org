@@ -11,7 +11,7 @@
           Table of Contents
         </p>
       </div>
-      <div
+      <!--<div
         class="marker"
         data-to="live-code"
         @click.capture="activate"
@@ -20,8 +20,8 @@
         <p class="marker__label">
           Code Samples
         </p>
-      </div>
-      <section
+      </div>-->
+      <!--<section
         id="live-code"
         class="textbook-features__page"
       >
@@ -37,7 +37,7 @@
             sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
           />
         </div>
-      </section>
+      </section>-->
       <section
         id="toc"
         class="textbook-features__page textbook-features__page--active"
