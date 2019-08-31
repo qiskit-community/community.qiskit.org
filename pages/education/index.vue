@@ -146,7 +146,7 @@ import TextbookTOC from '~/content/education/textbook-toc.md'
     TextbookPreview,
     MdContent,
     Cta,
-    TextbookTOC: TextbookTOC.vue.component,
+    TextbookTOC: TextbookTOC.vue.component
   },
 
   head() {
