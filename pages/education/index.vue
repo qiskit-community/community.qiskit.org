@@ -153,15 +153,6 @@ import TextbookTOC from '~/content/education/textbook-toc.md'
     return {
       title: 'Qiskit for Educators'
     }
-  },
-
-  async asyncData() {
-    const filename = 'textbook-toc.md'
-    const textbookToc = await import(`~/content/education/${filename}`)
-    return {
-      tocRenderFn: textbookToc.vue.render,
-      tocStaticRenderFns: textbookToc.vue.staticRenderFns
-    }
   }
 })
 export default class extends Vue {
@@ -213,6 +204,16 @@ export default class extends Vue {
 
 @import url(~/static/css/fonts.css);
 
+html {
+  background-color: var(--primary-color);
+}
+
+main {
+  color: var(--body-color-light);
+  background-color: var(--primary-color-darkmost);
+  background-image: linear-gradient(150deg, var(--primary-color-darkmost) 15%,var(--primary-color-dark) 70%,var(--primary-color) 94%);
+}
+
 #education-benefits {
   display: flex;
   flex-direction: row;
@@ -244,31 +245,6 @@ export default class extends Vue {
 .feature h2 {
   font-size: 1.1rem;
   margin-top: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  #education-benefits {
-    display: block;
-  }
-
-  .feature {
-    padding-right: 0;
-    padding-bottom: 3rem;
-
-    &:last-child {
-      padding-bottom: 0;
-    }
-  }
-}
-
-html {
-  background-color: var(--primary-color);
-}
-
-main {
-  color: var(--body-color-light);
-  background-color: var(--primary-color-darkmost);
-  background-image: linear-gradient(150deg, var(--primary-color-darkmost) 15%,var(--primary-color-dark) 70%,var(--primary-color) 94%);
 }
 
 .inner-navigation {
@@ -328,7 +304,7 @@ main {
   .copy-container {
     width: 50%;
     background-color: white;
-    padding: 4rem 0 4rem 4rem;
+    padding: 0 0 4rem 4rem;
   }
 
   .extra-container {
@@ -375,6 +351,19 @@ main {
     .copy-container {
       width: 100%;
       padding-left: 0;
+    }
+  }
+
+  #education-benefits {
+    display: block;
+  }
+
+  .feature {
+    padding-right: 0;
+    padding-bottom: 3rem;
+
+    &:last-child {
+      padding-bottom: 0;
     }
   }
 }
