@@ -22,6 +22,12 @@
             <li><a class="footer-column__link" href="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY" target="_blank" rel="noopener">Coding With Qiskit</a></li>
             <li><a class="footer-column__link" href="mailto:hello@qiskit.camp" target="_blank" rel="noopener">Host an Event</a></li>
           </ul>
+          <h2 class="footer-column__title">
+            Qiskit Advocates
+          </h2>
+          <ul>
+            <li><a class="footer-column__link" href="/advocates#steps-to-apply">Become an advocate</a></li>
+          </ul>
         </section>
         <section class="footer-column">
           <h2 class="footer-column__title">
@@ -77,10 +83,15 @@
   margin-right: 2rem;
 
   &__title {
+    margin-top: 2rem;
     font-size: inherit;
     font-weight: normal;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid var(--primary-color-lightmost);
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
   &__link {
@@ -105,10 +116,11 @@
   }
 
   .footer-column {
+    margin-top: 2rem;
     margin-right: 0;
 
-    h2 {
-      margin-top: 2rem;
+    &:first-child {
+      margin-top: 0;
     }
   }
 }

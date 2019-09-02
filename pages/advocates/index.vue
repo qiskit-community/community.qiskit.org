@@ -1,294 +1,344 @@
 <template>
-  <main>
-    <header>
-      <section>
-        <div>
-          <h1>{{ attributes.title }}</h1>
-          <p class="header-subtitle">
-            {{ attributes.tagline }}
-          </p>
-        </div>
-      </section>
+  <!-- tabindex is needed to allow hiding the menu in iOS Safari -->
+  <div class="content-root" tabindex="-1">
+    <header id="navigation">
+      <QiskitOrgMenu />
     </header>
-    <MdContent
-      :render-fn="renderFn"
-      :static-render-fns="staticRenderFns"
-    />
-    <section
-      v-for="(section, index) in sections"
-      :key="`section-${index}`"
-      class="advocates"
-    >
-      <h2
-        v-if="!!section.title"
-        :id="section.anchor"
-        class="section-title"
-      >
-        {{ section.title }}
-      </h2>
-      <div class="card-container">
-        <AdvocateProfile
-          v-for="(card, cardIndex) in section.collections.regular"
-          :key="`card-${cardIndex}`"
-          :name="card.attributes.name"
-          :image="`/images/advocates/${card.attributes.image}`"
-          :location="card.attributes.location"
-          :areas="card.attributes.areas"
-          major
+    <main>
+      <header>
+        <GatesHeader
+          id="presentation"
+          main-title="Qiskit Advocates"
+        >
+          <p>A global program that provides support to the individuals who actively work on assisting and contributing to the Qiskit Community.</p>
+          <template #features>
+            <div id="advocates-benefits">
+              <section class="feature">
+                <img class="feature__icon" src="/images/education/iconCommunityWhite@3x.png">
+                <h2>Network with experts and enthusiasts</h2>
+                <p>Advocates will be added to a group of quantum experts and will be apart of regular information sharing sessions.</p>
+              </section>
+              <section class="feature">
+                <img class="feature__icon" src="/images/education/iconCommunityWhite@3x.png">
+                <h2>Access to Qiskit core members and projects</h2>
+                <p>Advocates will receive special access to core members of the Qiskit team for questions and brainstorming ideas. They will also have the opportunity to work on new Qiskit projects.</p>
+              </section>
+              <section class="feature">
+                <img class="feature__icon" src="/images/education/iconDemoWhite@3x.png">
+                <h2>Increased visibility for your work</h2>
+                <p>All advocates will have the opportunity to have their work supported and highlighted by IBM. Qiskit advocates will also have a public presence on the advocates landing page.</p>
+              </section>
+              <section class="feature">
+                <img class="feature__icon" src="/images/education/iconEventsWhite@3x.png">
+                <h2>Invitation to events</h2>
+                <p>Active Qiskit Advocates will be invited to attend global events created for the quantum computing community.</p>
+              </section>
+            </div>
+          </template>
+        </GatesHeader>
+      </header>
+      <div class="inner-navigation-scope">
+        <InnerNavigation
+          class="inner-navigation"
+          :sections="[
+            { anchor: 'steps-to-apply', label: 'Become an advocate' },
+            { anchor: 'advocate-map' , label: 'Around the world' },
+            { anchor: 'meet-the-advocates', label: 'Meet the advocates' },
+          ]"
         />
+        <PageSection id="steps-to-apply">
+          <h2>Steps to apply</h2>
+          <p>
+            Accompany Abraham Asfaw through a series of video tutorials
+            in our YouTube Channel explaining quantum computing through
+            the use of Qiskit.
+          </p>
+          <ul class="actions">
+            <li>
+              <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+                View all episodes
+              </Cta>
+            </li>
+          </ul>
+        </PageSection>
+        <PageSection id="advocates-map" extra-position="start">
+          <h2>Around the world</h2>
+          <p>
+            Leverage the power of quantum computing using Qiskit with this
+            university course supplement covering introductory materials,
+            advanced algorithms and hardware. Include problem sets and
+            exercises for students.
+          </p>
+          <ul class="actions">
+            <li>
+              <Cta to="/textbook/">
+                Discover more
+              </Cta>
+            </li>
+          </ul>
+        </PageSection>
+        <PageSection id="meet-the-advocates">
+          <h2>Meet the advocates</h2>
+          <div class="advocate-cards-container">
+            <AdvocateCard
+              v-for="(card, index) in advocateCards"
+              :key="`advocate-${index}`"
+              :name="card.attributes.name"
+              :image="`/images/advocates/${card.attributes.image}`"
+              :location="card.attributes.location"
+              :areas="card.attributes.areas"
+            />
+          </div>
+        </PageSection>
       </div>
-    </section>
-  </main>
+    </main>
+    <PageFooter />
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import AdvocateProfile from '~/components/AdvocateProfile.vue'
-import Button from '~/components/Button.vue'
-import MdContent from '~/components/MdContent.vue'
+import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
+import InnerNavigation from '~/components/menus/InnerNavigation.vue'
+import GatesHeader from '~/components/headers/GatesHeader.vue'
+import PageSection from '~/components/sections/PageSection.vue'
+import PageFooter from '~/components/footers/PageFooter.vue'
+import TextbookPreview from '~/components/education/TextbookPreview.vue'
+import Cta from '~/components/ctas/Cta.vue'
+// @ts-ignore: Cannot find module
+import TextbookTOC from '~/content/education/textbook-toc.md'
 
 @Component({
-  layout: 'secondary',
+  layout: 'education',
 
-  components: { AdvocateProfile, Button, MdContent },
+  components: {
+    QiskitOrgMenu,
+    InnerNavigation,
+    GatesHeader,
+    PageSection,
+    PageFooter,
+    Cta
+  },
 
-  async asyncData(ctx) {
-    const index = await import(`~/content/advocates/index/${'master.md'}`)
-    const sections = await ctx.app.deepLoadCardToc('profiles.md', {
-      basePath: 'advocates/index/'
-    })
-
+  head() {
     return {
-      sections,
-      attributes: index.attributes,
-      renderFn: index.vue.render,
-      staticRenderFns: index.vue.staticRenderFns
+      title: 'Qiskit Advocates'
     }
   }
 })
-export default class extends Vue { }
+export default class extends Vue {
+  activate(evt: PointerEvent) {
+    const thisSelector = evt.currentTarget && evt.currentTarget as HTMLElement
+    if (!thisSelector || thisSelector.classList.contains('is-active')) {
+      return
+    }
+
+    // Change selector enabled
+    const previouslyEnabled = document.querySelector('.selector.is-active')
+    if (previouslyEnabled) {
+      previouslyEnabled.classList.remove('is-active')
+    }
+    thisSelector.classList.add('is-active')
+
+    // Dismiss the current active section
+    const self = this
+    function clearOut(evt: Event) {
+      if (evt.currentTarget) {
+        evt.currentTarget.removeEventListener('transitionend', clearOut)
+        self.clearIsOut(evt.currentTarget as HTMLElement)
+      }
+    }
+    const activeSection = document.querySelector('section.is-active')
+    if (activeSection) {
+      activeSection.addEventListener('transitionend', clearOut)
+      activeSection.classList.add('is-out')
+      activeSection.classList.remove('is-active')
+    }
+
+    // Activate the new one
+    const newSection = document.querySelector(`#${thisSelector.dataset.to}`)
+    if (newSection) {
+      newSection.classList.add('is-active')
+    }
+  }
+
+  clearIsOut(target: HTMLElement) {
+    target.classList.remove('is-out')
+  }
+}
 </script>
 
-<style>
-main {
-  position: relative;
-  top: 60px;
-}
+<style lang="scss">
+@import '~/assets/scss/mixins.scss';
+@import '~/assets/scss/theme.scss';
+@import '~/assets/scss/layout.scss';
 
-header {
-  height: calc(100vh - 63px);
-  width: auto;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-image: url(/images/advocates/advocates-decoration.svg);
-  background-color: white;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
+@import url(~/static/css/fonts.css);
 
-header > section {
-  position: relative;
-  width: 100%;
-  padding: 1rem;
+#advocates-benefits {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-}
 
-header > section > div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-header img {
-  height: 100vw;
-  position: absolute;
-  width: auto;
-  top: 10px;
-}
-
-header h1 {
-  font-size: 50px;
-  margin-left: 1.5rem;
-  text-align: center;
-}
-
-header .header-subtitle {
-  font-weight: bold;
-  font-size: 1rem;
-  text-align: center;
-  max-width: 30rem;
-  margin: 0 auto;
-}
-
-@media (max-width: 800px) {
-
-  header section {
-    display: block;
-    text-align: center;
-  }
-
-  header h1 {
-    margin: 0;
-    margin-top: 2rem;
-  }
-
-}
-
-@media (max-height: 390px) {
-  header h1 {
-    margin: 0;
-    margin-top: 0.5rem;
-  }
-
-  header section {
-    padding: 1rem;
+  & > * {
+    flex: 1;
   }
 }
 
-section > h2 {
-  color: black;
-  font-size: 1.5em;
-  margin-bottom: 1.5em;
-  margin-top: 1em;
-}
-
-section > h2::before {
-  content: none;
-}
-
-.join > h2,
-.apply > h2 {
-  color: white;
-}
-
-.join,
-.apply,
-.advocates {
-  padding: 0 5%;
-}
-
-.join {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
-  width: 100%;
-  background-color: var(--secondary-color);
-  color: #FFFFFF;
-}
-
-.join > ul {
-  list-style: none;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-column-gap: 2rem;
-  margin: 1rem 3rem 1rem 0;
-}
-
-.join > ul > li {
-  margin: 1em 1em 2em;
-}
-
-.join p,
-.join h2 {
-  margin-left: 4rem;
-}
-
-.join > ul > li > p:first-of-type {
-  float: left;
-  margin-left: 0;
-}
-
-.join > ul > li > p > img {
+.feature {
   padding-right: 1rem;
-  height: 3rem;
+
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.feature__icon {
+  position: relative;
   width: 3rem;
-  border-radius: 0;
+  height: 3rem;
 }
 
-.card-container {
-  display: grid;
-  grid-template-columns: repeat(3, 33.333%);
-  grid-gap: 1rem;
-  align-items: stretch;
+.feature p {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
 }
 
-.advocate-card {
-  padding: 1em;
-  box-shadow: 10px 10px 11px -10px var(--shadow-color);
-  border: 1px solid var(--shadow-color);
+.feature h2 {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
 }
 
-.apply {
-  background-color: var(--gray-color);
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  color: #FFFFFF;
-  padding-bottom: 3rem;
+@media (max-width: 600px) {
+  #education-benefits {
+    display: block;
+  }
+
+  .feature {
+    padding-right: 0;
+    padding-bottom: 3rem;
+
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
 }
 
-.apply > ol {
+html {
+  background-color: var(--primary-color);
+}
+
+main {
+  color: var(--body-color-light);
+  background-color: var(--primary-color-darkmost);
+  background-image: linear-gradient(150deg, var(--primary-color-darkmost) 15%,var(--primary-color-dark) 70%,var(--primary-color) 94%);
+}
+
+.inner-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.actions {
+  margin-top: 1rem;
   list-style: none;
-  counter-reset: my-awesome-counter;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
 }
 
-.apply > ol > li {
-  margin: 0.5em;
-  position: relative;
-  counter-increment: my-awesome-counter;
-  --size: 1.5rem;
-  padding-left: calc(var(--size) + 0.5rem);
-}
-
-.apply > ol > li::before {
-  content: counter(my-awesome-counter);
-  color: var(--gray-color);
-  font-size: 1rem;
-  font-weight: bold;
-  position: relative;
-  margin-right: 0.5rem;
-  display: inline-block;
-  line-height: var(--size);
-  width: var(--size);
-  height: var(--size);
-  background: white;
-  border-radius: 50%;
-  text-align: center;
-  margin-left: calc(-1 * (var(--size) + 0.5rem));
-}
-
-@media (max-width: 800px) {
-  .join > ul {
-    display: block;
+#presentation {
+  .extra-container {
+    margin-right: 1rem;
   }
 
-  .card-container {
-    grid-gap: 0;
-  }
-}
-
-@media (max-width: 550px) {
-  .join > ul {
-    display: block;
+  .copy-container {
+    max-width: 40%;
   }
 
-  .card-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 0.5rem;
-  }
-
-  .advocate-card {
+  .header-video {
     width: 100%;
+    max-width: 560px;
+    height: 315px;
+    box-shadow: 0 13px 27px -5px rgba(50,50,93,.25),
+                0 8px 16px -8px rgba(0,0,0,.5),
+                0 -6px 16px -6px rgba(0,0,0,.025);
+  }
+}
+
+#video-series {
+  .page-section {
+    @include framed();
+  }
+
+  .episode {
+    margin-left: 2rem;
+    transform: perspective(1200px) rotateY(-20deg) rotateX(5deg);
+    border-radius: 10px;
+    box-shadow: 25px 35px 30px 0 #000f;
+  }
+}
+
+#textbook {
+  color: var(--body-color-dark);
+  background-color: white;
+  padding-bottom: 0rem;
+
+  .page-section {
+    @include framed();
+  }
+
+  .copy-container {
+    width: 50%;
+    background-color: white;
+    padding: 4rem 0 4rem 4rem;
+  }
+
+  .extra-container {
+    width: 60%;
+    margin-left: -10%;
+  }
+}
+
+#host-an-event {
+  background-image:
+    linear-gradient(#000000a0 0%, #000000a0 100%),
+    url('/images/education/host-an-event-bg.jpg');
+  background-position: 0, top;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .page-section {
+    @include framed();
+  }
+}
+
+@media (max-width: 600px) {
+  .inner-navigation {
+    position: static;
+  }
+
+  #presentation {
+    .intro {
+      display: block;
+    }
+
+    .copy-container {
+      max-width: 100%;
+    }
+
+    .header-video {
+      display: none;
+    }
+  }
+
+  #textbook {
+    min-height: auto;
+
+    .copy-container {
+      width: 100%;
+      padding-left: 0;
+    }
   }
 }
 </style>
