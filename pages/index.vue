@@ -5,7 +5,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import { MetaPropertyEquiv } from 'vue-meta';
+import { MetaPropertyEquiv } from 'vue-meta'
 
 @Component({
   head() {
