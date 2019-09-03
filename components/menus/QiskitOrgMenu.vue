@@ -16,15 +16,14 @@
             <h2>Learn more</h2>
             <a class="vertical-navigation__item vertical-navigation__item--active" href="/">Community</a>
             <div class="vertical-community-navigation">
-              <nuxt-link
+              <a
                 v-for="(link, index) in links"
                 :key="index"
                 class="vertical-community-navigation__item"
-                :to="link.to"
-                no-prefetch
+                :href="link.to"
               >
                 {{ link.label }}
-              </nuxt-link>
+              </a>
             </div>
             <a class="vertical-navigation__item" href="https://nbviewer.jupyter.org/github/Qiskit/qiskit-tutorials/blob/master/qiskit/1_start_here.ipynb">Tutorials</a>
             <a class="vertical-navigation__item" href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
@@ -47,15 +46,17 @@
     <div class="community-menu menu-container menu-container--light">
       <section class="menu menu--framed">
         <nav class="navigation-group navigation-group--right-aligned">
-          <nuxt-link
+          <a
             v-for="(link, index) in links"
             :key="index"
-            class="navigation-group__item"
-            :to="link.to"
-            no-prefetch
+            :class="[
+              'navigation-group__item',
+              isActive(link.to) ? 'nuxt-link-active' : ''
+            ].join(' ')"
+            :href="link.to"
           >
             {{ link.label }}
-          </nuxt-link>
+          </a>
         </nav>
       </section>
     </div>
@@ -75,6 +76,10 @@ export default class extends Vue {
       { to: '/advocates', label: 'Advocates' }
     ]
   }) links
+
+  isActive(path) {
+    return this.$route.path === path
+  }
 }
 </script>
 
