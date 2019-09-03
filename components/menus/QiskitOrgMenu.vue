@@ -19,7 +19,10 @@
               <a
                 v-for="(link, index) in links"
                 :key="index"
-                class="vertical-community-navigation__item"
+                :class="[
+                  'vertical-community-navigation__item',
+                  isActive(link.to) ? 'nuxt-link-active' : ''
+                ].join(' ')"
                 :href="link.to"
               >
                 {{ link.label }}

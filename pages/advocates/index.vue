@@ -191,6 +191,11 @@ main {
   .page-section {
     @include framed();
   }
+
+  ol {
+    margin-top: 1rem;
+    list-style-position: inside
+  }
 }
 
 #around-the-world {
@@ -228,8 +233,32 @@ main {
 }
 
 @media (max-width: 600px) {
+  #advocates-benefits {
+    display: flex;
+    flex-direction: column;
+
+    & > * {
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+
   .inner-navigation {
     position: static;
+  }
+
+  #around-the-world {
+    display: none;
+  }
+
+  #meet-the-advocates {
+    .advocate-cards-container {
+      display: block;
+
+      & > * {
+        margin-bottom: 1rem;
+      }
+    }
   }
 }
 </style>

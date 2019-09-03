@@ -53,6 +53,11 @@ import { Component, Prop } from 'vue-property-decorator'
       { name: 'Miami', latitude: 25.76, longitude: -80.19, fillKey: 'city', radius: 5 },
       { name: 'Pawnee', latitude: 36.33, longitude: -96.80, fillKey: 'city', radius: 5 }
     ])
+    window.onresize = () => {
+      requestAnimationFrame(() => {
+        map.resize()
+      })
+    }
   }
 })
 export default class extends Vue {
