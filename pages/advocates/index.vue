@@ -101,8 +101,6 @@ import AdvocateCard from '~/components/cards/AdvocateCard.vue'
 import CompactFeature from '~/components/features/CompactFeature.vue'
 
 @Component({
-  layout: 'education',
-
   components: {
     QiskitOrgMenu,
     InnerNavigation,
@@ -245,10 +243,6 @@ main {
 
   .inner-navigation {
     position: static;
-  }
-
-  #around-the-world {
-    display: none;
   }
 
   #meet-the-advocates {
