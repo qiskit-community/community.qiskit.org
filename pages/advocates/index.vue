@@ -6,76 +6,70 @@
     </header>
     <main>
       <header>
-        <GatesHeader
+        <CanvasHeader
           id="presentation"
           main-title="Qiskit Advocates"
         >
           <p>A global program that provides support to the individuals who actively work on assisting and contributing to the Qiskit Community.</p>
           <template #features>
             <div id="advocates-benefits">
-              <section class="feature">
-                <img class="feature__icon" src="/images/education/iconCommunityWhite@3x.png">
+              <CompactFeature
+                icon="Community"
+              >
                 <h2>Network with experts and enthusiasts</h2>
                 <p>Advocates will be added to a group of quantum experts and will be apart of regular information sharing sessions.</p>
-              </section>
-              <section class="feature">
-                <img class="feature__icon" src="/images/education/iconQiskitWhite.png">
+              </CompactFeature>
+              <CompactFeature
+                icon="Qiskit"
+              >
                 <h2>Access to Qiskit core members and projects</h2>
                 <p>Advocates will receive special access to core members of the Qiskit team for questions and brainstorming ideas. They will also have the opportunity to work on new Qiskit projects.</p>
-              </section>
-              <section class="feature">
-                <img class="feature__icon" src="/images/education/iconDemoWhite@3x.png">
+              </CompactFeature>
+              <CompactFeature
+                icon="Visibility"
+              >
                 <h2>Increased visibility for your work</h2>
                 <p>All advocates will have the opportunity to have their work supported and highlighted by IBM. Qiskit advocates will also have a public presence on the advocates landing page.</p>
-              </section>
-              <section class="feature">
-                <img class="feature__icon" src="/images/education/iconEventsWhite@3x.png">
+              </CompactFeature>
+              <CompactFeature
+                icon="Events"
+              >
                 <h2>Invitation to events</h2>
                 <p>Active Qiskit Advocates will be invited to attend global events created for the quantum computing community.</p>
-              </section>
+              </CompactFeature>
             </div>
           </template>
-        </GatesHeader>
+        </CanvasHeader>
       </header>
       <div class="inner-navigation-scope">
         <InnerNavigation
           class="inner-navigation"
           :sections="[
             { anchor: 'steps-to-apply', label: 'Become an advocate' },
-            { anchor: 'advocate-map' , label: 'Around the world' },
+            { anchor: 'around-the-world' , label: 'Around the world' },
             { anchor: 'meet-the-advocates', label: 'Meet the advocates' },
           ]"
         />
         <PageSection id="steps-to-apply">
           <h2>Steps to apply</h2>
           <p>
-            Accompany Abraham Asfaw through a series of video tutorials
-            in our YouTube Channel explaining quantum computing through
-            the use of Qiskit.
+            <ol>
+              <li>Click on the "Apply now" button below.</li>
+              <li>Complete the test attached to the application form.</li>
+              <li>Upload the test results to the application form and hit submit.</li>
+            </ol>
           </p>
           <ul class="actions">
             <li>
               <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
-                View all episodes
+                Apply now
               </Cta>
             </li>
           </ul>
         </PageSection>
-        <PageSection id="advocates-map" extra-position="start">
+        <PageSection id="around-the-world" extra-position="start">
           <h2>Around the world</h2>
-          <p>
-            Leverage the power of quantum computing using Qiskit with this
-            university course supplement covering introductory materials,
-            advanced algorithms and hardware. Include problem sets and
-            exercises for students.
-          </p>
-          <ul class="actions">
-            <li>
-              <Cta to="/textbook/">
-                Discover more
-              </Cta>
-            </li>
-          </ul>
+          <div id="advocates-map" />
         </PageSection>
         <PageSection id="meet-the-advocates">
           <h2>Meet the advocates</h2>
@@ -101,11 +95,12 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
 import InnerNavigation from '~/components/menus/InnerNavigation.vue'
-import GatesHeader from '~/components/headers/GatesHeader.vue'
+import CanvasHeader from '~/components/headers/CanvasHeader.vue'
 import PageSection from '~/components/sections/PageSection.vue'
 import PageFooter from '~/components/footers/PageFooter.vue'
 import Cta from '~/components/ctas/Cta.vue'
 import AdvocateCard from '~/components/cards/AdvocateCard.vue'
+import CompactFeature from '~/components/features/CompactFeature.vue'
 
 @Component({
   layout: 'education',
@@ -113,11 +108,12 @@ import AdvocateCard from '~/components/cards/AdvocateCard.vue'
   components: {
     QiskitOrgMenu,
     InnerNavigation,
-    GatesHeader,
+    CanvasHeader,
     PageSection,
     PageFooter,
     Cta,
-    AdvocateCard
+    AdvocateCard,
+    CompactFeature
   },
 
   head() {
@@ -137,6 +133,44 @@ import AdvocateCard from '~/components/cards/AdvocateCard.vue'
       renderFn: index.vue.render,
       staticRenderFns: index.vue.staticRenderFns
     }
+  },
+
+  mounted() {
+    require('d3')
+    require('topojson')
+    const Datamap = require('datamaps')
+    const map = new Datamap({
+      element: document.getElementById('advocates-map'),
+      responsive: true,
+      projection: 'mercator',
+      geographyConfig: {
+        highlightOnHover: false,
+        popupOnHover: false,
+        borderColor: 'var(--primary-color-lightmost)'
+      },
+      fills: {
+        defaultFill: '#0000',
+        city: 'var(--secondary-color)'
+      },
+      bubblesConfig: {
+        borderWidth: 0,
+        popupTemplate(_, data) {
+          return `<div class="map-tip">${data.name}</div>`
+        },
+        highlightFillColor: 'var(--secondary-color-lightmost)'
+      }
+    })
+    map.bubbles([
+      { name: 'Madrid', latitude: 40.41, longitude: -3.7, fillKey: 'city', radius: 5 },
+      { name: 'New York', latitude: 40.71, longitude: -74, fillKey: 'city', radius: 5 },
+      { name: 'Basel', latitude: 47.56, longitude: 7.5, fillKey: 'city', radius: 5 },
+      { name: 'Whashington D.C.', latitude: 38.89, longitude: -77.01, fillKey: 'city', radius: 5 },
+      { name: 'Surrey', latitude: 51.31, longitude: -0.55, fillKey: 'city', radius: 5 },
+      { name: 'Tokyo', latitude: 35.68, longitude: 139.69, fillKey: 'city', radius: 5 },
+      { name: 'Rome', latitude: 41.90, longitude: 12.49, fillKey: 'city', radius: 5 },
+      { name: 'Miami', latitude: 25.76, longitude: -80.19, fillKey: 'city', radius: 5 },
+      { name: 'Pawnee', latitude: 36.33, longitude: -96.80, fillKey: 'city', radius: 5 }
+    ])
   }
 })
 export default class extends Vue { }
@@ -179,37 +213,75 @@ main {
   & > * {
     flex: 1;
   }
-}
 
-.feature {
-  padding-right: 1rem;
+  .compact-feature {
+    padding-right: 1rem;
 
-  &:last-child {
-    padding-right: 0;
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
 
-.feature__icon {
-  position: relative;
-  width: 3rem;
-  height: 3rem;
+#steps-to-apply {
+  color: var(--body-color-dark);
+  background-color: white;
+
+  .page-section {
+    @include framed();
+  }
 }
 
-.feature p {
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-}
+#around-the-world {
+  h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 200;
+    letter-spacing: 0.3em;
+  }
 
-.feature h2 {
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
+  .page-section {
+    width: calc(100% - 4rem);
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .copy-container {
+    position: relative;
+  }
+
+  .map-tip {
+    position: relative;
+    font-size: 0.8rem;
+    font-weight: 200;
+    color: white;
+    background-color: var(--secondary-color);
+    padding: 0.2rem 0.6rem;
+    transform: translateX(-50%);
+
+    &::before {
+      content: "";
+      display: inline-block;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      font-size: 0;
+      border: 8px solid transparent;
+      border-bottom: 8px solid var(--secondary-color);
+      transform: translate(-50%);
+    }
+  }
 }
 
 #meet-the-advocates {
   h2 {
     text-align: center;
     text-transform: uppercase;
-    font-weight: normal;
+    font-weight: 200;
+    letter-spacing: 0.3em;
   }
 
   .page-section {

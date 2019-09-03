@@ -65,6 +65,7 @@ export default class extends Vue {
       height: 350px;
       background-repeat: no-repeat;
       background-size: cover, cover, cover;
+      background-position: top center;
     }
 
     &__copy {
