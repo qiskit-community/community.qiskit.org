@@ -1,114 +1,105 @@
 <template>
-  <!-- tabindex is needed to allow hiding the menu in iOS Safari -->
-  <div class="content-root" tabindex="-1">
-    <header id="navigation">
-      <QiskitOrgMenu />
+  <main>
+    <header>
+      <GatesHeader
+        id="presentation"
+        main-title="Qiskit for Educators"
+        extra-position="start"
+      >
+        <p>Qiskit makes it easy to start learning quantum software to run on real quantum hardware. Teach your students with the same tools used by scientists and engineers worldwide to accelerate research towards practical applications for quantum computing.</p>
+        <template #extra>
+          <iframe
+            class="header-video"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/NHTDqdGfzcc"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </template>
+      </GatesHeader>
     </header>
-    <main>
-      <header>
-        <GatesHeader
-          id="presentation"
-          main-title="Qiskit for Educators"
-          extra-position="start"
-        >
-          <p>Qiskit makes it easy to start learning quantum software to run on real quantum hardware. Teach your students with the same tools used by scientists and engineers worldwide to accelerate research towards practical applications for quantum computing.</p>
-          <template #extra>
-            <iframe
-              class="header-video"
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/NHTDqdGfzcc"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-          </template>
-        </GatesHeader>
-      </header>
-      <div class="inner-navigation-scope">
-        <InnerNavigation
-          class="inner-navigation"
-          :sections="[
-            { anchor: 'video-series', label: 'Coding With Qiskit Series' },
-            { anchor: 'textbook', label: 'Qiskit Textbook' },
-            { anchor: 'host-an-event', label: 'Host Qiskit Events' }
-          ]"
-        />
-        <PageSection id="video-series">
-          <h2>Coding With Qiskit Video Series</h2>
-          <p>
-            Accompany Abraham Asfaw through a series of video tutorials
-            in our YouTube Channel explaining quantum computing through
-            the use of Qiskit.
-          </p>
-          <ul class="actions">
-            <li>
-              <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
-                View all episodes
-              </Cta>
-            </li>
-          </ul>
-          <template #extra>
-            <iframe
-              class="episode"
-              width="560"
-              height="315"
-              src="https://www.youtube.com/embed/RrUTwq5jKM4"
-              frameborder="0"
-              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen
-            />
-          </template>
-        </PageSection>
-        <PageSection id="textbook" extra-position="start">
-          <h2>Qiskit Textbook</h2>
-          <p>
-            Leverage the power of quantum computing using Qiskit with this
-            university course supplement covering introductory materials,
-            advanced algorithms and hardware. Include problem sets and
-            exercises for students.
-          </p>
-          <ul class="actions">
-            <li>
-              <Cta to="/textbook/">
-                Discover more
-              </Cta>
-            </li>
-          </ul>
+    <div class="inner-navigation-scope">
+      <InnerNavigation
+        class="inner-navigation"
+        :sections="[
+          { anchor: 'video-series', label: 'Coding With Qiskit Series' },
+          { anchor: 'textbook', label: 'Qiskit Textbook' },
+          { anchor: 'host-an-event', label: 'Host Qiskit Events' }
+        ]"
+      />
+      <PageSection id="video-series">
+        <h2>Coding With Qiskit Video Series</h2>
+        <p>
+          Accompany Abraham Asfaw through a series of video tutorials
+          in our YouTube Channel explaining quantum computing through
+          the use of Qiskit.
+        </p>
+        <ul class="actions">
+          <li>
+            <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+              View all episodes
+            </Cta>
+          </li>
+        </ul>
+        <template #extra>
+          <iframe
+            class="episode"
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/RrUTwq5jKM4"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          />
+        </template>
+      </PageSection>
+      <PageSection id="textbook" extra-position="start">
+        <h2>Qiskit Textbook</h2>
+        <p>
+          Leverage the power of quantum computing using Qiskit with this
+          university course supplement covering introductory materials,
+          advanced algorithms and hardware. Include problem sets and
+          exercises for students.
+        </p>
+        <ul class="actions">
+          <li>
+            <Cta to="/textbook/">
+              Discover more
+            </Cta>
+          </li>
+        </ul>
 
-          <template #extra>
-            <TextbookPreview>
-              <TextbookTOC />
-            </TextbookPreview>
-          </template>
-        </PageSection>
-        <PageSection id="host-an-event">
-          <h2>Host Qiskit Events</h2>
-          <p>
-            Bring Qiskit experts to your campus for guest lectures, hackathons, and other events. Guest lecture topics can range from quantum basics to advanced algorithms.
-          </p>
-          <ul class="actions">
-            <li>
-              <Cta to="mailto:hello@qiskit.org">
-                Request an event
-              </Cta>
-            </li>
-          </ul>
-        </PageSection>
-      </div>
-    </main>
-    <PageFooter />
-  </div>
+        <template #extra>
+          <TextbookPreview>
+            <TextbookTOC />
+          </TextbookPreview>
+        </template>
+      </PageSection>
+      <PageSection id="host-an-event">
+        <h2>Host Qiskit Events</h2>
+        <p>
+          Bring Qiskit experts to your campus for guest lectures, hackathons, and other events. Guest lecture topics can range from quantum basics to advanced algorithms.
+        </p>
+        <ul class="actions">
+          <li>
+            <Cta to="mailto:hello@qiskit.org">
+              Request an event
+            </Cta>
+          </li>
+        </ul>
+      </PageSection>
+    </div>
+  </main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
-import QiskitOrgMenu from '~/components/menus/QiskitOrgMenu.vue'
 import InnerNavigation from '~/components/menus/InnerNavigation.vue'
 import GatesHeader from '~/components/headers/GatesHeader.vue'
 import PageSection from '~/components/sections/PageSection.vue'
-import PageFooter from '~/components/footers/PageFooter.vue'
 import TextbookPreview from '~/components/education/TextbookPreview.vue'
 import MdContent from '~/components/MdContent.vue'
 import Cta from '~/components/ctas/Cta.vue'
@@ -117,11 +108,9 @@ import TextbookTOC from '~/content/education/textbook-toc.md'
 
 @Component({
   components: {
-    QiskitOrgMenu,
     InnerNavigation,
     GatesHeader,
     PageSection,
-    PageFooter,
     TextbookPreview,
     MdContent,
     Cta,
@@ -134,58 +123,11 @@ import TextbookTOC from '~/content/education/textbook-toc.md'
     }
   }
 })
-export default class extends Vue {
-  activate(evt: PointerEvent) {
-    const thisSelector = evt.currentTarget && evt.currentTarget as HTMLElement
-    if (!thisSelector || thisSelector.classList.contains('is-active')) {
-      return
-    }
-
-    // Change selector enabled
-    const previouslyEnabled = document.querySelector('.selector.is-active')
-    if (previouslyEnabled) {
-      previouslyEnabled.classList.remove('is-active')
-    }
-    thisSelector.classList.add('is-active')
-
-    // Dismiss the current active section
-    const self = this
-    function clearOut(evt: Event) {
-      if (evt.currentTarget) {
-        evt.currentTarget.removeEventListener('transitionend', clearOut)
-        self.clearIsOut(evt.currentTarget as HTMLElement)
-      }
-    }
-    const activeSection = document.querySelector('section.is-active')
-    if (activeSection) {
-      activeSection.addEventListener('transitionend', clearOut)
-      activeSection.classList.add('is-out')
-      activeSection.classList.remove('is-active')
-    }
-
-    // Activate the new one
-    const newSection = document.querySelector(`#${thisSelector.dataset.to}`)
-    if (newSection) {
-      newSection.classList.add('is-active')
-    }
-  }
-
-  clearIsOut(target: HTMLElement) {
-    target.classList.remove('is-out')
-  }
-}
+export default class extends Vue { }
 </script>
 
 <style lang="scss">
 @import '~/assets/scss/mixins.scss';
-@import '~/assets/scss/theme.scss';
-@import '~/assets/scss/layout.scss';
-
-@import url(~/static/css/fonts.css);
-
-html {
-  background-color: var(--primary-color);
-}
 
 main {
   color: var(--body-color-light);
@@ -274,20 +216,25 @@ main {
 #textbook {
   color: var(--body-color-dark);
   background-color: white;
-  padding-bottom: 0rem;
+  padding-bottom: 4rem;
 
   .page-section {
     @include framed();
   }
 
   .copy-container {
+    position: sticky;
+    top: 120px;
+    align-self: start;
     width: 50%;
     background-color: white;
-    padding: 0 0 4rem 4rem;
+    padding: 0;
+    padding-left: 4rem;
   }
 
   .extra-container {
     width: 60%;
+    margin-top: -6rem;
     margin-left: -10%;
   }
 }
@@ -343,6 +290,18 @@ main {
 
     &:last-child {
       padding-bottom: 0;
+    }
+  }
+}
+
+@media (max-height: 600px) {
+  .inner-navigation {
+    position: static;
+  }
+
+  #textbook {
+    .copy-container {
+      top: 1rem;
     }
   }
 }

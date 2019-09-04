@@ -11,33 +11,6 @@
           Table of Contents
         </p>
       </div>
-      <!--<div
-        class="marker"
-        data-to="live-code"
-        @click.capture="activate"
-      >
-        <div class="marker__decoration" aria-hidden="true" />
-        <p class="marker__label">
-          Code Samples
-        </p>
-      </div>-->
-      <!--<section
-        id="live-code"
-        class="textbook-features__page"
-      >
-        <div class="content">
-          <iframe
-            height="600px"
-            width="100%"
-            src="https://repl.it/@delapuente/BellState?lite=true"
-            scrolling="no"
-            frameborder="no"
-            allowtransparency="true"
-            allowfullscreen="true"
-            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
-          />
-        </div>
-      </section>-->
       <section
         id="toc"
         class="textbook-features__page textbook-features__page--active"
@@ -101,13 +74,12 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .textbook-features {
   position: relative;
-  min-height: calc(600px);
 
   &::before {
     content: "";
     display: block;
     position: absolute;
-    bottom: 4rem;
+    bottom: -1rem;
     z-index: 1;
     width: 100%;
     height: 100px;
@@ -119,12 +91,9 @@ export default class extends Vue {
 }
 
 .textbook-features__page {
-  position: absolute;
+  position: relative;
   width: 100%;
   opacity: 0;
-  position: absolute;
-  bottom: 5rem;
-  height: 600px;
   background: white;
   border-radius: 8px;
   padding: 2rem;
@@ -158,7 +127,7 @@ export default class extends Vue {
 
 .marker {
   position: absolute;
-  bottom: 5rem;
+  top: 5rem;
   left: calc(100% - 2.8rem);
   transition: transform 200ms;
   cursor: pointer;
@@ -183,7 +152,7 @@ export default class extends Vue {
 .marker__label {
   margin: 0;
   position: absolute;
-  bottom: 0.7rem;
+  bottom: 0.5rem;
   right: 1rem;
   writing-mode: vertical-rl;
   height: 100%;
