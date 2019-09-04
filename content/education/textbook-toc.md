@@ -1,4 +1,4 @@
-## Table of Contents:
+## Table of Contents
 
 ### Chapter 0. Introduction and Prerequisites
 - Hello World

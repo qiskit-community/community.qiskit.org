@@ -4,3 +4,10 @@
   margin-right: auto;
   padding: 0 2rem;
 }
+
+@mixin elegant-title() {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 200;
+  letter-spacing: 0.3em;
+}
