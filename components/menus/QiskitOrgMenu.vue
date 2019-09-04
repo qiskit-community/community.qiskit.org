@@ -32,7 +32,7 @@
             <a class="vertical-navigation__item" href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
           </nav>
         </section>
-        <a class="link-to-home" href="https://qiskit.org">Qiskit&nbsp;™</a>
+        <a class="link-to-home" href="https://qiskit.org">Qiskit</a>
         <nav class="navigation-group navigation-group--with-separator">
           <a class="navigation-group__item" href="https://qiskit.org/terra">Terra</a>
           <a class="navigation-group__item" href="https://qiskit.org/aer">Aer</a>
