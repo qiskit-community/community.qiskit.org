@@ -2,5 +2,7 @@
 name: James Weaver
 image: james-weaver.png
 location: Pawnee, Indiana
-areas: Quantum Games, Visualizations, Speaking
+latitude: 36.33
+longitude: -96.80
+areas: Games, Visualization, Community Building
 ---

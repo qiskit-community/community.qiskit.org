@@ -5,7 +5,7 @@
         id="presentation"
         main-title="Qiskit Advocates"
       >
-        <p>A global program that provides support to the individuals who actively work on assisting and contributing to the Qiskit Community.</p>
+        <p>A global program that provides support to the individuals who actively contribute to the Qiskit Community.</p>
         <template #features>
           <div id="advocates-benefits">
             <CompactFeature
@@ -18,13 +18,13 @@
               icon="Qiskit"
             >
               <h2>Access to Qiskit core members and projects</h2>
-              <p>Advocates will receive special access to core members of the Qiskit team for questions and brainstorming ideas. They will also have the opportunity to work on new Qiskit projects.</p>
+              <p>Advocates will receive special access to core members of the Qiskit team for questions and brainstorming ideas.</p>
             </CompactFeature>
             <CompactFeature
               icon="Visibility"
             >
               <h2>Increased visibility for your work</h2>
-              <p>All advocates will have the opportunity to have their work supported and highlighted by IBM. Qiskit advocates will also have a public presence on the advocates landing page.</p>
+              <p>All advocates will have the opportunity to have their work supported and highlighted by IBM.</p>
             </CompactFeature>
             <CompactFeature
               icon="Events"
@@ -40,13 +40,13 @@
       <InnerNavigation
         class="inner-navigation"
         :sections="[
-          { anchor: 'steps-to-apply', label: 'Become an advocate' },
-          { anchor: 'around-the-world' , label: 'Around the world' },
-          { anchor: 'meet-the-advocates', label: 'Meet the advocates' },
+          { anchor: 'become-an-advocate', label: 'Become an Advocate' },
+          { anchor: 'global-community' , label: 'Global Community' },
+          { anchor: 'meet-the-advocates', label: 'Meet the Advocates' },
         ]"
       />
-      <PageSection id="steps-to-apply">
-        <h2>Steps to apply</h2>
+      <PageSection id="become-an-advocate">
+        <h2>Become an Advocate</h2>
         <ol>
           <li>Click on the "Apply now" button below.</li>
           <li>Complete the test attached to the application form.</li>
@@ -54,17 +54,20 @@
         </ol>
         <ul class="actions">
           <li>
-            <Cta to="https://www.youtube.com/playlist?list=PLOFEBzvs-Vvp2xg9-POLJhQwtVktlYGbY">
+            <Cta to="http://ibm.biz/qiskit-advocate">
               Apply now
             </Cta>
           </li>
         </ul>
       </PageSection>
-      <MapSection id="around-the-world">
-        <h2>Around the world</h2>
+      <MapSection
+        id="global-community"
+        :points="cities()"
+      >
+        <h2>Global Community</h2>
       </MapSection>
       <PageSection id="meet-the-advocates">
-        <h2>Meet the advocates</h2>
+        <h2>Meet the Advocates</h2>
         <div class="advocate-cards-container">
           <AdvocateCard
             v-for="(card, index) in profiles"
@@ -121,7 +124,16 @@ import CompactFeature from '~/components/features/CompactFeature.vue'
     }
   }
 })
-export default class extends Vue { }
+export default class extends Vue {
+  cities() {
+    const cityIndex = this.$data.profiles.reduce((cityIndex, card) => {
+      const { location, latitude, longitude } = card.attributes
+      cityIndex[location] = { name: location, latitude, longitude }
+      return cityIndex
+    }, {})
+    return Object.values(cityIndex)
+  }
+}
 </script>
 
 <style lang="scss">
@@ -163,7 +175,7 @@ main {
   }
 }
 
-#steps-to-apply {
+#become-an-advocate {
   color: var(--body-color-dark);
   background-color: white;
 
@@ -177,7 +189,7 @@ main {
   }
 }
 
-#around-the-world {
+#global-community {
   h2 {
     @include elegant-title();
   }

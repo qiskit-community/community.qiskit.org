@@ -42,17 +42,10 @@ import { Component, Prop } from 'vue-property-decorator'
         this.element.style.paddingBottom = '60%'
       }
     })
-    map.bubbles([
-      { name: 'Madrid', latitude: 40.41, longitude: -3.7, fillKey: 'city', radius: 5 },
-      { name: 'New York', latitude: 40.71, longitude: -74, fillKey: 'city', radius: 5 },
-      { name: 'Basel', latitude: 47.56, longitude: 7.5, fillKey: 'city', radius: 5 },
-      { name: 'Whashington D.C.', latitude: 38.89, longitude: -77.01, fillKey: 'city', radius: 5 },
-      { name: 'Surrey', latitude: 51.31, longitude: -0.55, fillKey: 'city', radius: 5 },
-      { name: 'Tokyo', latitude: 35.68, longitude: 139.69, fillKey: 'city', radius: 5 },
-      { name: 'Rome', latitude: 41.90, longitude: 12.49, fillKey: 'city', radius: 5 },
-      { name: 'Miami', latitude: 25.76, longitude: -80.19, fillKey: 'city', radius: 5 },
-      { name: 'Pawnee', latitude: 36.33, longitude: -96.80, fillKey: 'city', radius: 5 }
-    ])
+    const advocateLocations = this.$props.points.map((location) => {
+      return { ...location, fillKey: 'city', radius: 5 }
+    })
+    map.bubbles(advocateLocations)
     window.onresize = () => {
       requestAnimationFrame(() => {
         map.resize()
@@ -61,8 +54,8 @@ import { Component, Prop } from 'vue-property-decorator'
   }
 })
 export default class extends Vue {
-  @Prop({ type: String, default: 'end' }) extraPosition;
-  @Prop(Array) cities;
+  @Prop({ type: String, default: 'end' }) extraPosition
+  @Prop(Array) points
 }
 </script>
 
