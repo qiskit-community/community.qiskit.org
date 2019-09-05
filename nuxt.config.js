@@ -22,7 +22,7 @@ md.use(miAnchor, {
 })
 
 export default {
-  mode: 'spa',
+  mode: 'universal',
 
   /*
   ** Headers of the page
@@ -46,7 +46,7 @@ export default {
     }
   }
   window._analytics = {
-    segment_key: 'zbHWEXPUfXm0K6C7HbegwB5ewDEC8o1H',
+    segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
     coremetrics: false,
     optimizely: false
   }
@@ -93,6 +93,17 @@ export default {
   ** Nuxt.js modules
   */
   modules: [
+  ],
+
+  /*
+  ** Migrating from Nuxt 2.8.x to 2.9.y
+  ** https://typescript.nuxtjs.org/migration.html
+  */
+  buildModules: [
+    ['@nuxt/typescript-build', {
+      typeCheck: true,
+      ignoreNotFoundWarnings: true
+    }]
   ],
 
   /*
