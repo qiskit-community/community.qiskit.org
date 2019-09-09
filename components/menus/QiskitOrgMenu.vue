@@ -79,6 +79,7 @@ export default class extends Vue {
     default: () => [
       { to: '/education', label: 'Education' },
       { to: '/advocates', label: 'Advocates' }
+      // { to: '/experiments', label: 'Experiments' }
     ]
   }) links
 
