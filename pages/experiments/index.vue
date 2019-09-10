@@ -15,18 +15,21 @@
     <div class="inner-navigation-scope">
       <PageSection id="featured-experiments">
         <h2>Now featuring</h2>
+        <ExperimentCarousel
+          :experiments="featured"
+        />
       </PageSection>
       <PageSection id="browse-the-experiments">
         <h2>Browse the experiments</h2>
         <div class="experiment-card-container">
           <ExperimentCard
-            v-for="(card, index) in experiments"
+            v-for="(experiment, index) in experiments"
             :key="`experiment-${index}`"
-            :title="card.attributes.title"
-            :image="card.attributes.image"
-            :to="card.attributes.to"
-            :author="card.attributes.author"
-            :summary="card.attributes.description"
+            :title="experiment.title"
+            :image="experiment.image"
+            :to="experiment.to"
+            :author="experiment.author"
+            :summary="experiment.description"
           />
         </div>
       </PageSection>
@@ -42,6 +45,7 @@ import GatesHeader from '~/components/headers/GatesHeader.vue'
 import PageSection from '~/components/sections/PageSection.vue'
 import Cta from '~/components/ctas/Cta.vue'
 import ExperimentCard from '~/components/cards/ExperimentCard.vue'
+import ExperimentCarousel from '~/components/cards/ExperimentCarousel.vue'
 
 @Component({
   components: {
@@ -49,7 +53,8 @@ import ExperimentCard from '~/components/cards/ExperimentCard.vue'
     GatesHeader,
     PageSection,
     Cta,
-    ExperimentCard
+    ExperimentCard,
+    ExperimentCarousel
   },
 
   head() {
@@ -63,7 +68,8 @@ import ExperimentCard from '~/components/cards/ExperimentCard.vue'
       basePath: 'experiments/index/'
     })
     return {
-      experiments: sections[1].collections.cards
+      featured: sections[0].collections.cards.map(({ attributes }) => attributes),
+      experiments: sections[1].collections.cards.map(({ attributes }) => attributes)
     }
   }
 })
@@ -92,6 +98,11 @@ main {
 
   h2 {
     @include elegant-title();
+    margin-bottom: 4rem;
+  }
+
+  .page-section {
+    @include framed();
   }
 }
 

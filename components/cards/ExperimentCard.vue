@@ -1,10 +1,23 @@
 <template>
-  <article class="experiment-card">
+  <article
+    :class="[
+      'experiment-card',
+      horizontal ? 'experiment-card--horizontal' : ''
+    ].join(' ')"
+  >
     <div
-      class="experiment-card__picture"
+      :class="[
+        'experiment-card__picture',
+        horizontal ? 'experiment-card__picture--horizontal' : ''
+      ].join(' ')"
       :style="`background-image: ${decorate(image)};`"
     />
-    <div class="experiment-card__copy">
+    <div
+      :class="[
+        'experiment-card__copy',
+        horizontal ? 'experiment-card__copy--horizontal' : ''
+      ].join(' ')"
+    >
       <h3>
         {{ title }}
       </h3>
@@ -28,6 +41,7 @@ export default class extends Vue {
   @Prop(String) image
   @Prop(String) author
   @Prop(String) summary
+  @Prop(Boolean) horizontal
 
   decorate(image) {
     const bgEffects = [
@@ -39,40 +53,58 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-  .experiment-card {
-    font-size: 0.9rem;
-    background-color: var(--primary-color);
+.experiment-card {
+  font-size: 0.9rem;
+  color: var(--body-color-light);
+  background-color: var(--primary-color);
 
-    &__picture {
-      width: 100%;
-      background-repeat: no-repeat;
-      background-size: cover, cover, cover;
-      background-position: top center;
+  &--horizontal {
+    display: flex;
+    flex-direction: row;
+  }
 
-      /* Keep it square */
-      &:before {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-      }
+  &__picture {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover, cover, cover;
+    background-position: top center;
+
+    /* Keep it square */
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
     }
 
-    &__copy {
-      margin: 0.5rem 1rem 1em;
-    }
+    &--horizontal {
+      flex: 2;
 
-    h3 {
-      margin-top: 1.5rem;
-    }
-
-    &__author {
-      color: var(--secondary-color-lightmost);
-      margin-top: 0.5rem;
-
-      &:before {
-        content: "by ";
-        color: var(--primary-color-lightmost);
+      &::before {
+        padding-bottom: 50%;
       }
     }
   }
+
+  &__copy {
+    margin: 0.5rem 1rem 1em;
+
+    &--horizontal {
+      flex: 1;
+    }
+  }
+
+  h3 {
+    margin-top: 1.5rem;
+  }
+
+  &__author {
+    color: var(--secondary-color-lightmost);
+    margin-top: 0.5rem;
+
+    &:before {
+      content: "by ";
+      color: var(--primary-color-lightmost);
+    }
+  }
+}
 </style>

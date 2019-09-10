@@ -1,35 +1,37 @@
 <template>
-  <section>
-    <div class="textbook-features">
+  <section class="experiment-deck">
+    <article
+      v-for="(experiment, index) in experiments"
+      :key="`deck-experiment-${index}`"
+      class="experiment-deck__slide"
+    >
       <div
-        class="marker marker--active"
-        data-to="toc"
-        @click.capture="activate"
-      >
-        <div class="marker__decoration" aria-hidden="true" />
-        <p class="marker__label">
-          Table of Contents
+        class="experiment-deck__slide-picture"
+        :style="`background-image: url(${experiment.image});`"
+      />
+      <div class="experiment-deck__slide-copy">
+        <h3>
+          {{ experiment.title }}
+        </h3>
+        <p class="experiment-deck__slide-author">
+          {{ experiment.author }}
+        </p>
+        <p class="experiment-deck__slide-summary">
+          {{ experiment.description }}
         </p>
       </div>
-      <section
-        id="toc"
-        class="textbook-features__page textbook-features__page--active"
-      >
-        <img class="bookmark" src="/images/education/iconBookmark.svg">
-        <div class="textbook-features__toc-content">
-          <slot />
-        </div>
-      </section>
-    </div>
+    </article>
   </section>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component } from 'vue-property-decorator'
+import { Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class extends Vue {
+  @Prop(Array) experiments
+
   activate(evt: PointerEvent) {
     const thismarker = evt.currentTarget && evt.currentTarget as HTMLElement
     if (!thismarker || thismarker.classList.contains('marker--active')) {
@@ -72,7 +74,7 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.textbook-features {
+.experiment-deck {
   position: relative;
 
   &::before {
@@ -83,121 +85,76 @@ export default class extends Vue {
     z-index: 1;
     width: 100%;
     height: 100px;
+    background-color: var(--primary-color);
     box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
-    border-radius: 8px;
     transform-origin: center bottom;
     transform: scale(0.95);
   }
 }
 
-.textbook-features__page {
+.experiment-deck__slide {
+  display: flex;
+  flex-direction: row;
+  font-size: 0.9rem;
+  color: var(--body-color-light);
+  background-color: var(--primary-color);
+
+  &-picture {
+    flex: 2;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover, cover, cover;
+    background-position: top center;
+
+    /* Keep it square */
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: 50%;
+    }
+  }
+
+  &-copy {
+    flex: 1;
+    margin: 0.5rem 1rem 1em;
+  }
+
+  h3 {
+    margin-top: 1.5rem;
+  }
+
+  &-author {
+    color: var(--secondary-color-lightmost);
+    margin-top: 0.5rem;
+
+    &:before {
+      content: "by ";
+      color: var(--primary-color-lightmost);
+    }
+  }
+}
+
+/* Transition styles */
+.experiment-deck__slide {
   position: relative;
   width: 100%;
   opacity: 0;
-  background: white;
-  border-radius: 8px;
-  padding: 2rem;
   transform-origin: center bottom;
   transform: scale(0.95) translateY(1rem);
   transition: transform 300ms, opacity 300ms;
 
-  &--active {
+  &.is-active {
     opacity: 1;
     z-index: 2;
     transform: scale(1);
     box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
   }
 
-  &--out {
+  &.is-out {
     opacity: 0;
     z-index: 2;
     transform: scale(1.3) translateY(-2rem);
     transition: transform 400ms, opacity 400ms;
-  }
-}
-
-.bookmark {
-  position: absolute;
-  top: -16px;
-  left: 1rem;
-  z-index: 3;
-  width: 3.8rem;
-  height: auto;
-}
-
-.marker {
-  position: absolute;
-  top: 5rem;
-  left: calc(100% - 2.8rem);
-  transition: transform 200ms;
-  cursor: pointer;
-
-  &:nth-child(2) {
-    bottom: 9rem;
-    left: calc(100% - 2.8rem);
-  }
-
-  &--active,
-  &:hover {
-    transform: translateX(1rem);
-  }
-
-  &--active {
-    .marker__decoration {
-      opacity: 1;
-    }
-  }
-}
-
-.marker__label {
-  margin: 0;
-  position: absolute;
-  bottom: 0.5rem;
-  right: 1rem;
-  writing-mode: vertical-rl;
-  height: 100%;
-  color: white;
-  font-size: 0.7rem;
-  font-weight: bold;
-  transform: rotate(180deg);
-}
-
-.marker__decoration {
-  height: 4rem;
-  width: 5rem;
-  border-radius: 5px;
-  background-color: var(--secondary-color);
-  opacity: 0.5;
-  transform: skewX(-15deg);
-}
-
-#live-code,
-#live-code * {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-</style>
-
-<style lang="scss">
-.textbook-features__toc-content {
-  z-index: 1;
-  max-height: 100%;
-  overflow-y: auto;
-  padding-left: 3.5rem;
-  font-size: 0.8rem;
-
-  ul {
-    margin: 0.5rem 0 0 2rem;
-  }
-
-  h2 {
-    font-size: 1.1rem;
-  }
-
-  h3 {
-    margin: 1rem 0 0 0;
-    color: var(--secondary-color);
   }
 }
 </style>
