@@ -157,4 +157,10 @@ export default class extends Vue {
     transition: transform 400ms, opacity 400ms;
   }
 }
+
+@media (max-width: 600px) {
+  .experiment-deck__slide {
+    flex-direction: column;
+  }
+}
 </style>
