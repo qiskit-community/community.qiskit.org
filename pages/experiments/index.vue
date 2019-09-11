@@ -126,6 +126,14 @@ main {
     .experiment-card {
       min-width: 300px;
       border: 1px solid var(--secondary-color);
+      transform-origin: center 80%;
+      transition: transform 0.2s;
+
+      &:hover {
+        z-index: 1;
+        transform: scale(1.1);
+        box-shadow: 0px 20px 30px 0 #000f;
+      }
     }
   }
 }
