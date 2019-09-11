@@ -20,10 +20,10 @@
               <a
                 v-for="(link, index) in links"
                 :key="index"
-                :class="[
-                  'vertical-community-navigation__item',
-                  isActive(link.to) ? 'nuxt-link-active' : ''
-                ].join(' ')"
+                :class="{
+                  'vertical-community-navigation__item': true,
+                  'nuxt-link-active': isActive(link.to)
+                }"
                 :href="link.to"
               >
                 {{ link.label }}
@@ -54,10 +54,10 @@
           <a
             v-for="(link, index) in links"
             :key="index"
-            :class="[
-              'navigation-group__item',
-              isActive(link.to) ? 'nuxt-link-active' : ''
-            ].join(' ')"
+            :class="{
+              'navigation-group__item': true,
+              'nuxt-link-active': isActive(link.to)
+            }"
             :href="link.to"
           >
             {{ link.label }}
