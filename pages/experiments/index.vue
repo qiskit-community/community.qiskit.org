@@ -95,6 +95,7 @@ main {
 #featured-experiments {
   color: var(--body-color-dark);
   background-color: white;
+  padding-bottom: 7rem;
 
   h2 {
     @include elegant-title();

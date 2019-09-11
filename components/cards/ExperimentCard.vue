@@ -1,23 +1,10 @@
 <template>
-  <article
-    :class="[
-      'experiment-card',
-      horizontal ? 'experiment-card--horizontal' : ''
-    ].join(' ')"
-  >
+  <article class="experiment-card">
     <div
-      :class="[
-        'experiment-card__picture',
-        horizontal ? 'experiment-card__picture--horizontal' : ''
-      ].join(' ')"
+      class="experiment-card__picture"
       :style="`background-image: ${decorate(image)};`"
     />
-    <div
-      :class="[
-        'experiment-card__copy',
-        horizontal ? 'experiment-card__copy--horizontal' : ''
-      ].join(' ')"
-    >
+    <div class="experiment-card__copy">
       <h3>
         {{ title }}
       </h3>

@@ -1,26 +1,45 @@
 <template>
   <section class="experiment-deck">
-    <article
+    <ul class="experiment-deck__switches">
+      <li
+        class="experiment-deck__left-switch"
+        @click="previous"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18"><path fill="#999" d="M8.681.196l2.121 2.12-8.484 8.487-2.12-2.12z"/><path fill="#999" d="M10.803 15.047l-2.121 2.121L.197 8.683l2.121-2.121z"/></svg>
+      </li>
+      <li
+        class="experiment-deck__right-switch"
+        @click="next"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18" transform="rotate(180)"><path fill="#999" d="M8.681.196l2.121 2.12-8.484 8.487-2.12-2.12z"/><path fill="#999" d="M10.803 15.047l-2.121 2.121L.197 8.683l2.121-2.121z"/></svg>
+      </li>
+    </ul>
+    <transition
       v-for="(experiment, index) in experiments"
       :key="`deck-experiment-${index}`"
-      class="experiment-deck__slide"
+      name="experiment-deck__slide"
     >
-      <div
-        class="experiment-deck__slide-picture"
-        :style="`background-image: url(${experiment.image});`"
-      />
-      <div class="experiment-deck__slide-copy">
-        <h3>
-          {{ experiment.title }}
-        </h3>
-        <p class="experiment-deck__slide-author">
-          {{ experiment.author }}
-        </p>
-        <p class="experiment-deck__slide-summary">
-          {{ experiment.description }}
-        </p>
-      </div>
-    </article>
+      <article
+        v-if="active == index"
+        class="experiment-deck__slide"
+      >
+        <div
+          class="experiment-deck__slide-picture"
+          :style="`background-image: url(${experiment.image});`"
+        />
+        <div class="experiment-deck__slide-copy">
+          <h3>
+            {{ experiment.title }}
+          </h3>
+          <p class="experiment-deck__slide-author">
+            {{ experiment.author }}
+          </p>
+          <p class="experiment-deck__slide-summary">
+            {{ experiment.description }}
+          </p>
+        </div>
+      </article>
+    </transition>
   </section>
 </template>
 
@@ -32,43 +51,16 @@ import { Component, Prop } from 'vue-property-decorator'
 export default class extends Vue {
   @Prop(Array) experiments
 
-  activate(evt: PointerEvent) {
-    const thismarker = evt.currentTarget && evt.currentTarget as HTMLElement
-    if (!thismarker || thismarker.classList.contains('marker--active')) {
-      return
-    }
+  active: number = 0
 
-    // Change marker enabled
-    const previouslyEnabled = document.querySelector('.marker--active')
-    if (previouslyEnabled) {
-      previouslyEnabled.classList.remove('marker--active')
-    }
-    thismarker.classList.add('marker--active')
-
-    // Dismiss the current active section
-    const self = this
-    function clearOut(evt: Event) {
-      if (evt.currentTarget) {
-        evt.currentTarget.removeEventListener('transitionend', clearOut)
-        self.clearIsOut(evt.currentTarget as HTMLElement)
-      }
-    }
-    const activeSection = document.querySelector('.textbook-features__page--active')
-    if (activeSection) {
-      activeSection.addEventListener('transitionend', clearOut)
-      activeSection.classList.add('textbook-features__page--out')
-      activeSection.classList.remove('textbook-features__page--active')
-    }
-
-    // Activate the new one
-    const newSection = document.querySelector(`#${thismarker.dataset.to}`)
-    if (newSection) {
-      newSection.classList.add('textbook-features__page--active')
-    }
+  previous() {
+    const count = this.experiments.length
+    this.active = this.active === 0 ? count - 1 : this.active - 1
   }
 
-  clearIsOut(target: HTMLElement) {
-    target.classList.remove('textbook-features__page--out')
+  next() {
+    const count = this.experiments.length
+    this.active = this.active === count - 1 ? 0 : this.active + 1
   }
 }
 </script>
@@ -76,6 +68,7 @@ export default class extends Vue {
 <style lang="scss" scoped>
 .experiment-deck {
   position: relative;
+  height: 350px;
 
   &::before {
     content: "";
@@ -93,25 +86,23 @@ export default class extends Vue {
 }
 
 .experiment-deck__slide {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  z-index: 2;
   display: flex;
   flex-direction: row;
   font-size: 0.9rem;
   color: var(--body-color-light);
   background-color: var(--primary-color);
+  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
+  transform-origin: center bottom;
 
   &-picture {
     flex: 2;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover, cover, cover;
-    background-position: top center;
-
-    /* Keep it square */
-    &::before {
-      content: "";
-      display: block;
-      padding-bottom: 50%;
-    }
+    background-size: cover;
+    background-position: center;
   }
 
   &-copy {
@@ -134,27 +125,26 @@ export default class extends Vue {
   }
 }
 
-/* Transition styles */
-.experiment-deck__slide {
-  position: relative;
-  width: 100%;
-  opacity: 0;
-  transform-origin: center bottom;
-  transform: scale(0.95) translateY(1rem);
-  transition: transform 300ms, opacity 300ms;
+.experiment-deck__switches {
+  position: absolute;
+  right: 0; bottom: -4rem; left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
 
-  &.is-active {
-    opacity: 1;
-    z-index: 2;
-    transform: scale(1);
-    box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
+.experiment-deck__left-switch,
+.experiment-deck__right-switch {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+
+  & svg {
+    height: 2rem;
   }
 
-  &.is-out {
-    opacity: 0;
-    z-index: 2;
-    transform: scale(1.3) translateY(-2rem);
-    transition: transform 400ms, opacity 400ms;
+  &:hover path {
+    fill: var(--secondary-color-lightmost);
   }
 }
 
@@ -162,5 +152,29 @@ export default class extends Vue {
   .experiment-deck__slide {
     flex-direction: column;
   }
+}
+
+/* Transition styles */
+.experiment-deck__slide-enter-active {
+  transition: transform .8s;
+}
+
+.experiment-deck__slide-leave-active {
+  transition: transform .8s, opacity .4s .3s;
+}
+
+.experiment-deck__slide-enter {
+  z-index: 1;
+  transform: scale(0.95) translateY(1rem);
+}
+
+.experiment-deck__slide-enter-to {
+  z-index: 1;
+  transform: scale(1) translateY(0);
+}
+
+.experiment-deck__slide-leave-to {
+  opacity: 0;
+  transform: scale(1.3) translateY(-2rem);
 }
 </style>
