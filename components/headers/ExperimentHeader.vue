@@ -35,11 +35,11 @@
         Explore the sources
       </Cta>
       <div class="experiment-header__media">
-        <img
+        <Media
           v-for="(url, index) in media"
           :key="`media-item-${index}`"
           :src="url"
-        >
+        />
       </div>
     </div>
   </div>
@@ -49,9 +49,10 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 import Cta from '~/components/ctas/Cta.vue'
+import Media from '~/components/Media.vue'
 
 @Component({
-  components: { Cta }
+  components: { Cta, Media }
 })
 export default class extends Vue {
   @Prop(String) name

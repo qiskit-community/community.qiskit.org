@@ -73,6 +73,7 @@ export default class extends Vue { }
 #copy {
   background-color: white;
   padding-top: 0;
+  padding-bottom: 2rem;
 
   .page-section {
     @include framed();
