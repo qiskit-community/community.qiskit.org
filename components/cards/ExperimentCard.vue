@@ -1,20 +1,25 @@
 <template>
   <article class="experiment-card">
-    <div
-      class="experiment-card__picture"
-      :style="`background-image: ${decorate(image)};`"
-    />
-    <div class="experiment-card__copy">
-      <h3>
-        {{ title }}
-      </h3>
-      <p class="experiment-card__author">
-        {{ author }}
-      </p>
-      <p class="experiment-card__summary">
-        {{ summary }}
-      </p>
-    </div>
+    <a
+      :href="to"
+      class="card-link"
+    >
+      <div
+        class="experiment-card__picture"
+        :style="`background-image: ${decorate(image)};`"
+      />
+      <div class="experiment-card__copy">
+        <h3>
+          {{ title }}
+        </h3>
+        <p class="experiment-card__author">
+          {{ author }}
+        </p>
+        <p class="experiment-card__summary">
+          {{ summary }}
+        </p>
+      </div>
+    </a>
   </article>
 </template>
 
@@ -29,6 +34,7 @@ export default class extends Vue {
   @Prop(String) author
   @Prop(String) summary
   @Prop(Boolean) horizontal
+  @Prop(String) to
 
   decorate(image) {
     const bgEffects = [
@@ -40,6 +46,13 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.card-link {
+  display: block;
+  text-decoration: none;
+  color: unset;
+  height: 100%;
+}
+
 .experiment-card {
   font-size: 0.9rem;
   color: var(--body-color-light);

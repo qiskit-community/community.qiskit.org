@@ -19,9 +19,10 @@
       :key="`deck-experiment-${index}`"
       name="experiment-deck__slide"
     >
-      <article
+      <a
         v-if="active == index"
-        class="experiment-deck__slide"
+        class="experiment-deck__slide slide-link"
+        :href="experiment.to"
       >
         <div
           class="experiment-deck__slide-picture"
@@ -38,7 +39,7 @@
             {{ experiment.description }}
           </p>
         </div>
-      </article>
+      </a>
     </transition>
   </section>
 </template>
@@ -66,6 +67,13 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
+.slide-link {
+  display: block;
+  text-decoration: none;
+  color: unset;
+  height: 100%;
+}
+
 .experiment-deck {
   position: relative;
   height: 350px;
