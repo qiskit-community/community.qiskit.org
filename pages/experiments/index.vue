@@ -120,19 +120,20 @@ main {
     width: 100%;
     margin-top: 3rem;
     display: grid;
-    grid-gap: 0.5rem;
+    grid-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
     .experiment-card {
       min-width: 300px;
       border: 1px solid var(--secondary-color);
       transform-origin: center 80%;
-      transition: transform 0.2s;
+      transition: box-shadow 0.2s, transform 0.2s;
+      box-shadow: 0px 2px 10px 0 #000f;
 
       &:hover {
         z-index: 1;
-        transform: scale(1.1);
-        box-shadow: 0px 20px 30px 0 #000f;
+        transform: scale(1.05);
+        box-shadow: 0px 10px 20px 5px #000f;
       }
     }
   }
