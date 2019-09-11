@@ -78,13 +78,13 @@ export default class extends Vue {
     type: Array,
     default: () => [
       { to: '/education', label: 'Education' },
-      { to: '/advocates', label: 'Advocates' }
-      // { to: '/experiments', label: 'Experiments' }
+      { to: '/advocates', label: 'Advocates' },
+      { to: '/experiments', label: 'Experiments' }
     ]
   }) links
 
   isActive(path) {
-    return this.$route.path === path
+    return this.$route.path.startsWith(path)
   }
 }
 </script>
