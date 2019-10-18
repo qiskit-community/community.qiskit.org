@@ -54,7 +54,9 @@
         </ol>
         <ul class="actions">
           <li>
-            Closed
+            <Cta disabled>
+              Closed
+            </Cta>
           </li>
         </ul>
       </PageSection>
