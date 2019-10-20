@@ -119,7 +119,7 @@ code {
         display: inline-block;
         position: absolute;
         width: 0.25rem;
-        height: 0.75rem;
+        height: 0.60rem;
         background-color: black;
         left: 0;
       }
@@ -131,10 +131,10 @@ code {
           content: '';
           display: inline-block;
           position: absolute;
-          width: 0.8rem;
-          height: 0.8rem;
+          width: 0.6rem;
+          height: 0.6rem;
           background-color: black;
-          left: -0.35rem;
+          left: -0.25rem;
           border-radius: 50%;
         }
       }
