@@ -18,26 +18,6 @@
           modularly constructed, simplifying the addition of extensions for
           circuit optimizations and backends. We welcome your contributions!
         </p>
-      </article>
-      <article>
-        <h2>Example</h2>
-        <pre v-highlightjs><code class="python">from qiskit import QuantumCircuit, Aer, execute
-
-qc = QuantumCircuit(2, 2)
-
-qc.h(0)
-qc.cx(0, 1)
-qc.measure([0, 1], [0, 1])
-
-backend = Aer.get_backend('qasm_simulator')
-job_sim = execute(qc, backend)
-sim_result = job_sim.result()
-
-print(sim_result.get_counts(qc))</code></pre>
-      </article>
-    </LegacySection>
-    <LegacySection>
-      <article>
         <h2>Stack</h2>
         <ul class="stack-list">
           <li class="element">
@@ -57,6 +37,22 @@ print(sim_result.get_counts(qc))</code></pre>
             <p class="stack-list__description">Histogram, State, Unitary, Entanglement, ...</p>
           </li>
         </ul>
+      </article>
+      <article>
+        <h2>Example</h2>
+        <pre v-highlightjs><code class="python">from qiskit import QuantumCircuit, Aer, execute
+
+qc = QuantumCircuit(2, 2)
+
+qc.h(0)
+qc.cx(0, 1)
+qc.measure([0, 1], [0, 1])
+
+backend = Aer.get_backend('qasm_simulator')
+job_sim = execute(qc, backend)
+sim_result = job_sim.result()
+
+print(sim_result.get_counts(qc))</code></pre>
       </article>
     </LegacySection>
   </main>
@@ -90,6 +86,10 @@ export default class QiskitTerra extends Vue {
   description: String = 'A solid foundation for quantum computing'
 }
 </script>
+
+<style lang="scss">
+@import '~/assets/scss/legacy-elements.scss'
+</style>
 
 <style lang="scss">
 .legacy-presentation {
