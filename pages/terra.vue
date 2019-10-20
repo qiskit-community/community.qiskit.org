@@ -114,42 +114,39 @@ code {
       padding-bottom: 1.5rem;
       position: relative;
 
+      &::before {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        width: 0.25rem;
+        height: 0.75rem;
+        background-color: black;
+        left: 0;
+      }
+
       &:last-child {
         border: none;
 
-        .stack-list__title::before {
+        &::before {
           content: '';
           display: inline-block;
           position: absolute;
           width: 0.8rem;
           height: 0.8rem;
           background-color: black;
-          top: 0.2rem;
-          left: -1.35rem;
+          left: -0.35rem;
           border-radius: 50%;
         }
       }
     }
 
-    &__title, &__description {
+    &__title,
+    &__description {
       padding: 0;
       margin: 0;
       line-height: normal;
       position: relative;
       top: -0.2rem;
-    }
-
-    &__title {
-      &::before {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        width: 0.25rem;
-        height: 50%;
-        background-color: black;
-        top: 0.2rem;
-        left: -1rem;
-      }
     }
 
     &__description {
