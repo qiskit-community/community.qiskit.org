@@ -16,6 +16,6 @@ export default class extends Vue {
 
 <style lang="scss" scoped>
 code {
-  font-size: 0.8rem;
+  font-size: 0.7rem;
 }
 </style>
