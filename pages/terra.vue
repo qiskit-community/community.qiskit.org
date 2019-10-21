@@ -19,28 +19,30 @@
           circuit optimizations and backends. We welcome your contributions!
         </p>
         <h2>Stack</h2>
-        <ul class="stack-list">
-          <li class="element">
-            <p class="stack-list__title">User Inputs (Circuits, and Scheules)</p>
-            <p class="stack-list__description">Quantum Circuit, Pulse Schedule</p>
-          </li>
-          <li class="element">
-            <p class="stack-list__title">Transpiler</p>
-            <p class="stack-list__description">Optimization Passes, Third Party</p>
-          </li>
-          <li class="element">
-            <p class="stack-list__title">Providers</p>
-            <p class="stack-list__description">Qiskit Aer, IBM Q, Third Party</p>
-          </li>
-          <li class="element dot">
-            <p class="stack-list__title">Visualization and Quantum Information Tools</p>
-            <p class="stack-list__description">Histogram, State, Unitary, Entanglement, ...</p>
-          </li>
-        </ul>
+        <SoftwareStack
+          :stack="[
+            {
+              title: 'User Inputs (Circuits, and Scheules)',
+              description: 'Quantum Circuit, Pulse Schedule'
+            },
+            {
+              title: 'Transpiler',
+              description: 'Optimization Passes, Third Party'
+            },
+            {
+              title: 'Providers',
+              description: 'Qiskit Aer, IBM Q, Third Party'
+            },
+            {
+              title: 'Visualization and Quantum Information Tools',
+              description: 'Histogram, State, Unitary, Entanglement, ...'
+            }
+          ]"
+        />
       </article>
       <article>
         <h2>Example</h2>
-        <pre v-highlightjs><code class="python">from qiskit import QuantumCircuit, Aer, execute
+        <SyntaxHighlight lang="python">from qiskit import QuantumCircuit, Aer, execute
 
 qc = QuantumCircuit(2, 2)
 
@@ -52,7 +54,7 @@ backend = Aer.get_backend('qasm_simulator')
 job_sim = execute(qc, backend)
 sim_result = job_sim.result()
 
-print(sim_result.get_counts(qc))</code></pre>
+print(sim_result.get_counts(qc))</SyntaxHighlight>
       </article>
     </LegacySection>
   </main>
@@ -63,6 +65,8 @@ import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 import LegacyPresentation from '~/components/headers/LegacyPresentation.vue'
 import LegacySection from '~/components/sections/LegacySection.vue'
+import SoftwareStack from '~/components/qiskit/SoftwareStack.vue'
+import SyntaxHighlight from '~/components/qiskit/SyntaxHighlight.vue'
 import Cta from '~/components/ctas/Cta.vue'
 
 @Component({
@@ -70,7 +74,9 @@ import Cta from '~/components/ctas/Cta.vue'
   components: {
     Cta,
     LegacyPresentation,
-    LegacySection
+    LegacySection,
+    SoftwareStack,
+    SyntaxHighlight
   },
   head(this: QiskitTerra) {
     return {
@@ -88,70 +94,12 @@ export default class QiskitTerra extends Vue {
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/legacy-elements.scss'
+@import '~/assets/scss/legacy-elements.scss';
 </style>
 
 <style lang="scss">
 .legacy-presentation {
   --legacy-presentation-color: rgb(224, 219, 218);
   --legacy-presentation-text-color: black;
-}
-
-code {
-  font-size: 0.8rem;
-}
-</style>
-
-<style lang="scss" scoped>
-
-.legacy-section {
-  .stack-list {
-    list-style: none;
-
-    li {
-      border-left: 2px solid black;
-      padding-left: 1rem;
-      padding-bottom: 1.5rem;
-      position: relative;
-
-      &::before {
-        content: '';
-        display: inline-block;
-        position: absolute;
-        width: 0.25rem;
-        height: 0.60rem;
-        background-color: black;
-        left: 0;
-      }
-
-      &:last-child {
-        border: none;
-
-        &::before {
-          content: '';
-          display: inline-block;
-          position: absolute;
-          width: 0.6rem;
-          height: 0.6rem;
-          background-color: black;
-          left: -0.25rem;
-          border-radius: 50%;
-        }
-      }
-    }
-
-    &__title,
-    &__description {
-      padding: 0;
-      margin: 0;
-      line-height: normal;
-      position: relative;
-      top: -0.2rem;
-    }
-
-    &__description {
-      font-size: 0.7rem;
-    }
-  }
 }
 </style>
