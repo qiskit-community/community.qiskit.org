@@ -29,6 +29,8 @@
       </article>
       <article>
         <h2>Example</h2>
+        <!-- eslint-disable vue/multiline-html-element-content-newline -->
+        <!-- eslint-disable vue/html-indent -->
         <SyntaxHighlight lang="python">from qiskit import IBMQ
 from qiskit.providers.ibmq import least_busy
 
@@ -38,6 +40,8 @@ provider = IBMQ.load_account()
 # Get the least busy real quantum system
 backend = least_busy(provider.backends(simulator=False))
 print(backend, backend.status().pending_jobs)</SyntaxHighlight>
+        <!-- eslint-enable vue/html-indent -->
+        <!-- eslint-enable vue/multiline-html-element-content-newline -->
       </article>
     </LegacySection>
   </main>

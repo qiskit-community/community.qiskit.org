@@ -41,6 +41,8 @@
       </article>
       <article>
         <h2>Example</h2>
+        <!-- eslint-disable vue/multiline-html-element-content-newline -->
+        <!-- eslint-disable vue/html-indent -->
         <SyntaxHighlight lang="python">from qiskit import Aer
 from qiskit.aqua.components.oracles import LogicalExpressionOracle
 from qiskit.aqua.algorithms import Grover
@@ -61,6 +63,8 @@ algorithm = Grover(oracle)
 result = algorithm.run(backend)
 
 print(result["result"])</SyntaxHighlight>
+        <!-- eslint-enable vue/html-indent -->
+        <!-- eslint-enable vue/multiline-html-element-content-newline -->
       </article>
     </LegacySection>
   </main>

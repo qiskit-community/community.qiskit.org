@@ -44,6 +44,8 @@
       </article>
       <article>
         <h2>Example</h2>
+        <!-- eslint-disable vue/multiline-html-element-content-newline -->
+        <!-- eslint-disable vue/html-indent -->
         <SyntaxHighlight lang="python">import qiskit
 from qiskit.providers.aer.noise import NoiseModel
 from qiskit.providers.aer.noise.errors.standard_errors import depolarizing_error
@@ -76,6 +78,8 @@ for rb_seed,rb_circ_seed in enumerate(rb_circs):
     # Add data to the fitter
     rb_fit.add_data(job.result())
     print('After seed %d, EPC %f'%(rb_seed,rb_fit.fit[0]['epc']))</SyntaxHighlight>
+        <!-- eslint-enable vue/html-indent -->
+        <!-- eslint-enable vue/multiline-html-element-content-newline -->
       </article>
     </LegacySection>
   </main>

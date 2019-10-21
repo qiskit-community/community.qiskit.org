@@ -41,6 +41,8 @@
       </article>
       <article>
         <h2>Example</h2>
+        <!-- eslint-disable vue/multiline-html-element-content-newline -->
+        <!-- eslint-disable vue/html-indent -->
         <SyntaxHighlight lang="python">from qiskit import QuantumCircuit, execute, Aer, IBMQ
 from qiskit.providers.aer import noise
 
@@ -71,6 +73,8 @@ job_sim = execute(qc, backend,
 
 sim_result = job_sim.result()
 print(sim_result.get_counts(qc))</SyntaxHighlight>
+        <!-- eslint-enable vue/html-indent -->
+        <!-- eslint-enable vue/multiline-html-element-content-newline -->
       </article>
     </LegacySection>
   </main>
