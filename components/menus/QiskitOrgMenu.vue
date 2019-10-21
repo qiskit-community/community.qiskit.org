@@ -9,20 +9,34 @@
           <div class="overlay" />
           <nav class="vertical-navigation">
             <h2>Elements</h2>
-            <a class="vertical-navigation__item" href="https://qiskit.org/terra">Terra</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/aer">Aer</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/aqua">Aqua</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/ignis">Ignis</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/ibmqaccount">IBM Q Account</a>
+            <a
+              v-for="(link, index) in elements"
+              :key="`vertical-element-link-${index}`"
+              :class="{
+                'vertical-navigation__item': true,
+                'nuxt-link-active': isActive(link.to)
+              }"
+              :href="link.to"
+            >
+              {{ link.label }}
+            </a>
             <h2>Learn more</h2>
-            <a class="vertical-navigation__item vertical-navigation__item--active" href="/">Community</a>
+            <a
+              :class="{
+                'vertical-navigation__item': true,
+                'vertical-navigation__item--active': isCommunityActive()
+              }"
+              href="/advocates"
+            >
+              Community
+            </a>
             <div
-              v-if="!qiskitOrgOnly"
+              v-if="isCommunityActive()"
               class="vertical-community-navigation"
             >
               <a
-                v-for="(link, index) in links"
-                :key="index"
+                v-for="(link, index) in community"
+                :key="`vertical-community-link-${index}`"
                 :class="{
                   'vertical-community-navigation__item': true,
                   'nuxt-link-active': isActive(link.to)
@@ -32,33 +46,65 @@
                 {{ link.label }}
               </a>
             </div>
-            <a class="vertical-navigation__item" href="https://quantum-computing.ibm.com/jupyter/tutorial/1_start_here.ipynb" target="_blank">Tutorials</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
+            <a
+              v-for="(link, index) in learnMore"
+              :key="`vertical-learn-more-link-${index}`"
+              :class="{
+                'vertical-navigation__item': true,
+                'nuxt-link-active': isActive(link.to)
+              }"
+              :href="link.to"
+            >
+              {{ link.label }}
+            </a>
           </nav>
         </section>
-        <a class="link-to-home" href="https://qiskit.org">Qiskit</a>
+        <a class="link-to-home" href="/">Qiskit</a>
         <nav class="navigation-group navigation-group--with-separator">
-          <a class="navigation-group__item" href="https://qiskit.org/terra">Terra</a>
-          <a class="navigation-group__item" href="https://qiskit.org/aer">Aer</a>
-          <a class="navigation-group__item" href="https://qiskit.org/aqua">Aqua</a>
-          <a class="navigation-group__item" href="https://qiskit.org/ignis">Ignis</a>
-          <a class="navigation-group__item" href="https://qiskit.org/ibmqaccount">IBM Q Account</a>
+          <a
+            v-for="(link, index) in elements"
+            :key="`element-link-${index}`"
+            :class="{
+              'navigation-group__item': true,
+              'nuxt-link-active': isActive(link.to)
+            }"
+            :href="link.to"
+          >
+            {{ link.label }}
+          </a>
         </nav>
         <nav class="navigation-group navigation-group--fixed navigation-group--right-aligned">
-          <a class="navigation-group__item navigation-group__item--active" href="/">Community</a>
-          <a class="navigation-group__item" href="https://quantum-computing.ibm.com/jupyter/tutorial/1_start_here.ipynb" target="_blank">Tutorials</a>
-          <a class="navigation-group__item" href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
+          <a
+            :class="{
+              'navigation-group__item': true,
+              'navigation-group__item--active': isCommunityActive()
+            }"
+            href="/advocates"
+          >
+            Community
+          </a>
+          <a
+            v-for="(link, index) in learnMore"
+            :key="`learn-more-link-${index}`"
+            :class="{
+              'navigation-group__item': true,
+              'nuxt-link-active': isActive(link.to)
+            }"
+            :href="link.to"
+          >
+            {{ link.label }}
+          </a>
         </nav>
       </div>
     </div>
     <div
-      v-if="!qiskitOrgOnly"
+      v-if="isCommunityActive()"
       class="community-menu menu-container menu-container--light"
     >
       <section class="menu menu--framed">
         <nav class="navigation-group navigation-group--right-aligned navigation-group--fixed">
           <a
-            v-for="(link, index) in links"
+            v-for="(link, index) in community"
             :key="index"
             :class="{
               'navigation-group__item': true,
@@ -83,16 +129,37 @@ export default class extends Vue {
   @Prop({
     type: Array,
     default: () => [
+      { to: '/terra', label: 'Terra' },
+      { to: '/aer', label: 'Aer' },
+      { to: '/aqua', label: 'Aqua' },
+      { to: '/ignis', label: 'Ignis' },
+      { to: '/ibmqaccount', label: 'IBM Q Account' }
+    ]
+  }) elements
+
+  @Prop({
+    type: Array,
+    default: () => [
       { to: '/education', label: 'Education' },
       { to: '/advocates', label: 'Advocates' },
       { to: '/experiments', label: 'Experiments' }
     ]
-  }) links
+  }) community
 
-  @Prop(Boolean) qiskitOrgOnly
+  @Prop({
+    type: Array,
+    default: () => [
+      { to: 'https://quantum-computing.ibm.com/jupyter/tutorial/1_start_here.ipynb', label: 'Tutorials' },
+      { to: 'https://qiskit.org/documentation', label: 'API Documentation' }
+    ]
+  }) learnMore
 
   isActive(path) {
     return this.$route.path.startsWith(path)
+  }
+
+  isCommunityActive() {
+    return this.community.some(link => this.isActive(link.to))
   }
 }
 </script>
