@@ -32,8 +32,13 @@ export default class extends Vue {
   }
 
   article {
+    min-width: 0;
     margin-right: 3rem;
     flex: 3;
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     h2 {
       font-size: 1.5rem;

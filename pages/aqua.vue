@@ -105,7 +105,7 @@ export default class extends QiskitElementPage {
 
 <style lang="scss">
 .legacy-presentation {
-  --legacy-presentation-color: rgb(219, 251, 251);;
+  --legacy-presentation-color: rgb(219, 251, 251);
   --legacy-presentation-text-color: black;
 }
 </style>

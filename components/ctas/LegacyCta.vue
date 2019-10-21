@@ -1,5 +1,5 @@
 <template>
-  <a :class="{ 'cta': true, 'cta--secondary': secondary }" :href="to">
+  <a :class="{ 'legacy-cta': true, 'legacy-cta--secondary': secondary }" :href="to">
     <slot />
   </a>
 </template>
@@ -11,7 +11,6 @@ import { Component, Prop } from 'vue-property-decorator'
 @Component
 export default class extends Vue {
   @Prop(String) to
-  @Prop(Boolean) secondary
 
   isExternal(url: string): boolean {
     return url.startsWith('http')
@@ -28,22 +27,22 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.cta {
-  padding: 0.66rem 1rem;
-  background-color: var(--primary-color);
-  border: 2px solid var(--secondary-color);
-  font-size: 0.75em;
-  font-weight: 100;
-  color: white;
-  text-transform: uppercase;
+.legacy-cta {
+  font-size: 0.7rem;
+  display: inline-block;
+  padding: 0.5rem 0.8rem;
+  border: 2px black solid;
+  color: black;
   text-decoration: none;
-  box-shadow: 0 4px 6px rgba(50,50,93,.11),0 1px 3px rgba(0,0,0,.08);
-  white-space: nowrap;
-  line-height: 4rem;
+  font-weight: 800;
+  transition: background-color linear 200ms,
+              color linear 200ms,
+              fill linear 200ms;
 
-  &--secondary {
-    color: black;
-    background-color: white;
+  &:hover {
+    background-color: black;
+    color: white;
+    fill: white;
   }
 }
 </style>
