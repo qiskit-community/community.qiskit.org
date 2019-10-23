@@ -182,14 +182,6 @@ main {
 }
 
 #presentation {
-  .extra-container {
-    margin-right: 1rem;
-  }
-
-  .copy-container {
-    max-width: 40%;
-  }
-
   .header-video {
     width: 100%;
     max-width: 560px;
