@@ -144,30 +144,6 @@ main {
   }
 }
 
-.feature {
-  padding-right: 1rem;
-
-  &:last-child {
-    padding-right: 0;
-  }
-}
-
-.feature__icon {
-  position: relative;
-  width: 3rem;
-  height: 3rem;
-}
-
-.feature p {
-  font-size: 0.9rem;
-  margin-top: 0.5rem;
-}
-
-.feature h2 {
-  font-size: 1.1rem;
-  margin-top: 0.5rem;
-}
-
 .inner-navigation {
   position: sticky;
   top: 0;
@@ -274,15 +250,6 @@ main {
 
   #education-benefits {
     display: block;
-  }
-
-  .feature {
-    padding-right: 0;
-    padding-bottom: 3rem;
-
-    &:last-child {
-      padding-bottom: 0;
-    }
   }
 }
 
