@@ -135,4 +135,9 @@ export default class extends Vue {
     }
   }
 }
+@media (max-width: 600px) {
+  .experiment-header__media {
+    display: block;
+  }
+}
 </style>
