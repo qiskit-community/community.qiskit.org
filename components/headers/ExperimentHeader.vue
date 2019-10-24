@@ -122,22 +122,22 @@ export default class extends Vue {
 
 .experiment-header__media {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 0.5rem;
-
-  & > * {
-    max-width: 100%;
-
-    &:first-child {
-      grid-column-start: 1;
-      grid-column-end: 3;
-    }
-  }
 }
-@media (max-width: 600px) {
+
+@media (min-width: 600px) {
   .experiment-header__media {
-    display: block;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.5rem;
+
+    & > * {
+      max-width: 100%;
+
+      &:first-child {
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    }
   }
 }
 </style>
