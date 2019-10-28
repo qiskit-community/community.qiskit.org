@@ -5,12 +5,12 @@
   "author": "IBM Q Community Team",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "dev-debug": "node --debug node_modules/.bin/nuxt",
+    "dev": "nuxt-ts",
+    "dev-debug": "node --debug node_modules/.bin/nuxt-ts",
     "test": "echo \"Error: no test specified\" && exit 0",
     "build": "npm run generate",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
