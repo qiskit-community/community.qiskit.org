@@ -1,4 +1,4 @@
-## Table of Contents
+## Table of content
 ### Chapter 0. Prerequisites
 - Python and Jupyter Notebooks
 - Qiskit
