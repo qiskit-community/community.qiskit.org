@@ -43,7 +43,7 @@ import { Component } from 'vue-property-decorator'
 import InnerNavigation from '~/components/menus/InnerNavigation.vue'
 import GatesHeader from '~/components/headers/GatesHeader.vue'
 import PageSection from '~/components/sections/PageSection.vue'
-import Cta from '~/components/ctas/Cta.vue'
+// import Cta from '~/components/ctas/Cta.vue'
 import ExperimentCard from '~/components/cards/ExperimentCard.vue'
 import ExperimentCarousel from '~/components/cards/ExperimentCarousel.vue'
 
@@ -52,7 +52,7 @@ import ExperimentCarousel from '~/components/cards/ExperimentCarousel.vue'
     InnerNavigation,
     GatesHeader,
     PageSection,
-    Cta,
+    // Cta,
     ExperimentCard,
     ExperimentCarousel
   },

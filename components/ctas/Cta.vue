@@ -1,7 +1,11 @@
 <template>
-  <a :class="{ button: true, 'button--secondary': secondary }" :href="to">
+  <component
+    :is="tag"
+    :class="{ button: true, 'button--secondary': secondary }"
+    :to="to"
+  >
     <slot />
-  </a>
+  </component>
 </template>
 
 <script lang="ts">
@@ -10,6 +14,7 @@ import { Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class extends Vue {
+  @Prop({ type: String, default: 'a' }) tag
   @Prop(String) to
   @Prop(Boolean) secondary
 
