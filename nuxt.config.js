@@ -5,6 +5,7 @@ import miLinkAttributes from 'markdown-it-link-attributes'
 import miAnchor from 'markdown-it-anchor'
 import uslug from 'uslug'
 import pkg from './package'
+import generateTextbookToc from './hooks/generate-textbook-toc'
 
 const md = markdownIt({
   linkify: true,
@@ -167,38 +168,8 @@ export default {
   hooks: {
     build: {
       before() {
-        autoGenerateTextbookTOC()
+        generateTextbookToc()
       }
     }
-  }
-}
-
-/**
- * Extract the table of contents at the `static/textbook/index.html` file
- * and uses it to keep `content/education/textbook-toc.md` up to date. This
- * file contains the contents of the TOC preview at `/education`.
- */
-function autoGenerateTextbookTOC() {
-  const indexPath = './static/textbook/index.html'
-  const indexContent = fs.readFileSync(indexPath, 'utf8')
-  const allTitles = indexContent.match(/Chapter\s+\d+\.\s+[^<]+/g)
-  const allChapters = indexContent.match(/(\d+.\d+\s+)<a[^>]+([^<]+)/g)
-    .map(entry => entry.replace(/<a[^>]+>/, ''))
-
-  const output = ['## Table of Contents']
-    .concat(allTitles.reduce((output, title, index) => {
-      const chapters = getChapters(index)
-        .map(title => title.match(/\s.*/)[0].trim())
-        .map(title => `- ${title}`)
-      output.push(`### ${title}`)
-      output.push(...chapters)
-      return output
-    }, []))
-
-  const tocPath = './content/education/textbook-toc.md'
-  fs.writeFileSync(tocPath, output.join('\n'))
-
-  function getChapters(index) {
-    return allChapters.filter(chapter => chapter.startsWith(`${index}.`))
   }
 }
