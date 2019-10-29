@@ -168,7 +168,10 @@ export default {
   hooks: {
     build: {
       before() {
-        generateTextbookToc()
+        generateTextbookToc(
+          './static/textbook/index.html',
+          './content/education/textbook-toc.md'
+        )
       }
     }
   }

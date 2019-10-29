@@ -3,21 +3,26 @@ import fs from 'fs'
 type TocType = Array<[string, string[]]>
 
 /**
- * Extract the table of contents at the `static/textbook/index.html` file
- * and uses it to keep `content/education/textbook-toc.md` up to date. This
- * file contains the contents of the TOC preview at `/education`.
+ * Extract the table of contents at `indexPath` and uses it to generate
+ * a markdown TOC at `tocPath`, suitable for being rendered in `/education`.
+ *
+ * @param indexPath HTML file where the TOC is extracted from.
+ * @param tocPath output Markdown file path where TOC is generated.
  */
-export default function generateTextbookToc() {
-  const toc = extractToc('./static/textbook/index.html')
-  const mdTocLines = formatToc(toc)
-  writeToc(mdTocLines.join('\n'), './content/education/textbook-toc.md')
+export default function generateTextbookToc(indexPath: string, tocPath: string) {
+  const indexContent = fs.readFileSync(indexPath, 'utf8')
+  const toc = extractToc(indexContent)
+  const mdTocLines = formatTocLines(toc)
+  writeToc(mdTocLines.join('\n'), tocPath)
 }
 
-function extractToc(indexPath: string): TocType {
-  const indexContent = fs.readFileSync(indexPath, 'utf8')
-  const allChapters = indexContent.match(/Chapter\s+\d+\.\s+[^<]+/g) || []
+function extractToc(indexContent: string): TocType {
+  // Chapter titles are of form `Chapter X. Chapter title<`.
+  const allChapters = (indexContent.match(/Chapter\s+\d+\.\s+[^<]+/g) || [])
+    .map(entry => entry.trim())
+  // Topic titles are of form `X.Y <a ...>Topic Title<`
   const allTopics = (indexContent.match(/(\d+.\d+\s+)<a[^>]+([^<]+)/g) || [])
-    .map(entry => entry.replace(/<a[^>]+>/, ''))
+    .map(entry => entry.replace(/<a[^>]+>/, '').trim())
 
   return allChapters.reduce<TocType>((output, title, index) => {
     const chapters = getTopics(index, allTopics)
@@ -30,7 +35,7 @@ function getTopics(index: number, allTopics: string[]) {
   return allTopics.filter(topic => topic.startsWith(`${index}.`))
 }
 
-function formatToc(toc: TocType): string[] {
+function formatTocLines(toc: TocType): string[] {
   return withHeader(
     'Table of Contents',
     toc.reduce<string[]>((output, [title, chapters]) => {
