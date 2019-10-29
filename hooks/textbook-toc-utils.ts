@@ -21,7 +21,7 @@ function extractToc(indexContent: string): TocType {
   }
 }
 
-function formatTocLines(toc: TocType, header: string='Table of Contents'): string[] {
+function formatTocLines(toc: TocType, header: string = 'Table of Contents'): string[] {
   return withHeader(
     header,
     toc.reduce<string[]>((output, [title, chapters]) => {

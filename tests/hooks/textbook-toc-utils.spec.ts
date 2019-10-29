@@ -1,4 +1,4 @@
-import { extractToc, formatTocLines, TocType } from "~/hooks/textbook-toc-utils";
+import { extractToc, formatTocLines, TocType } from '~/hooks/textbook-toc-utils'
 
 const sampleHTML = `<p><strong>Chapter 0. Title 0</strong><br /></p>
 <p>&nbsp; &nbsp; 0.0 <a href="./ch-prerequisites/python-and-jupyter-notebooks.html">Topic 0.0</a><br />
