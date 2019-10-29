@@ -1,8 +1,11 @@
 <template>
   <component
-    :is="tag"
-    :class="{ button: true, 'button--secondary': secondary }"
-    :to="to"
+    :is="isInternal(to) ? 'nuxt-link' : 'a'"
+    :class="[ 'button', { 'button--secondary': secondary } ]"
+    :href="to"
+    :to="isInternal(to) ? to : null"
+    :rel="isExternal(to) ? 'noopener' : null"
+    :target="isExternal(to) ? '_blank' : null"
   >
     <slot />
   </component>
@@ -14,7 +17,6 @@ import { Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class extends Vue {
-  @Prop({ type: String, default: 'a' }) tag
   @Prop(String) to
   @Prop(Boolean) secondary
 
@@ -22,12 +24,12 @@ export default class extends Vue {
     return url.startsWith('http')
   }
 
-  created() {
-    const targetUrl = this.$props.to
-    if (targetUrl && this.isExternal(targetUrl)) {
-      this.$attrs.target = '_blank'
-      this.$attrs.rel = 'noopener'
-    }
+  isMail(url: string): boolean {
+    return url.startsWith('mailto')
+  }
+
+  isInternal(url: string): boolean {
+    return !(this.isExternal(url) || this.isMail(url))
   }
 }
 </script>

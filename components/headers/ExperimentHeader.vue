@@ -22,14 +22,14 @@
       <Cta
         v-if="launch"
         class="experiment-header__cta"
-        :href="launch"
+        :to="launch"
       >
         Launch
       </Cta>
       <Cta
         v-if="source"
         class="experiment-header__cta"
-        :href="source"
+        :to="source"
         secondary
       >
         Explore the code
