@@ -35,7 +35,7 @@ This is an initial schedule, subject to change.
 
 ### 18 November
 
-- 10:00 -12:00 Registration & Optional Tokyo Lab Activities
+- 10:00 - 12:00 Registration & Optional Tokyo Lab Activities
 - 12:30 Shuttles Depart
 - 15:00 Arrival & Check In at Hoshino Resort
 - 16:30 Quantum Escape Room
@@ -62,15 +62,15 @@ This is an initial schedule, subject to change.
 - 12:00 Hoshino Resort Check Out
 - 15:00 Shuttle # 2 Departure from Hoshino Resort
 
- _(Attendees have the option to extend at their own expense)_
+_(Attendees have the option to extend at their own expense)_
  
- ## Prizes and Contest
+## Prizes and Contest
  
- There are 3 ways to win this hackathon!
+There are 3 ways to win this hackathon!
  
- 1st & 2nd Prize - Decided by a panel of 3 judges, 1st and 2nd prize winners will be evaluated on 1) Originality and Uniqueness; 2) Live Pitch Presentation; 3) Usefulness; and 4) Technical complexity. 1st place winners will receive a paid trip to the annual flagship Qiskit Camp event near Yorktown Heights, NY.
+1st & 2nd Prize - Decided by a panel of 3 judges, 1st and 2nd prize winners will be evaluated on 1) Originality and Uniqueness; 2) Live Pitch Presentation; 3) Usefulness; and 4) Technical complexity. 1st place winners will receive a paid trip to the annual flagship Qiskit Camp event near Yorktown Heights, NY.
  
- Community Choice - The community choice award will be given based on the highest scoring team voted on by the community.
+Community Choice - The community choice award will be given based on the highest scoring team voted on by the community.
 
 ## Code of Conduct
 
