@@ -41,12 +41,11 @@
             Social Media
           </h2>
           <ul>
-            <li><a class="footer-column__link" href="https://github.com/Qiskit" target="_blank" rel="noopener">GitHub</a></li>
-            <li><a class="footer-column__link" href="https://qiskit.slack.com/" target="_blank" rel="noopener">Slack</a></li>
-            <li><a class="footer-column__link" href="https://twitter.com/Qiskit" target="_blank" rel="noopener">Twitter</a></li>
-            <li><a class="footer-column__link" href="https://medium.com/Qiskit" target="_blank" rel="noopener">Medium</a></li>
-            <li><a class="footer-column__link" href="https://www.youtube.com/Qiskit" target="_blank" rel="noopener">YouTube</a></li>
-            <li><a class="footer-column__link" href="https://quantumcomputing.stackexchange.com/questions/tagged/qiskit" target="_blank" rel="noopener">Stack Exchange</a></li>
+            <li v-for="socialMedia in socialMediaList" :key="socialMedia.label" >
+              <a class="footer-column__link" :href="socialMedia.url" target="_blank" rel="noopener">
+                {{socialMedia.label}}
+              </a>
+            </li>
           </ul>
         </section>
       </div>
@@ -58,11 +57,12 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
-import { orderedElements } from '~/constants/links'
+import { orderedElements, orderedSocialMedia } from '~/constants/links'
 
 @Component
 export default class extends Vue {
   @Prop({ type: Array, default: () => orderedElements }) elements
+  @Prop({ type: Array, default: () => orderedSocialMedia }) socialMediaList
 }
 </script>
 
