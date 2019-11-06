@@ -9,11 +9,13 @@
           <div class="overlay" />
           <nav class="vertical-navigation">
             <h2>Elements</h2>
-            <a class="vertical-navigation__item" href="https://qiskit.org/terra">Terra</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/aer">Aer</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/aqua">Aqua</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/ignis">Ignis</a>
-            <a class="vertical-navigation__item" href="https://qiskit.org/ibmqaccount">IBM Q Account</a>
+            <a 
+            v-for="element in elements" 
+            :key="element.label" 
+            class="vertical-navigation__item" 
+            :href="element.url">
+              {{element.label}}
+            </a>
             <h2>Learn more</h2>
             <a class="vertical-navigation__item vertical-navigation__item--active" href="/">Community</a>
             <div class="vertical-community-navigation">
@@ -33,13 +35,15 @@
             <a class="vertical-navigation__item" href="https://qiskit.org/documentation">API&nbsp;Documentation</a>
           </nav>
         </section>
-        <a class="link-to-home" href="https://qiskit.org">Qiskit</a>
+        <a class="link-to-home" :href="baseUrl">Qiskit</a>
         <nav class="navigation-group navigation-group--with-separator">
-          <a class="navigation-group__item" href="https://qiskit.org/terra">Terra</a>
-          <a class="navigation-group__item" href="https://qiskit.org/aer">Aer</a>
-          <a class="navigation-group__item" href="https://qiskit.org/aqua">Aqua</a>
-          <a class="navigation-group__item" href="https://qiskit.org/ignis">Ignis</a>
-          <a class="navigation-group__item" href="https://qiskit.org/ibmqaccount">IBM Q Account</a>
+          <a 
+            v-for="element in elements" 
+            :key="element.label" 
+            class="navigation-group__item" 
+            :href="element.url">
+              {{element.label}}
+            </a>
         </nav>
         <nav class="navigation-group navigation-group--fixed navigation-group--right-aligned">
           <a class="navigation-group__item navigation-group__item--active" href="/">Community</a>
@@ -72,6 +76,8 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
+import { BASE_URL, orderedElements } from '~/constants/links'
+
 @Component
 export default class extends Vue {
   @Prop({
@@ -82,6 +88,8 @@ export default class extends Vue {
       { to: '/experiments', label: 'Experiments' }
     ]
   }) links
+  @Prop(String) baseUrl = BASE_URL
+  @Prop(Array) elements = orderedElements
 
   isActive(path) {
     return this.$route.path.startsWith(path)
