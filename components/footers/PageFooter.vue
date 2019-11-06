@@ -7,11 +7,11 @@
             Qiskit Elements
           </h2>
           <ul>
-            <li><a class="footer-column__link" href="https://qiskit.org/terra">Terra</a></li>
-            <li><a class="footer-column__link" href="https://qiskit.org/aer">Aer</a></li>
-            <li><a class="footer-column__link" href="https://qiskit.org/aqua">Aqua</a></li>
-            <li><a class="footer-column__link" href="https://qiskit.org/ignis">Ignis</a></li>
-            <li><a class="footer-column__link" href="https://qiskit.org/ibmqaccount">IBM Q Account</a></li>
+            <li v-for="element in elements" :key="element.label" >
+              <a class="footer-column__link" :href="element.url">
+                {{element.label}}
+              </a>
+            </li>
           </ul>
         </section>
         <section class="footer-column">
@@ -53,6 +53,18 @@
     </div>
   </footer>
 </template>
+
+<script lang="ts">
+import Vue from 'vue'
+import { Component, Prop } from 'vue-property-decorator'
+
+import { orderedElements } from '~/constants/links'
+
+@Component
+export default class extends Vue {
+  @Prop({ type: Array, default: () => orderedElements }) elements
+}
+</script>
 
 <style lang="scss" scoped>
 @import '~/assets/scss/mixins.scss';
