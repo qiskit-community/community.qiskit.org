@@ -88,8 +88,8 @@ export default class extends Vue {
       { to: '/experiments', label: 'Experiments' }
     ]
   }) links
-  @Prop(String) baseUrl = BASE_URL
-  @Prop(Array) elements = orderedElements
+  @Prop({ type: String, default: BASE_URL }) baseUrl
+  @Prop({ type: Array, default: () => orderedElements }) elements
 
   isActive(path) {
     return this.$route.path.startsWith(path)
