@@ -57,11 +57,11 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
-import { orderedElements, orderedSocialMedia } from '~/constants/links'
+import { orderedQiskitElements, orderedSocialMedia } from '~/constants/links'
 
 @Component
 export default class extends Vue {
-  @Prop({ type: Array, default: () => orderedElements }) elements
+  @Prop({ type: Array, default: () => orderedQiskitElements }) elements
   @Prop({ type: Array, default: () => orderedSocialMedia }) socialMediaList
 }
 </script>

@@ -1,5 +1,5 @@
 const BASE_URL = 'https://qiskit.org'
-const ELEMENTS = {
+const QISKIT_ELEMENTS = {
   terra: {
     label: 'Terra',
     url: `${BASE_URL}/terra`
@@ -22,12 +22,12 @@ const ELEMENTS = {
   }
 }
 
-const orderedElements = [
-  ELEMENTS.terra,
-  ELEMENTS.aer,
-  ELEMENTS.aqua,
-  ELEMENTS.ignis,
-  ELEMENTS.ibmaccount
+const orderedQiskitElements = [
+  QISKIT_ELEMENTS.terra,
+  QISKIT_ELEMENTS.aer,
+  QISKIT_ELEMENTS.aqua,
+  QISKIT_ELEMENTS.ignis,
+  QISKIT_ELEMENTS.ibmaccount
 ]
 
 const SOCIAL_MEDIA = {
@@ -66,4 +66,4 @@ const orderedSocialMedia = [
   SOCIAL_MEDIA.stack
 ]
 
-module.exports = { BASE_URL, orderedElements, orderedSocialMedia }
+module.exports = { BASE_URL, orderedQiskitElements, orderedSocialMedia }

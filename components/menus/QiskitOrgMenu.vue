@@ -76,7 +76,7 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
-import { BASE_URL, orderedElements } from '~/constants/links'
+import { BASE_URL, orderedQiskitElements } from '~/constants/links'
 
 @Component
 export default class extends Vue {
@@ -89,7 +89,7 @@ export default class extends Vue {
     ]
   }) links
   @Prop({ type: String, default: BASE_URL }) baseUrl
-  @Prop({ type: Array, default: () => orderedElements }) elements
+  @Prop({ type: Array, default: () => orderedQiskitElements }) elements
 
   isActive(path) {
     return this.$route.path.startsWith(path)
