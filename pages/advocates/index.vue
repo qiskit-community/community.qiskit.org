@@ -221,6 +221,12 @@ main {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 
+    & > * {
+      @include mq($until: desktop) {
+        margin-bottom: 1rem;
+      }
+    }
+
     .advocate-card {
       width: 100%;
       border: 1px solid var(--secondary-color);
@@ -229,16 +235,6 @@ main {
     @include mq($until: desktop) {
       display: block;
     }
-  }
-
-  @include mq($until: desktop) {
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-height: 600px) {
-  .inner-navigation {
-    position: static;
   }
 }
 </style>
