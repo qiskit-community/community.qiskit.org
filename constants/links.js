@@ -30,4 +30,40 @@ const orderedElements = [
   ELEMENTS.ibmaccount
 ]
 
-module.exports = { BASE_URL, orderedElements }
+const SOCIAL_MEDIA = {
+  github: {
+    label: 'GitHub',
+    url: 'https://github.com/Qiskit'
+  },
+  slack: {
+    label: 'Slack',
+    url: 'https://qiskit.slack.com/'
+  },
+  twitter: {
+    label: 'Twitter',
+    url: 'https://twitter.com/Qiskit'
+  },
+  medium: {
+    label: 'Medium',
+    url: 'https://medium.com/Qiskit'
+  },
+  youtube: {
+    label: 'YouTube',
+    url: 'https://www.youtube.com/Qiskit'
+  },
+  stack: {
+    label: 'Stack Exchange',
+    url: 'https://quantumcomputing.stackexchange.com/questions/tagged/qiskit'
+  }
+}
+
+const orderedSocialMedia = [
+  SOCIAL_MEDIA.github,
+  SOCIAL_MEDIA.slack,
+  SOCIAL_MEDIA.twitter,
+  SOCIAL_MEDIA.medium,
+  SOCIAL_MEDIA.youtube,
+  SOCIAL_MEDIA.stack
+]
+
+module.exports = { BASE_URL, orderedElements, orderedSocialMedia }
