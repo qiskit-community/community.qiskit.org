@@ -69,15 +69,15 @@ const orderedSocialMedia = [
 const COMMUNITY_SUB_LINKS = {
   education: {
     label: 'Education',
-    url: '/education'
+    to: '/education'
   },
   advocates: {
     label: 'Advocates',
-    url: '/advocates'
+    to: '/advocates'
   },
   experiments: {
     label: 'Experiments',
-    url: '/experiments'
+    to: '/experiments'
   }
 }
 
@@ -87,7 +87,7 @@ const orderedCommunitySubLinks = [
   COMMUNITY_SUB_LINKS.experiments
 ]
 
-module.exports = {
+export {
   QISKIT_URL,
   orderedQiskitElements,
   orderedSocialMedia,

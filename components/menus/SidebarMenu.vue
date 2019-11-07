@@ -16,14 +16,14 @@
       <a class="vertical-navigation__item vertical-navigation__item--active" href="/">Community</a>
       <div class="vertical-community-navigation">
         <nuxt-link
-          v-for="(link, index) in links"
-          :key="index"
+          v-for="communitySubLink in communitySubLinks"
+          :key="communitySubLink.label"
           :class="{
                   'vertical-community-navigation__item': true,
-                  'nuxt-link-active': isActive(link.to)
+                  'nuxt-link-active': isActive(communitySubLink.to)
                 }"
-          :to="link.to"
-        >{{ link.label }}</nuxt-link>
+          :to="communitySubLink.to"
+        >{{ communitySubLink.label }}</nuxt-link>
       </div>
       <a
         class="vertical-navigation__item"
@@ -46,7 +46,7 @@ import { QISKIT_URL, orderedQiskitElements, orderedCommunitySubLinks } from '~/c
 
 @Component
 export default class extends Vue {
-  @Prop({ type: Array, default: () => orderedCommunitySubLinks }) links
+  @Prop({ type: Array, default: () => orderedCommunitySubLinks }) communitySubLinks
   @Prop({ type: Array, default: () => orderedQiskitElements }) elements
 
   isActive(path) {
@@ -56,8 +56,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/mixins.scss';
-
 @mixin vertical-navigation-item() {
   font-size: 0.9rem;
   text-decoration: none;

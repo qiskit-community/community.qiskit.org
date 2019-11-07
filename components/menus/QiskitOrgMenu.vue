@@ -24,15 +24,15 @@
       <section class="menu menu--framed">
         <nav class="navigation-group navigation-group--right-aligned navigation-group--fixed">
           <nuxt-link
-            v-for="(link, index) in links"
-            :key="index"
+            v-for="communitySubLink in communitySubLinks"
+            :key="communitySubLink.label"
             :class="{
               'navigation-group__item': true,
-              'nuxt-link-active': isActive(link.to)
+              'nuxt-link-active': isActive(communitySubLink.to)
             }"
-            :to="link.to"
+            :to="communitySubLink.to"
           >
-            {{ link.label }}
+            {{ communitySubLink.label }}
           </nuxt-link>
         </nav>
       </section>
@@ -52,7 +52,7 @@ import { QISKIT_URL, orderedQiskitElements, orderedCommunitySubLinks } from '~/c
 })
 export default class extends Vue {
   @Prop({ type: String, default: QISKIT_URL }) baseUrl
-  @Prop({ type: Array, default: () => orderedCommunitySubLinks }) links
+  @Prop({ type: Array, default: () => orderedCommunitySubLinks }) communitySubLinks
   @Prop({ type: Array, default: () => orderedQiskitElements }) elements
 
   isActive(path) {
@@ -62,8 +62,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/mixins.scss';
-
 * {
   box-sizing: border-box;
 }
@@ -137,6 +135,10 @@ export default class extends Vue {
     /* fixings for mimicing qiskit.org menu */
     margin-right: -0.4rem;
   }
+
+  @include mq($until: wide-desktop) {
+    display: none;
+  }
 }
 
 .link-to-home {
@@ -146,6 +148,11 @@ export default class extends Vue {
   padding: 0 1em;
   color: var(--link-color);
   text-decoration: none;
+
+  @include mq($until: wide-desktop) {
+    font-size: 1.1rem;
+    margin-left: -0.5rem;
+  }
 }
 
 @media (max-width: 830px) {

@@ -67,8 +67,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/mixins.scss';
-
 .page-footer-container {
   margin-top: 4rem;
   padding-bottom: 4rem;
@@ -94,6 +92,10 @@ export default class extends Vue {
   &--framed {
     @include framed();
   }
+
+  @include mq($until: desktop) {
+    display: block;
+  }
 }
 
 .footer-column {
@@ -109,6 +111,10 @@ export default class extends Vue {
 
     &:first-child {
       margin-top: 0;
+
+      @include mq($until: desktop) {
+        margin-top: 0;
+      }
     }
   }
 
@@ -126,20 +132,10 @@ export default class extends Vue {
   &:last-child {
     margin-right: 0;
   }
-}
 
-@media (max-width: 600px) {
-  .page-footer {
-    display: block;
-  }
-
-  .footer-column {
+  @include mq($until: desktop) {
     margin-top: 2rem;
     margin-right: 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
   }
 }
 </style>

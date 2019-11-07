@@ -133,8 +133,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/mixins.scss';
-
 main {
   color: var(--body-color-light);
   background-color: var(--primary-color-darkmost);
@@ -145,6 +143,10 @@ main {
   position: sticky;
   top: 0;
   z-index: 100;
+
+  @include mq($until: desktop) {
+    position: static;
+  }
 }
 
 .actions {
@@ -160,6 +162,11 @@ main {
 
   & > * {
     flex: 1;
+
+    @include mq($until: desktop) {
+      text-align: center;
+      margin-top: 2rem;
+    }
   }
 
   .compact-feature {
@@ -168,6 +175,11 @@ main {
     &:last-child {
       padding-right: 0;
     }
+  }
+
+  @include mq($until: desktop) {
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -206,42 +218,20 @@ main {
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
 
+    & > * {
+      @include mq($until: desktop) {
+        margin-bottom: 1rem;
+      }
+    }
+
     .advocate-card {
       width: 100%;
       border: 1px solid var(--secondary-color);
     }
-  }
-}
 
-@media (max-width: 600px) {
-  #advocates-benefits {
-    display: flex;
-    flex-direction: column;
-
-    & > * {
-      text-align: center;
-      margin-top: 2rem;
-    }
-  }
-
-  .inner-navigation {
-    position: static;
-  }
-
-  #meet-the-advocates {
-    .advocate-cards-container {
+    @include mq($until: desktop) {
       display: block;
-
-      & > * {
-        margin-bottom: 1rem;
-      }
     }
-  }
-}
-
-@media (max-height: 600px) {
-  .inner-navigation {
-    position: static;
   }
 }
 </style>

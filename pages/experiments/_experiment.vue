@@ -68,8 +68,6 @@ export default class extends Vue { }
 </script>
 
 <style lang="scss">
-@import '~/assets/scss/mixins.scss';
-
 #copy {
   background-color: white;
   padding-top: 0;
@@ -104,20 +102,6 @@ export default class extends Vue { }
 
   p {
     text-align: justify;
-  }
-}
-
-@media (max-width: 800px) {
-  .secondary {
-    display: block;
-  }
-
-  .secondary > * {
-    max-width: 100%;
-  }
-
-  .button {
-    margin-bottom: 0.5rem;
   }
 }
 </style>
