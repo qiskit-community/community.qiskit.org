@@ -1,24 +1,24 @@
-const BASE_URL = 'https://qiskit.org'
+const QISKIT_URL = 'https://qiskit.org'
 const QISKIT_ELEMENTS = {
   terra: {
     label: 'Terra',
-    url: `${BASE_URL}/terra`
+    url: `${QISKIT_URL}/terra`
   },
   aer: {
     label: 'Aer',
-    url: `${BASE_URL}/aer`
+    url: `${QISKIT_URL}/aer`
   },
   aqua: {
     label: 'Aqua',
-    url: `${BASE_URL}/aqua`
+    url: `${QISKIT_URL}/aqua`
   },
   ignis: {
     label: 'Ignis',
-    url: `${BASE_URL}/ignis`
+    url: `${QISKIT_URL}/ignis`
   },
   ibmaccount: {
     label: 'IBM Q Account',
-    url: `${BASE_URL}/ibmqaccount`
+    url: `${QISKIT_URL}/ibmqaccount`
   }
 }
 
@@ -66,4 +66,4 @@ const orderedSocialMedia = [
   SOCIAL_MEDIA.stack
 ]
 
-module.exports = { BASE_URL, orderedQiskitElements, orderedSocialMedia }
+module.exports = { QISKIT_URL, orderedQiskitElements, orderedSocialMedia }

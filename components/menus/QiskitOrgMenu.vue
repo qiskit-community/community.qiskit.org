@@ -76,7 +76,7 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
-import { BASE_URL, orderedQiskitElements } from '~/constants/links'
+import { QISKIT_URL, orderedQiskitElements } from '~/constants/links'
 
 @Component
 export default class extends Vue {
@@ -88,7 +88,7 @@ export default class extends Vue {
       { to: '/experiments', label: 'Experiments' }
     ]
   }) links
-  @Prop({ type: String, default: BASE_URL }) baseUrl
+  @Prop({ type: String, default: QISKIT_URL }) baseUrl
   @Prop({ type: Array, default: () => orderedQiskitElements }) elements
 
   isActive(path) {
