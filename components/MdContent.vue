@@ -4,8 +4,8 @@ import { Component, Prop } from 'vue-property-decorator'
 
 @Component
 export default class extends Vue {
-  @Prop(String) renderFn
-  @Prop(String) staticRenderFns
+  @Prop(Function) renderFn
+  @Prop(Array) staticRenderFns
 
   render(createElement) {
     return this.$data.templateRender ? this.$data.templateRender()
@@ -14,9 +14,8 @@ export default class extends Vue {
 
   created() {
     /* eslint no-new-func: "off" */
-    this.$data.templateRender =
-      (new Function(this.$props.renderFn)()).bind(this)
-    this.$options.staticRenderFns = new Function(this.$props.staticRenderFns)()
+    this.$data.templateRender = (this.$props.renderFn).bind(this)
+    this.$options.staticRenderFns = this.$props.staticRenderFns
   }
 }
 </script>

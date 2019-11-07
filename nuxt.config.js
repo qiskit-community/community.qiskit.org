@@ -6,6 +6,7 @@ import miAnchor from 'markdown-it-anchor'
 import uslug from 'uslug'
 import pkg from './package'
 import generateTextbookToc from './hooks/generate-textbook-toc'
+import Mode from "frontmatter-markdown-loader/mode"
 
 const md = markdownIt({
   linkify: true,
@@ -131,6 +132,7 @@ export default {
         loader: 'frontmatter-markdown-loader',
         include: path.resolve(__dirname, 'content'),
         options: {
+          mode: [Mode.VUE_RENDER_FUNCTIONS, Mode.VUE_COMPONENT, Mode.HTML, Mode.META, Mode.BODY],
           vue: {
             root: 'content'
           },
