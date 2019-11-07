@@ -66,4 +66,30 @@ const orderedSocialMedia = [
   SOCIAL_MEDIA.stack
 ]
 
-module.exports = { QISKIT_URL, orderedQiskitElements, orderedSocialMedia }
+const COMMUNITY_SUB_LINKS = {
+  education: {
+    label: 'Education',
+    url: '/education'
+  },
+  advocates: {
+    label: 'Advocates',
+    url: '/advocates'
+  },
+  experiments: {
+    label: 'Experiments',
+    url: '/experiments'
+  }
+}
+
+const orderedCommunitySubLinks = [
+  COMMUNITY_SUB_LINKS.education,
+  COMMUNITY_SUB_LINKS.advocates,
+  COMMUNITY_SUB_LINKS.experiments
+]
+
+module.exports = {
+  QISKIT_URL,
+  orderedQiskitElements,
+  orderedSocialMedia,
+  orderedCommunitySubLinks
+}

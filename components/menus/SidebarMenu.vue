@@ -41,23 +41,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
-import SidebarMenu from '~/components/menus/SidebarMenu.vue'
 
-import { QISKIT_URL, orderedQiskitElements } from '~/constants/links'
+import { QISKIT_URL, orderedQiskitElements, orderedCommunitySubLinks } from '~/constants/links'
 
-
-@Component({
-  components: { SidebarMenu }
-})
+@Component
 export default class extends Vue {
-  @Prop({
-    type: Array,
-    default: () => [
-      { to: '/education', label: 'Education' },
-      { to: '/advocates', label: 'Advocates' },
-      { to: '/experiments', label: 'Experiments' }
-    ]
-  }) links
+  @Prop({ type: Array, default: () => orderedCommunitySubLinks }) links
   @Prop({ type: Array, default: () => orderedQiskitElements }) elements
 
   isActive(path) {
