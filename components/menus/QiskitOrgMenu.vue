@@ -22,11 +22,12 @@
                 v-for="communitySubLink in communitySubLinks"
                 :key="communitySubLink.label"
                 :class="{
-                        'vertical-community-navigation__item': true,
-                        'nuxt-link-active': isActive(communitySubLink.to)
-                      }"
+                  'vertical-community-navigation__item': true,
+                  'nuxt-link-active': isActive(communitySubLink.to)
+                }"
                 :to="communitySubLink.to"
-              >{{ communitySubLink.label }}</nuxt-link>
+              >{{ communitySubLink.label }}
+              </nuxt-link>
             </div>
             <a
               class="vertical-navigation__item"
@@ -46,8 +47,8 @@
             :key="element.label"
             class="navigation-group__item"
             :href="element.url">
-              {{ element.label }}
-            </a>
+            {{ element.label }}
+          </a>
         </nav>
         <nav class="navigation-group navigation-group--fixed navigation-group--right-aligned">
           <a class="navigation-group__item navigation-group__item--active" href="/">Community</a>
@@ -278,7 +279,7 @@ export default class extends Vue {
   .vertical-navigation {
     transform: translateX(0);
   }
-  
+
   .overlay {
     opacity: 0.5;
   }
