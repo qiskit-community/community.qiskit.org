@@ -11,7 +11,7 @@
         :key="element.label"
         class="vertical-navigation__item"
         :href="element.url"
-      >{{element.label}}</a>
+      >{{ element.label }}</a>
       <h2>Learn more</h2>
       <a class="vertical-navigation__item vertical-navigation__item--active" href="/">Community</a>
       <div class="vertical-community-navigation">
@@ -42,7 +42,7 @@
 import Vue from 'vue'
 import { Component, Prop } from 'vue-property-decorator'
 
-import { QISKIT_URL, orderedQiskitElements, orderedCommunitySubLinks } from '~/constants/links'
+import { orderedQiskitElements, orderedCommunitySubLinks } from '~/constants/links'
 
 @Component
 export default class extends Vue {

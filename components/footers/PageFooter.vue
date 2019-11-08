@@ -9,7 +9,7 @@
           <ul>
             <li v-for="element in elements" :key="element.label" >
               <a class="footer-column__link" :href="element.url">
-                {{element.label}}
+                {{ element.label }}
               </a>
             </li>
           </ul>
@@ -43,7 +43,7 @@
           <ul>
             <li v-for="socialMedia in socialMediaList" :key="socialMedia.label" >
               <a class="footer-column__link" :href="socialMedia.url" target="_blank" rel="noopener">
-                {{socialMedia.label}}
+                {{ socialMedia.label }}
               </a>
             </li>
           </ul>

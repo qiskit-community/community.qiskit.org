@@ -2,15 +2,15 @@
   <section>
     <div class="menu-container">
       <div class="menu menu--framed">
-        <SidebarMenu/>
+        <SidebarMenu />
         <a class="link-to-home" :href="baseUrl">Qiskit</a>
         <nav class="navigation-group navigation-group--with-separator">
-          <a 
-            v-for="element in elements" 
-            :key="element.label" 
-            class="navigation-group__item" 
+          <a
+            v-for="element in elements"
+            :key="element.label"
+            class="navigation-group__item"
             :href="element.url">
-              {{element.label}}
+              {{ element.label }}
             </a>
         </nav>
         <nav class="navigation-group navigation-group--fixed navigation-group--right-aligned">
