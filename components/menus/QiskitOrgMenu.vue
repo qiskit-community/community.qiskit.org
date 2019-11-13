@@ -10,11 +10,13 @@
           <nav class="vertical-navigation">
             <h2>Elements</h2>
             <a
-              v-for="element in elements"
-              :key="element.label"
+              v-for="qiskitElement in qiskitElements"
+              :key="qiskitElement.label"
               class="vertical-navigation__item"
-              :href="element.url"
-            >{{ element.label }}</a>
+              :href="qiskitElement.url"
+            >
+              {{ qiskitElement.label }}
+            </a>
             <h2>Learn more</h2>
             <a class="vertical-navigation__item vertical-navigation__item--active" href="/">Community</a>
             <div class="vertical-community-navigation">
@@ -26,7 +28,8 @@
                   'nuxt-link-active': isActive(communitySubLink.to)
                 }"
                 :to="communitySubLink.to"
-              >{{ communitySubLink.label }}
+              >
+                {{ communitySubLink.label }}
               </nuxt-link>
             </div>
             <a
@@ -40,14 +43,15 @@
             >API&nbsp;Documentation</a>
           </nav>
         </section>
-        <a class="link-to-home" :href="baseUrl">Qiskit</a>
+        <a class="link-to-home" :href="qiskitUrl">Qiskit</a>
         <nav class="navigation-group navigation-group--with-separator">
           <a
-            v-for="element in elements"
-            :key="element.label"
+            v-for="qiskitElement in qiskitElements"
+            :key="qiskitElement.label"
             class="navigation-group__item"
-            :href="element.url">
-            {{ element.label }}
+            :href="qiskitElement.url"
+          >
+            {{ qiskitElement.label }}
           </a>
         </nav>
         <nav class="navigation-group navigation-group--fixed navigation-group--right-aligned">
@@ -79,15 +83,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Component, Prop } from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
 
 import { QISKIT_URL, orderedQiskitElements, orderedCommunitySubLinks } from '~/constants/links'
 
 @Component
 export default class extends Vue {
-  @Prop({ type: String, default: QISKIT_URL }) baseUrl
-  @Prop({ type: Array, default: () => orderedCommunitySubLinks }) communitySubLinks
-  @Prop({ type: Array, default: () => orderedQiskitElements }) elements
+  qiskitUrl = QISKIT_URL
+  qiskitElements = orderedQiskitElements
+  communitySubLinks = orderedCommunitySubLinks
 
   isActive(path) {
     return this.$route.path.startsWith(path)
