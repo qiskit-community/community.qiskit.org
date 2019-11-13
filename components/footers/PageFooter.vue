@@ -73,12 +73,12 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-import { orderedQiskitElements, orderedSocialMedia } from '~/constants/links'
+import { ORDERED_QISKIT_ELEMENTS, ORDERED_SOCIAL_MEDIA, } from '~/constants/menuLinks'
 
 @Component
 export default class extends Vue {
-  qiskitElements = orderedQiskitElements
-  socialMediaList = orderedSocialMedia
+  qiskitElements = ORDERED_QISKIT_ELEMENTS
+  socialMediaList = ORDERED_SOCIAL_MEDIA
 }
 </script>
 

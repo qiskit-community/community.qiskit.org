@@ -16,18 +16,18 @@ const QISKIT_ELEMENTS = {
     label: 'Ignis',
     url: `${QISKIT_URL}/ignis`
   },
-  ibmaccount: {
+  ibmQAccount: {
     label: 'IBM Q Account',
     url: `${QISKIT_URL}/ibmqaccount`
   }
 }
 
-const orderedQiskitElements = [
+const ORDERED_QISKIT_ELEMENTS = [
   QISKIT_ELEMENTS.terra,
   QISKIT_ELEMENTS.aer,
   QISKIT_ELEMENTS.aqua,
   QISKIT_ELEMENTS.ignis,
-  QISKIT_ELEMENTS.ibmaccount
+  QISKIT_ELEMENTS.ibmQAccount
 ]
 
 const SOCIAL_MEDIA = {
@@ -57,7 +57,7 @@ const SOCIAL_MEDIA = {
   }
 }
 
-const orderedSocialMedia = [
+const ORDERED_SOCIAL_MEDIA = [
   SOCIAL_MEDIA.github,
   SOCIAL_MEDIA.slack,
   SOCIAL_MEDIA.twitter,
@@ -81,7 +81,7 @@ const COMMUNITY_SUB_LINKS = {
   }
 }
 
-const orderedCommunitySubLinks = [
+const ORDERED_COMMUNITY_SUB_LINKS = [
   COMMUNITY_SUB_LINKS.education,
   COMMUNITY_SUB_LINKS.advocates,
   COMMUNITY_SUB_LINKS.experiments
@@ -89,7 +89,7 @@ const orderedCommunitySubLinks = [
 
 export {
   QISKIT_URL,
-  orderedQiskitElements,
-  orderedSocialMedia,
-  orderedCommunitySubLinks
+  ORDERED_QISKIT_ELEMENTS,
+  ORDERED_SOCIAL_MEDIA,
+  ORDERED_COMMUNITY_SUB_LINKS
 }
