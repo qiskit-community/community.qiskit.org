@@ -85,13 +85,18 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-import { QISKIT_URL, ORDERED_QISKIT_ELEMENTS, ORDERED_COMMUNITY_SUB_LINKS } from '~/constants/menuLinks'
+import {
+  QISKIT_URL,
+  ORDERED_QISKIT_ELEMENTS,
+  ORDERED_COMMUNITY_SUB_LINKS,
+  NavLink
+} from '~/constants/menuLinks'
 
 @Component
 export default class extends Vue {
-  qiskitUrl = QISKIT_URL
-  qiskitElements = ORDERED_QISKIT_ELEMENTS
-  communitySubLinks = ORDERED_COMMUNITY_SUB_LINKS
+  qiskitUrl: string = QISKIT_URL
+  qiskitElements: Array<NavLink> = ORDERED_QISKIT_ELEMENTS
+  communitySubLinks: Array<NavLink> = ORDERED_COMMUNITY_SUB_LINKS
 
   isActive(path) {
     return this.$route.path.startsWith(path)

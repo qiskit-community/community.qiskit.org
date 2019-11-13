@@ -1,29 +1,18 @@
-interface NavLink {
+type NavLink = {
   label: string
   url: string
 }
 
-interface QiskitElements {
+type LabeledLinks = {
+  [key: string]: NavLink
+}
+
+type QiskitElements = {
   terra: NavLink,
   aer: NavLink,
   aqua: NavLink,
   ignis: NavLink,
   ibmQAccount: NavLink
-}
-
-interface SocialMedia {
-  github: NavLink,
-  slack: NavLink,
-  twitter: NavLink,
-  medium: NavLink,
-  youtube: NavLink,
-  stack: NavLink
-}
-
-interface CommunitySubLinks {
-  education: NavLink,
-  advocates: NavLink,
-  experiments: NavLink
 }
 
 const QISKIT_URL: string = 'https://qiskit.org'
@@ -58,7 +47,7 @@ const ORDERED_QISKIT_ELEMENTS: Array<NavLink> = [
   QISKIT_ELEMENTS.ibmQAccount
 ]
 
-const SOCIAL_MEDIA: SocialMedia = {
+const SOCIAL_MEDIA: LabeledLinks = {
   github: {
     label: 'GitHub',
     url: 'https://github.com/Qiskit'
@@ -94,7 +83,7 @@ const ORDERED_SOCIAL_MEDIA: Array<NavLink> = [
   SOCIAL_MEDIA.stack
 ]
 
-const COMMUNITY_SUB_LINKS = {
+const COMMUNITY_SUB_LINKS: LabeledLinks = {
   education: {
     label: 'Education',
     url: '/education'
@@ -119,5 +108,6 @@ export {
   QISKIT_URL,
   ORDERED_QISKIT_ELEMENTS,
   ORDERED_SOCIAL_MEDIA,
-  ORDERED_COMMUNITY_SUB_LINKS
+  ORDERED_COMMUNITY_SUB_LINKS,
+  NavLink
 }
