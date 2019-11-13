@@ -25,9 +25,9 @@
                 :key="communitySubLink.label"
                 :class="{
                   'vertical-community-navigation__item': true,
-                  'nuxt-link-active': isActive(communitySubLink.to)
+                  'nuxt-link-active': isActive(communitySubLink.url)
                 }"
-                :to="communitySubLink.to"
+                :to="communitySubLink.url"
               >
                 {{ communitySubLink.label }}
               </nuxt-link>
@@ -69,9 +69,9 @@
             :key="communitySubLink.label"
             :class="{
               'navigation-group__item': true,
-              'nuxt-link-active': isActive(communitySubLink.to)
+              'nuxt-link-active': isActive(communitySubLink.url)
             }"
-            :to="communitySubLink.to"
+            :to="communitySubLink.url"
           >
             {{ communitySubLink.label }}
           </nuxt-link>

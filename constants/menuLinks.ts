@@ -1,5 +1,33 @@
-const QISKIT_URL = 'https://qiskit.org'
-const QISKIT_ELEMENTS = {
+interface NavLink {
+  label: string
+  url: string
+}
+
+interface QiskitElements {
+  terra: NavLink,
+  aer: NavLink,
+  aqua: NavLink,
+  ignis: NavLink,
+  ibmQAccount: NavLink
+}
+
+interface SocialMedia {
+  github: NavLink,
+  slack: NavLink,
+  twitter: NavLink,
+  medium: NavLink,
+  youtube: NavLink,
+  stack: NavLink
+}
+
+interface CommunitySubLinks {
+  education: NavLink,
+  advocates: NavLink,
+  experiments: NavLink
+}
+
+const QISKIT_URL: string = 'https://qiskit.org'
+const QISKIT_ELEMENTS: QiskitElements = {
   terra: {
     label: 'Terra',
     url: `${QISKIT_URL}/terra`
@@ -22,7 +50,7 @@ const QISKIT_ELEMENTS = {
   }
 }
 
-const ORDERED_QISKIT_ELEMENTS = [
+const ORDERED_QISKIT_ELEMENTS: Array<NavLink> = [
   QISKIT_ELEMENTS.terra,
   QISKIT_ELEMENTS.aer,
   QISKIT_ELEMENTS.aqua,
@@ -30,7 +58,7 @@ const ORDERED_QISKIT_ELEMENTS = [
   QISKIT_ELEMENTS.ibmQAccount
 ]
 
-const SOCIAL_MEDIA = {
+const SOCIAL_MEDIA: SocialMedia = {
   github: {
     label: 'GitHub',
     url: 'https://github.com/Qiskit'
@@ -57,7 +85,7 @@ const SOCIAL_MEDIA = {
   }
 }
 
-const ORDERED_SOCIAL_MEDIA = [
+const ORDERED_SOCIAL_MEDIA: Array<NavLink> = [
   SOCIAL_MEDIA.github,
   SOCIAL_MEDIA.slack,
   SOCIAL_MEDIA.twitter,
@@ -69,19 +97,19 @@ const ORDERED_SOCIAL_MEDIA = [
 const COMMUNITY_SUB_LINKS = {
   education: {
     label: 'Education',
-    to: '/education'
+    url: '/education'
   },
   advocates: {
     label: 'Advocates',
-    to: '/advocates'
+    url: '/advocates'
   },
   experiments: {
     label: 'Experiments',
-    to: '/experiments'
+    url: '/experiments'
   }
 }
 
-const ORDERED_COMMUNITY_SUB_LINKS = [
+const ORDERED_COMMUNITY_SUB_LINKS: Array<NavLink> = [
   COMMUNITY_SUB_LINKS.education,
   COMMUNITY_SUB_LINKS.advocates,
   COMMUNITY_SUB_LINKS.experiments

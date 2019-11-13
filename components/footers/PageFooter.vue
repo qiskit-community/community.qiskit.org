@@ -73,7 +73,7 @@
 import Vue from 'vue'
 import { Component } from 'vue-property-decorator'
 
-import { ORDERED_QISKIT_ELEMENTS, ORDERED_SOCIAL_MEDIA, } from '~/constants/menuLinks'
+import { ORDERED_QISKIT_ELEMENTS, ORDERED_SOCIAL_MEDIA } from '~/constants/menuLinks'
 
 @Component
 export default class extends Vue {
