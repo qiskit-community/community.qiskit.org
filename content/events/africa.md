@@ -30,7 +30,7 @@ Qiskit Camp Africa will take place at the Kwa Maritane Bush Lodge (https://www.l
 ## Agenda
 
 ### December 11 
--	10:00 -12:30 Registration & Optional Johannesburg Lab Activities 
+-	10:00 - 12:30 Registration & Optional Johannesburg Lab Activities 
 -	12:30 Shuttles Depart
 -	16:00 Arrival & Check In at Kwa Maritane Venue
 -	18:00 Welcome Reception & Dinner
