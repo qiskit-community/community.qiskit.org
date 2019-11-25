@@ -30,47 +30,7 @@ export default {
   */
   head: {
     title: pkg.name,
-    script: [
-      {
-        hid: 'segment',
-        innerHTML: `
-(function () {
-  'use strict'
-  window.digitalData = {
-    page: {
-      pageInfo: {
-        productTitle: 'IBM Q Experience',
-        analytics: {
-          category: 'Qiskit.org'
-        }
-      }
-    }
-  }
-  window._analytics = {
-    segment_key: 'ffdYLviQze3kzomaINXNk6NwpY9LlXcw',
-    coremetrics: false,
-    optimizely: false
-  }
-}());
-`
-      },
-      {
-        src: 'https://cloud.ibm.com/analytics/build/bluemix-analytics.min.js',
-        async: true
-      },
-      {
-        hid: 'hotjar',
-        innerHTML: `
-(function(h,o,t,j,a,r){
-  h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-  h._hjSettings={hjid:42920,hjsv:6};
-  a=o.getElementsByTagName('head')[0];
-  r=o.createElement('script');r.async=1;
-  r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-  a.appendChild(r);
-})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`
-      }
-    ],
+    script: [],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -78,11 +38,7 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ],
-    __dangerouslyDisableSanitizersByTagID: {
-      'segment': ['innerHTML'],
-      'hotjar': ['innerHTML']
-    }
+    ]
   },
 
   /*
@@ -100,7 +56,9 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
-    '~/plugins/deep-load.ts'
+    '~/plugins/deep-load.ts',
+    { src: '~/plugins/hotjar.ts', mode: 'client' },
+    { src: '~/plugins/segment-analytics.ts', mode: 'client' }
   ],
 
   /*
