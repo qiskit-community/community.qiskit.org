@@ -64,8 +64,6 @@ export default class extends Vue {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/scss/mixins.scss';
-
 .experiment-header-container {
   background-color: black;
   padding-top: 1rem;
@@ -122,22 +120,24 @@ export default class extends Vue {
 
 .experiment-header__media {
   width: 100%;
-}
 
-@media (min-width: 600px) {
-  .experiment-header__media {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 0.5rem;
-
-    & > * {
+  & > * {
+    @include mq($from: desktop) {
       max-width: 100%;
+    }
 
-      &:first-child {
+    &:first-child {
+      @include mq($from: desktop) {
         grid-column-start: 1;
         grid-column-end: 3;
       }
     }
+  }
+
+  @include mq($from: desktop) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 0.5rem;
   }
 }
 </style>

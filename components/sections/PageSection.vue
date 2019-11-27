@@ -59,19 +59,19 @@ export default class extends Vue {
   &--alone {
     width: 100%;
   }
+
+  @include mq($until: desktop) {
+    width: 100%;
+  }
 }
 
 .extra-container {
   width: 50%;
 }
 
-@media (max-width: 600px) {
-  .importance--decoration {
+.importance--decoration {
+  @include mq($until: desktop) {
     display: none;
-  }
-
-  .copy-container {
-    width: 100%;
   }
 }
 </style>

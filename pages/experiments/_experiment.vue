@@ -102,57 +102,44 @@ import MdContent from '~/components/MdContent.vue'
 export default class extends Vue { }
 </script>
 
-<style lang="scss">
-@import '~/assets/scss/mixins.scss';
-
+<style lang="scss" scoped>
 #copy {
+  color: var(--body-color-dark);
   background-color: white;
   padding-top: 0;
   padding-bottom: 2rem;
 
-  .page-section {
-    @include framed();
-  }
+  /deep/ {
+    .page-section {
+      @include framed();
+    }
 
-  ul, ol {
-    list-style-position: inside;
-    padding-left: 2rem;
-    margin-top: 1rem;
-  }
+    ul, ol {
+      list-style-position: inside;
+      padding-left: 2rem;
+      margin-top: 1rem;
+    }
 
-  ul {
-    list-style-type: square;
-  }
+    ul {
+      list-style-type: square;
+    }
 
-  ol li,
-  ul li {
-    margin: 1rem 0;
-  }
+    ol li,
+    ul li {
+      margin: 1rem 0;
+    }
 
-  h2 {
-    margin-top: 3rem;
-  }
+    h2 {
+      margin-top: 3rem;
+    }
 
-  h3 {
-    margin-top: 2rem;
-  }
+    h3 {
+      margin-top: 2rem;
+    }
 
-  p {
-    text-align: justify;
-  }
-}
-
-@media (max-width: 800px) {
-  .secondary {
-    display: block;
-  }
-
-  .secondary > * {
-    max-width: 100%;
-  }
-
-  .button {
-    margin-bottom: 0.5rem;
+    p {
+      text-align: justify;
+    }
   }
 }
 </style>

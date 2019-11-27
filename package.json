@@ -11,7 +11,8 @@
     "build": "npm run generate",
     "start": "nuxt-ts start",
     "generate": "nuxt-ts generate",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
+    "fix-lint": "eslint --fix --ext .ts,.js,.vue --ignore-path .gitignore ."
   },
   "dependencies": {
     "cross-env": "^5.2.1",
@@ -22,6 +23,7 @@
     "@nuxt/typescript-build": "^0.1.11",
     "@nuxt/typescript-runtime": "^0.1.5",
     "@nuxtjs/eslint-config": "0.0.1",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@types/jest": "^24.0.20",
     "@types/markdown-it": "0.0.7",
     "@typescript-eslint/eslint-plugin": "^1.13.0",
@@ -46,6 +48,7 @@
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.2",
     "sass-loader": "^8.0.0",
+    "sass-mq": "^5.0.1",
     "topojson": "^3.0.2",
     "ts-jest": "^24.1.0",
     "uslug": "^1.0.4",
