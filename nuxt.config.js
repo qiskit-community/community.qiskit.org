@@ -30,7 +30,22 @@ export default {
   */
   head: {
     title: pkg.name,
-    script: [],
+    script: [
+      {
+        hid: 'segment',
+        innerHTML: `
+          window.digitalData = {
+            page: {
+              pageInfo: {
+                productTitle: 'IBM Q Experience',
+                analytics: {
+                  category: 'Qiskit.org'
+                }
+              }
+            }
+          }`
+      }
+    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
