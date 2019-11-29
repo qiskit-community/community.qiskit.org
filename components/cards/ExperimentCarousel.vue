@@ -48,7 +48,7 @@
         </div>
       </nuxt-link>
     </transition>
-    <div class="-bottom-6 absolute w-full h-full bg-gray-400 shadow scale-95"></div>
+    <div class="-bottom-6 absolute w-full h-full bg-gray-400 shadow scale-95" />
   </section>
 </template>
 
