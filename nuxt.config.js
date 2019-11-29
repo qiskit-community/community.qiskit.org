@@ -86,7 +86,8 @@ export default {
     ['@nuxt/typescript-build', {
       typeCheck: true,
       ignoreNotFoundWarnings: true
-    }]
+    }],
+    '@nuxtjs/tailwindcss'
   ],
 
   /*

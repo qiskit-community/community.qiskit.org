@@ -1,22 +1,22 @@
 <template>
-  <section class="experiment-deck">
-    <ul class="experiment-deck__switches">
+  <section class="relative h-88">
+    <ul class="-bottom-16 absolute right-0 left-0 flex justify-between list-none">
       <li
-        class="experiment-deck__left-switch"
+        class="w-8 h-8 cursor-pointer text-gray-100 hover:text-purple-200"
         @click="previous"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18">
-          <path fill="#999" d="M8.681.196l2.121 2.12-8.484 8.487-2.12-2.12z" />
-          <path fill="#999" d="M10.803 15.047l-2.121 2.121L.197 8.683l2.121-2.121z" />
+        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18" class="h-8">
+          <path d="M8.681.196l2.121 2.12-8.484 8.487-2.12-2.12z" />
+          <path d="M10.803 15.047l-2.121 2.121L.197 8.683l2.121-2.121z" />
         </svg>
       </li>
       <li
-        class="experiment-deck__right-switch"
+        class="w-8 h-8 cursor-pointer text-gray-100 hover:text-purple-200"
         @click="next"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18" transform="rotate(180)">
-          <path fill="#999" d="M8.681.196l2.121 2.12-8.484 8.487-2.12-2.12z" />
-          <path fill="#999" d="M10.803 15.047l-2.121 2.121L.197 8.683l2.121-2.121z" />
+        <svg fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 18" transform="rotate(180)" class="h-8">
+          <path d="M8.681.196l2.121 2.12-8.484 8.487-2.12-2.12z" />
+          <path d="M10.803 15.047l-2.121 2.121L.197 8.683l2.121-2.121z" />
         </svg>
       </li>
     </ul>
@@ -27,26 +27,28 @@
     >
       <nuxt-link
         v-if="active == index"
-        class="experiment-deck__slide slide-link"
+        class="absolute text-white bg-gray-300 text-sm flex flex-col sm:flex-row z-10 shadow inset-0"
         :to="experiment.to"
       >
         <div
-          class="experiment-deck__slide-picture"
+          class="flex-grow bg-no-repeat bg-cover bg-center sm:w-8/12"
           :style="`background-image: url(${experiment.image});`"
         />
-        <div class="experiment-deck__slide-copy">
-          <h3>
+        <div class="mt-2 mr-4 mb-2 ml-4 sm:w-4/12">
+          <h3 class="mt-6">
             {{ experiment.title }}
           </h3>
-          <p class="experiment-deck__slide-author">
+          <p class="text-purple-100 mt-2">
+            <span class="text-gray-100">by</span>
             {{ experiment.author }}
           </p>
-          <p class="experiment-deck__slide-summary">
+          <p>
             {{ experiment.description }}
           </p>
         </div>
       </nuxt-link>
     </transition>
+    <div class="-bottom-6 absolute w-full h-full bg-gray-400 shadow scale-95"></div>
   </section>
 </template>
 
@@ -72,100 +74,7 @@ export default class extends Vue {
 }
 </script>
 
-<style lang="scss" scoped>
-.slide-link {
-  display: block;
-  text-decoration: none;
-  color: unset;
-  height: 100%;
-}
-
-.experiment-deck {
-  position: relative;
-  height: 350px;
-
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    bottom: -1rem;
-    z-index: 1;
-    width: 100%;
-    height: 100px;
-    background-color: var(--primary-color);
-    box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
-    transform-origin: center bottom;
-    transform: scale(0.95);
-  }
-}
-
-.experiment-deck__slide {
-  position: absolute;
-  top: 0; right: 0; bottom: 0; left: 0;
-  z-index: 2;
-  display: flex;
-  flex-direction: row;
-  font-size: 0.9rem;
-  color: var(--body-color-light);
-  background-color: var(--primary-color);
-  box-shadow: 0 23px 35px 0 rgba(10, 0, 50, 0.35);
-  transform-origin: center bottom;
-
-  &-picture {
-    flex: 2;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-  }
-
-  &-copy {
-    flex: 1;
-    margin: 0.5rem 1rem 1em;
-  }
-
-  h3 {
-    margin-top: 1.5rem;
-  }
-
-  &-author {
-    color: var(--secondary-color-lightmost);
-    margin-top: 0.5rem;
-
-    &:before {
-      content: "by ";
-      color: var(--primary-color-lightmost);
-    }
-  }
-
-  @include mq($until: desktop) {
-    flex-direction: column;
-  }
-}
-
-.experiment-deck__switches {
-  position: absolute;
-  right: 0; bottom: -4rem; left: 0;
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-}
-
-.experiment-deck__left-switch,
-.experiment-deck__right-switch {
-  width: 2rem;
-  height: 2rem;
-  cursor: pointer;
-
-  & svg {
-    height: 2rem;
-  }
-
-  &:hover path {
-    fill: var(--secondary-color-lightmost);
-  }
-}
-
+<style lang="css">
 /* Transition styles */
 .experiment-deck__slide-enter-active {
   transition: transform .8s;
