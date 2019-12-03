@@ -19,7 +19,7 @@ md.use(miLinkAttributes, {
   }
 })
 md.use(miAnchor, {
-  slugify(id) { return uslug(id) }
+  slugify (id) { return uslug(id) }
 })
 
 export default {
@@ -96,7 +96,7 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend(config) {
+    extend (config) {
       config.module.rules.push({
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
@@ -120,7 +120,7 @@ export default {
   },
 
   router: {
-    scrollBehavior(to) {
+    scrollBehavior (to) {
       if (to.hash) {
         const el = document.querySelector(to.hash)
         if ('scrollBehavior' in document.documentElement.style) {
@@ -149,7 +149,7 @@ export default {
 
   hooks: {
     build: {
-      before() {
+      before () {
         generateTextbookToc(
           './static/textbook/index.html',
           './content/education/textbook-toc.md'

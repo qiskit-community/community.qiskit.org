@@ -7,12 +7,12 @@ export default class extends Vue {
   @Prop(String) renderFn
   @Prop(String) staticRenderFns
 
-  render(createElement) {
+  render (createElement) {
     return this.$data.templateRender ? this.$data.templateRender()
       : createElement('div', 'Rendering...')
   }
 
-  created() {
+  created () {
     /* eslint no-new-func: "off" */
     this.$data.templateRender =
       (new Function(this.$props.renderFn)()).bind(this)

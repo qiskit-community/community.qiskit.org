@@ -35,7 +35,7 @@ import MdContent from '~/components/MdContent.vue'
     PageSection
   },
 
-  head() {
+  head () {
     const self = this as any
     const image = self.media[0].url
     return {
@@ -51,7 +51,7 @@ import MdContent from '~/components/MdContent.vue'
     }
   },
 
-  async asyncData(context: Context) {
+  async asyncData (context: Context) {
     const sourceName = context.route.params.experiment
     if (sourceName === 'undefined') {
       return
