@@ -4,6 +4,7 @@ import markdownIt from 'markdown-it'
 import miLinkAttributes from 'markdown-it-link-attributes'
 import miAnchor from 'markdown-it-anchor'
 import uslug from 'uslug'
+import Mode from 'frontmatter-markdown-loader/mode'
 import pkg from './package'
 import generateTextbookToc from './hooks/generate-textbook-toc'
 
@@ -102,6 +103,7 @@ export default {
         loader: 'frontmatter-markdown-loader',
         include: path.resolve(__dirname, 'content'),
         options: {
+          mode: [Mode.VUE_RENDER_FUNCTIONS, Mode.VUE_COMPONENT],
           vue: {
             root: 'content'
           },
