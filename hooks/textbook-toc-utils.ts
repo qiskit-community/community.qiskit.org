@@ -3,13 +3,10 @@ type TocType = Array<[string, string[]]>
 export { extractToc, formatTocLines, TocType }
 
 function extractToc (indexContent: string): TocType {
-  // Chapter titles are of form `Chapter X. Chapter title<`.
-  const allChapters = (indexContent.match(/Chapter\s+\d+\.\s+[^<]+/g) || [])
-    .map(entry => entry.trim())
-  // Topic titles are of form `X.Y <a ...>Topic Title<`
-  const allTopics = (indexContent.match(/(\d+.\d+\s+)<a[^>]+([^<]+)/g) || [])
-    .map(entry => entry.replace(/<a[^>]+>/, '').trim())
-
+  // Chapter titles are of form `X. Chapter title<`.
+  const allChapters = (indexContent.match(/>\s+\d+\.\s+[^<]+/g) || []).map(clean)
+  // Topic titles are of form `X.Y Topic Title<`
+  const allTopics = (indexContent.match(/>\s+\d+.\d+\s+[^<]+/g) || []).map(clean)
   return allChapters.reduce<TocType>((output, title, index) => {
     const chapters = getTopics(index, allTopics)
     output.push([title, chapters])
@@ -18,6 +15,10 @@ function extractToc (indexContent: string): TocType {
 
   function getTopics (index: number, allTopics: string[]) {
     return allTopics.filter(topic => topic.startsWith(`${index}.`))
+  }
+
+  function clean (str: string) {
+    return str.replace(/>\s+/, '').replace(/\s+/g, ' ').trim()
   }
 }
 
@@ -37,7 +38,7 @@ function formatTocLines (toc: TocType, header: string = 'Table of Contents'): st
   }
 
   function formatTitle (title: string): string {
-    return `### ${title}`
+    return `### Chapter ${title}`
   }
 
   function formatChapters (chapters: string[]): string[] {
