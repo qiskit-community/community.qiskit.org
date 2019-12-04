@@ -2,22 +2,32 @@ type TocType = Array<[string, string[]]>
 
 export { extractToc, formatTocLines, TocType }
 
+// Chapter titles are of form `X. Chapter title<`.
+const chapterRegex = />\s+\d+\.\s+[^<]+/g
+
+// Topic titles are of form `X.Y Topic Title<`
+const topicRegex = />\s+\d+.\d+\s+[^<]+/g
+
 function extractToc (indexContent: string): TocType {
-  // Chapter titles are of form `X. Chapter title<`.
-  const allChapters = (indexContent.match(/>\s+\d+\.\s+[^<]+/g) || []).map(clean)
-  // Topic titles are of form `X.Y Topic Title<`
-  const allTopics = (indexContent.match(/>\s+\d+.\d+\s+[^<]+/g) || []).map(clean)
+  const allChapters = getFromContent(chapterRegex, indexContent)
+  const allTopics = getFromContent(topicRegex, indexContent)
   return allChapters.reduce<TocType>((output, title, index) => {
     const chapters = getTopics(index, allTopics)
     output.push([title, chapters])
     return output
   }, [])
 
+  function getFromContent (regex: RegExp, content: string): string[] {
+    return (content.match(regex) || []).map(clean)
+  }
+
   function getTopics (index: number, allTopics: string[]) {
     return allTopics.filter(topic => topic.startsWith(`${index}.`))
   }
 
   function clean (str: string) {
+    // Remove leading character '>' and white space.
+    // Normalize blank space into one single space.
     return str.replace(/>\s+/, '').replace(/\s+/g, ' ').trim()
   }
 }
