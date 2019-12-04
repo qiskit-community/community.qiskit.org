@@ -25,10 +25,11 @@ import { Context } from '@nuxt/types'
 import ExperimentHeader from '~/components/headers/ExperimentHeader.vue'
 import PageSection from '~/components/sections/PageSection.vue'
 import MdContent from '~/components/MdContent.vue'
+import { segmentMixin } from '~/mixins/segment-mixin.ts'
 
 @Component({
   layout: 'second-level',
-
+  mixins: [segmentMixin],
   components: {
     ExperimentHeader,
     MdContent,
@@ -48,23 +49,6 @@ import MdContent from '~/components/MdContent.vue'
         { hid: 'twitter:title', name: 'twitter:title', content: self.title },
         { hid: 'twitter:description', name: 'twitter:description', content: self.description },
         { hid: 'twitter:image', name: 'twitter:image', content: image }
-      ],
-      script: [
-        {
-          hid: 'segment',
-          innerHTML: `
-            window.digitalData = {
-              page: {
-                pageInfo: {
-                  pageID: '${self.to}',
-                  productTitle: 'experiments',
-                  analytics: {
-                    category: 'Qiskit.org'
-                  }
-                }
-              }
-            }`
-        }
       ]
     }
   },
@@ -91,38 +75,9 @@ export default class extends Vue { }
   background-color: white;
   padding-top: 0;
   padding-bottom: 2rem;
+}
 
-  /deep/ {
-    .page-section {
-      @include framed();
-    }
-
-    ul, ol {
-      list-style-position: inside;
-      padding-left: 2rem;
-      margin-top: 1rem;
-    }
-
-    ul {
-      list-style-type: square;
-    }
-
-    ol li,
-    ul li {
-      margin: 1rem 0;
-    }
-
-    h2 {
-      margin-top: 3rem;
-    }
-
-    h3 {
-      margin-top: 2rem;
-    }
-
-    p {
-      text-align: justify;
-    }
-  }
+.content {
+  @include framed();
 }
 </style>
