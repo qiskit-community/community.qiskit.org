@@ -10,7 +10,7 @@
 - Writing Down Qubit States
 - Pauli Matrices and the Bloch Sphere
 - States for Many Qubits
-### Chapter 2. Single-Qubit and Multi-Qubit Gates
+### Chapter 2. Single Qubits and Multi-Qubits gates
 - Introduction
 - Quantum Gates
 - Fun with Matrices

@@ -36,7 +36,7 @@ import { segmentMixin } from '~/mixins/segment-mixin.ts'
     PageSection
   },
 
-  head() {
+  head () {
     const self = this as any
     const image = self.media[0].url
 
@@ -53,20 +53,35 @@ import { segmentMixin } from '~/mixins/segment-mixin.ts'
     }
   },
 
-  async asyncData(context: Context) {
+  async asyncData (context: Context) {
     const sourceName = context.route.params.experiment
     if (sourceName === 'undefined') {
       return
     }
     const definition = await import(`~/content/experiments/${sourceName}.md`)
+    const componentRenderFns = serializableRenderFns(definition.vue)
     return {
       ...definition.attributes,
       launch: definition.attributes.launch,
-      ...definition.vue
+      render: componentRenderFns.render,
+      staticRenderFns: componentRenderFns.staticRenderFns
     }
   }
 })
-export default class extends Vue { }
+export default class extends Vue {
+  render: String | null = null
+  staticRenderFns: String | null = null
+}
+
+type RenderFns = { render: Function, staticRenderFns: Function[] }
+type Serializable<T> = { [key in keyof T]: string }
+
+function serializableRenderFns ({ render, staticRenderFns }: RenderFns): Serializable<RenderFns> {
+  return {
+    render: `(${render})`,
+    staticRenderFns: `[${staticRenderFns.map(f => f + '').join(',')}]`
+  }
+}
 </script>
 
 <style lang="scss" scoped>

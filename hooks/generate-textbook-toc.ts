@@ -8,9 +8,9 @@ import { extractToc, formatTocLines } from './textbook-toc-utils'
  * @param indexPath HTML file where the TOC is extracted from.
  * @param tocPath output Markdown file path where TOC is generated.
  */
-export default function generateTextbookToc(indexPath: string, tocPath: string) {
+export default function generateTextbookToc (indexPath: string, tocPath: string) {
   const indexContent = fs.readFileSync(indexPath, 'utf8')
   const toc = extractToc(indexContent)
   const mdTocLines = formatTocLines(toc)
-  fs.writeFileSync(tocPath, mdTocLines.join('\n'))
+  fs.writeFileSync(tocPath, mdTocLines.join('\n') + '\n')
 }
