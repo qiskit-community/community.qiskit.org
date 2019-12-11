@@ -3,7 +3,7 @@ title: Qiskit Research Unconference
 dates: Dates December 11-14, 2019
 tagline: Bringing together the Qiskit community
 description: Add your description here
-background: africa
+background: finland-unconference
 nav:
   - text: Location
     goTo: '#location'
