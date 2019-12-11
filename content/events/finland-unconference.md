@@ -1,57 +1,86 @@
 ---
 title: Qiskit Research Unconference
-dates: Dates December 11-14, 2019
-tagline: Bringing together the Qiskit community
-description: Add your description here
+dates: 25–29 March 2020
+tagline: Bringing Together the Qiskit Research Community
+description: in Lapland, Findland
 background: finland-unconference
 nav:
   - text: Location
     goTo: '#location'
   - text: Agenda
     goTo: '#agenda'
+  - text: Seminars
+    goTo: '#seminar-schedule'
   - text: Code of Conduct
     goTo: '#code-of-conduct'
 ---
 
-## What is Qiskit Camp?
+## What is a Qiskit Research Unconference?
 
-Qiskit Camps are an immersive experience that consists of training sessions, deep technical talks, and a hackathon alongside the Qiskit core development team. At Qiskit Camp, attendees can collaborate with both quantum researchers and computer scientists to connect with the larger global quantum community.
+Qiskit Research Unconferences are participant-driven events that catalyze group research projects. The event forms around the ideas and work of the participants, with an emphasis on collaboration and motivation. 
 
-2019 Qiskit Camp Africa will be hosted near Johannesberg, South Africa from 11-14 December. Invitations will be distributed prior to the event.
+At a Qiskit Research Unconference attendees can collaborate with both quantum researchers and the Qiskit core development team.
 
-Attendees that are new to Qiskit, or simply want to increase their proficiency in quantum computing should attend the week-long [Quantum Computing Summer School](http://www.wits.ac.za/quantum-computing/summer-school/) at Wits University from December 2-11 immediately preceding Qiskit Camp.
+The 2020 Qiskit Research Unconference will be hosted in Lapland, Findland from 25–29 of March. Invitations will be distributed prior to the event.
+
+Attendees that are new to Qiskit or want to learn more about current research applications of the open-source software should attend the optional seminars at Aalto University on March 24 immediately preceding the Unconference. 
 
 ## Location
 
-Qiskit Camp Africa will take place at the Kwa Maritane Bush Lodge (https://www.legacyhotels.co.za/hotels/kwa-maritane-bush-lodge). The Kwa Maritane is located in the Pilanesberg National Park on the slopes of a 2-billion-year-old volcano, and is a wildlife refuge. 
+The  2020 Qiskit Research Unconference will take place at the Star Arctic Hotel (https://stararctichotel.com/). The Star Arctic Hotel is located in Saariselkä, Finland, and is a gateway to the trails and ski areas of mountainous Urho Kekkonen National Park.
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2387.41265024288!2d27.144590812282576!3d-25.33368849087539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ebc2b59a4c3c811%3A0xfc839400fe45015f!2sKwa+Maritane+Bush+lodge!5e0!3m2!1sen!2sus!4v1562184701364!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+Transportation to and from Helsinki, Finland via plane will be provided by IBM.
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3199381.888211925!2d23.103288301659937!3d66.94925747979477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1576089938665!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
 ## Agenda
+Check back soon for more details
 
-### December 11 
--	10:00 - 12:30 Registration & Optional Johannesburg Lab Activities 
--	12:30 Shuttles Depart
--	16:00 Arrival & Check In at Kwa Maritane Venue
--	18:00 Welcome Reception & Dinner
+### March 24
+-	Seminars at Aalto University (Optional)
 
-### December 12 
--	8:00 Breakfast 
--	9:00 Team Formation
--	10:00 Hackathon Begins
+### March 25
+-	Depart for Saariselkä,Finland
+- Arrival & Check In at Star Arctic Hotel
+-	Welcome Reception & Dinner 
 
-### December 13 
--	8:00 Breakfast 
--	9:00 Hackathon Continues
--	15:00 Project Presentations
--	18:00 Award Ceremony
--	19:00 Celebration Dinner
+### March 26
+- Breakfast
+-	Idea Share
+- Lunch
+-	Unconference Begins
+-	Dinner
 
-### December 14
--	10:00 Shuttle # 1 Departure from Kwa Maritane Venue 
--	15:00 Shuttle # 2 Departure from Kwa Maritane
+### March 27
+- Breakfast	
+- Unconference Continues
+- Lunch
+- Dinner
 
-_(People are welcome to extend the trip at their own expense)_
+### March 28
+- Breakfast
+- Unconference Continues
+- Lunch
+- Project Presentations
+- Celebration Dinner
+
+### March 29
+- Morning Departure to Helsinki
+- Afternoon Departure to Helsinki
+
+
+_(Attendees are welcome to extend their trip at their own expense)_
+
+## Seminar Schedule
+
+On Tuesday, March 24 we will host several seminars at Aalto University near Helsinki, Finland. Attendance is optional. These seminars will cover Qiskit tutorials as well as previous research applications of Qiskit. 
+
+Lodinging in Helsinki is at your own expense. Check back soon for a list of suggested lodging. 
+
+_(List of Speakers Coming Soon)_
+
+
+
 
 ## Code of Conduct
 
