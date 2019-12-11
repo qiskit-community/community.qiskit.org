@@ -1,25 +1,23 @@
 ---
-title: Qiskit Research Unconference
-dates: 25–29 March 2020
-tagline: Bringing Together the Qiskit Research Community
-description: in Lapland, Findland
+title: 2020 Qiskit Research Unconference
+dates: 25–29 March in Lapland, Finland
+tagline: Sparking New Projects in the Qiskit Research Community
+description:
 background: finland-unconference
 nav:
   - text: Location
     goTo: '#location'
   - text: Agenda
     goTo: '#agenda'
-  - text: Seminars
-    goTo: '#seminar-schedule'
+  - text: Aalto Seminars
+    goTo: '#aalto-seminars'
   - text: Code of Conduct
     goTo: '#code-of-conduct'
 ---
 
 ## What is a Qiskit Research Unconference?
 
-Qiskit Research Unconferences are participant-driven events that catalyze group research projects. The event forms around the ideas and work of the participants, with an emphasis on collaboration and motivation. 
-
-At a Qiskit Research Unconference attendees can collaborate with both quantum researchers and the Qiskit core development team.
+Qiskit Research Unconferences are participant-driven events meant to catalyze group research projects. The event forms around the ideas and work of the attendees, with an emphasis on collaboration and motivation. Attendees will collaborate with both fellow quantum researchers and the Qiskit core developmeent team. 
 
 The 2020 Qiskit Research Unconference will be hosted in Lapland, Findland from 25–29 of March. Invitations will be distributed prior to the event.
 
@@ -29,9 +27,9 @@ Attendees that are new to Qiskit or want to learn more about current research ap
 
 The  2020 Qiskit Research Unconference will take place at the Star Arctic Hotel (https://stararctichotel.com/). The Star Arctic Hotel is located in Saariselkä, Finland, and is a gateway to the trails and ski areas of mountainous Urho Kekkonen National Park.
 
-Transportation to and from Helsinki, Finland via plane will be provided by IBM.
+Lodging at the Star Arctic Hotel, as well as transportation to and from Helsinki, Finland via plane, will be provided for all students and postdocs by IBM. PI's and other GOE's will have their expenses reimbursed by the Finnish Centre of Excellence on Quantum Technologies.
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375462.1254856171!2d26.8791194103818!3d68.43244895758886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576091629388!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375462.1254856171!2d26.8791194103818!3d68.43244895758886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576091629388!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
 ## Agenda
 _check back soon for more details_
@@ -40,8 +38,8 @@ _check back soon for more details_
 -	Seminars at Aalto University (Optional)
 
 ### March 25
--	Depart for Saariselkä,Finland
-- Arrival & Check In at Star Arctic Hotel
+-	Depart for Saariselkä, Finland
+- Arrival & Check In at the Star Arctic Hotel
 -	Welcome Reception & Dinner 
 
 ### March 26
@@ -69,15 +67,15 @@ _check back soon for more details_
 - Afternoon Departure to Helsinki
 
 
-_(Attendees are welcome to extend their trip at their own expense)_
+_Attendees are welcome to extend their trip at their own expense._
 
-## Seminar Schedule
+## Aalto Seminars
 
-On Tuesday, March 24 we will host several seminars at Aalto University near Helsinki, Finland. Attendance is optional. These seminars will cover Qiskit tutorials as well as previous research applications of Qiskit. 
+On Tuesday, March 24, we will host several seminars at Aalto University near Helsinki, Finland. Attendance is optional. These seminars will cover Qiskit tutorials as well as previous research applications of Qiskit. 
 
 Lodinging in Helsinki is at your own expense. Check back soon for a list of suggested lodging. 
 
-_(List of Speakers Coming Soon)_
+_Speaker List Coming Soon_
 
 
 
