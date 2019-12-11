@@ -31,10 +31,10 @@ The  2020 Qiskit Research Unconference will take place at the Star Arctic Hotel 
 
 Transportation to and from Helsinki, Finland via plane will be provided by IBM.
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3199381.888211925!2d23.103288301659937!3d66.94925747979477!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1576089938665!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375462.1254856171!2d26.8791194103818!3d68.43244895758886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576091629388!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
 ## Agenda
-Check back soon for more details
+_check back soon for more details_
 
 ### March 24
 -	Seminars at Aalto University (Optional)
