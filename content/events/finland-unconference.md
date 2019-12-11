@@ -29,7 +29,7 @@ The  2020 Qiskit Research Unconference will take place at the Star Arctic Hotel 
 
 Lodging at the Star Arctic Hotel, as well as transportation to and from Helsinki, Finland via plane, will be provided for all students and postdocs by IBM. PI's and other GOE's will have their expenses reimbursed by the Finnish Centre of Excellence on Quantum Technologies.
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d375462.1254856171!2d26.8791194103818!3d68.43244895758886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576091629388!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6756869.517052683!2d17.66159026972095!3d65.57768934892147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576092755370!5m2!1sen!2sus" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
 ## Agenda
 _check back soon for more details_
