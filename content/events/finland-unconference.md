@@ -11,15 +11,17 @@ nav:
     goTo: '#agenda'
   - text: Aalto Seminars
     goTo: '#aalto-seminars'
+  - text: Funding
+    goTo: '#funding'
   - text: Code of Conduct
     goTo: '#code-of-conduct'
 ---
 
 ## What is a Qiskit Research Unconference?
 
-Qiskit Research Unconferences are participant-driven events meant to catalyze group research projects. The event forms around the ideas and work of the attendees, with an emphasis on collaboration and motivation. Attendees will collaborate with both fellow quantum researchers and the Qiskit core developmeent team. 
+Qiskit Research Unconferences are participant-driven events meant to catalyze group research projects. The event forms around the ideas and work of the attendees, with an emphasis on collaboration and motivation. Attendees will collaborate with both fellow quantum researchers and the Qiskit core development team. 
 
-The 2020 Qiskit Research Unconference will be hosted in Lapland, Findland from 25–29 of March. Invitations will be distributed prior to the event.
+The 2020 Qiskit Research Unconference will be hosted in Lapland, Finland from 25–29 of March. Invitations will be emailed prior to the event. The link for registration are included in the invitation email. This event has a cap of 25 participations and registration is first-come, first-serve, so please register soon. 
 
 Attendees that are new to Qiskit or want to learn more about current research applications of the open-source software should attend the optional seminars at Aalto University on March 24 immediately preceding the Unconference. 
 
@@ -27,9 +29,9 @@ Attendees that are new to Qiskit or want to learn more about current research ap
 
 The  2020 Qiskit Research Unconference will take place at the Star Arctic Hotel (https://stararctichotel.com/). The Star Arctic Hotel is located in Saariselkä, Finland, and is a gateway to the trails and ski areas of mountainous Urho Kekkonen National Park.
 
-Lodging at the Star Arctic Hotel, as well as transportation to and from Helsinki, Finland via plane, will be provided for all students and postdocs by IBM. PI's and other GOE's will have their expenses reimbursed by the Finnish Centre of Excellence on Quantum Technologies.
+Lodging and meals at the Star Arctic Hotel, as well as transportation (via plane) to and from Lapland from Helsinki will be provided. See more information under [funding ](#funding).
 
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6756869.517052683!2d17.66159026972095!3d65.57768934892147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576092755370!5m2!1sen!2sus" width="100%" height="500" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6756869.517052683!2d17.66159026972095!3d65.57768934892147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576092755370!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
 ## Agenda
 _check back soon for more details_
@@ -76,6 +78,12 @@ On Tuesday, March 24, we will host several seminars at Aalto University near Hel
 Lodinging in Helsinki is at your own expense. Check back soon for a list of suggested lodging. 
 
 _Speaker List Coming Soon_
+
+## Funding
+
+Transportation between Helsinki and Lapland (via plane) and accommodations (lodging and meals) at the Star Arctic Hotel in Lapland will be covered by IBM for all students, postdocs, and non-GOE PI’s. Costs of GOE's will be reimbursed by funding from the Finnish Centre of Excellence on Quantum Technologies (University of Turku and Aalto University).
+
+Travel to and from Helsinki, any accomodations in Helsinki, and any extension of the trip must be covered by attendees. 
 
 
 
