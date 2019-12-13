@@ -19,17 +19,17 @@ nav:
 
 ## What is a Qiskit Research Unconference?
 
-Qiskit Research Unconferences are participant-driven events meant to catalyze group research projects. The event forms around the ideas and work of the attendees, with an emphasis on collaboration and motivation. Attendees will collaborate with both fellow quantum researchers and the Qiskit core development team. 
+Qiskit Research Unconferences are participant-driven events meant to catalyze collaborative research projects. The event forms around the ideas and work of the attendees. Attendees will collaborate with both fellow quantum researchers and the Qiskit core development team. 
 
-The 2020 Qiskit Research Unconference will be hosted in Lapland, Finland from 25–29 of March. Invitations will be emailed prior to the event. The link for registration are included in the invitation email. This event has a cap of 25 participations and registration is first-come, first-serve, so please register soon. 
+The 2020 Qiskit Research Unconference will be hosted in Lapland, Finland from 25–29 of March. Invitations with a registration link will be emailed prior to the event. This event has an attendee cap of 30 and registration is first-come, first-serve. Please register soon. 
 
-Attendees that are new to Qiskit or want to learn more about current research applications of the open-source software should attend the optional seminars at Aalto University on March 24 immediately preceding the Unconference. 
+Attendees that are new to Qiskit, or want to learn more about current research applications of the open-source software, should attend the optional seminars at Aalto University on March 24 immediately preceding the Unconference. 
 
 ## Location
 
-The  2020 Qiskit Research Unconference will take place at the Star Arctic Hotel (https://stararctichotel.com/). The Star Arctic Hotel is located in Saariselkä, Finland, and is a gateway to the trails and ski areas of mountainous Urho Kekkonen National Park.
+The  2020 Qiskit Research Unconference will take place at the [Star Arctic Hotel](https://stararctichotel.com/). Located in Saariselkä, Finland, the Star Arctic Hotel is a gateway to the trails and ski areas of mountainous Urho Kekkonen National Park.
 
-Lodging and meals at the Star Arctic Hotel, as well as transportation (via plane) to and from Lapland from Helsinki will be provided. See more information under [funding ](#funding).
+Lodging and meals at the Star Arctic Hotel and transportation (via plane) to and from Lapland from Helsinki will be provided. See more information under [funding](#funding).
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6756869.517052683!2d17.66159026972095!3d65.57768934892147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x45cd43a094323867%3A0x3d6d61fa406c39cd!2sStar%20Arctic%20Hotel!5e0!3m2!1sen!2sus!4v1576092755370!5m2!1sen!2sus" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
 
