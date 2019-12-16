@@ -29,10 +29,10 @@
   <title>Search the site</title>
   <meta name="description" content="        ">
 
-  <link rel="canonical" href="https://community.qiskit.org/textbook/search">
-  <link rel="alternate" type="application/rss+xml" title="Qiskit Textbook" href="https://community.qiskit.org/textbook/feed.xml">
+  <link rel="canonical" href="https://community.qiskit.orgtextbook/search">
+  <link rel="alternate" type="application/rss+xml" title="Qiskit Textbook" href="https://community.qiskit.orgtextbook/feed.xml">
 
-  <meta property="og:url"         content="https://community.qiskit.org/textbook/search" />
+  <meta property="og:url"         content="https://community.qiskit.orgtextbook/search" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Search the site" />
 <meta property="og:description" content="        " />
@@ -45,10 +45,10 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://community.qiskit.org/textbook/search",
+  "mainEntityOfPage": "https://community.qiskit.orgtextbook/search",
   "headline": "Search the site",
-  "datePublished": "2019-12-04T22:17:55+00:00",
-  "dateModified": "2019-12-04T22:17:55+00:00",
+  "datePublished": "2019-12-14T15:59:24+00:00",
+  "dateModified": "2019-12-14T15:59:24+00:00",
   "description": "        ",
   "author": {
     "@type": "Person",
@@ -59,14 +59,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://community.qiskit.org/textbook",
+      "url": "https://community.qiskit.orgtextbook",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://community.qiskit.org/textbook",
+    "url": "https://community.qiskit.orgtextbook",
     "height": 60,
     "width": 60
   }
@@ -131,7 +131,7 @@ initFunction = function(myfunc) {
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
-    const site_basename = '/textbook';
+    const site_basename = 'textbook';
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
@@ -1264,10 +1264,29 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/ch-applications/satisfiability-grover.html"
+                  href="/textbook/ch-applications/qaoa.html"
                 >
                   
                     4.2
+                  
+                  Solving combinatorial optimization problems using QAOA
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/ch-applications/satisfiability-grover.html"
+                >
+                  
+                    4.3
                   
                   Solving Satisfiability Problems using Grover's Algorithm
                 </a>
@@ -1534,7 +1553,7 @@ initFunction(initPrint)
         "title": "Grover's Algorithm",
         
         "excerpt":
-            "Grover's Algorithm In this section, we introduce Grover's algorithm and how it can be used to solve unstructured search problems. We then implement the quantum algorithm using Qiskit, and run on a simulator and device. Contents Introduction Example Qiskit Implementation Simulation Device Problems References 1. Introduction You have likely heard that one of the many advantages a quantum computer has over a classical computer is its superior speed searching databases. Grover's algorithm demonstrates this capability. This algorithm can speed up an unstructured search problem quadratically, but its uses extend beyond that; it can serve as a general trick or subroutine...",
+            "Grover's Algorithm In this section, we introduce Grover's algorithm and how it can be used to solve unstructured search problems. We then implement the quantum algorithm using Qiskit, and run on a simulator and device. Contents Introduction Example: 2 Qubits Simulation Device Example: 3 Qubits Simulation Device Problems References 1. Introduction You have likely heard that one of the many advantages a quantum computer has over a classical computer is its superior speed searching databases. Grover's algorithm demonstrates this capability. This algorithm can speed up an unstructured search problem quadratically, but its uses extend beyond that; it can serve as...",
         "categories": [],
         "tags": [],
         "url": "https://community.qiskit.org/textbook/ch-algorithms/grover.html",
@@ -1570,6 +1589,14 @@ initFunction(initPrint)
         "categories": [],
         "tags": [],
         "url": "https://community.qiskit.org/textbook/ch-algorithms/teleportation.html",
+        "teaser":null},{
+        "title": "Solving combinatorial optimization problems using QAOA",
+        
+        "excerpt":
+            "Solving combinatorial optimization problems using QAOA In this tutorial, we introduce combinatorial optimization problems, explain approximate optimization algorithms, explain how the Quantum Approximate Optimization Algorithm (QAOA) works and present the implementation of an example that can be run on a simulator or on a 5 qubit quantum chip Contents Introduction Examples Approximate optimization algorithms The QAOA algorithm Qiskit Implementation 5a Running QAOA on a simulator 5b Running QAOA on a real quantum device Problems References 1. Introduction Combinatorial optimization 1 means searching for an optimal solution in a finite or countably infinite set of potential solutions. Optimality is defined with...",
+        "categories": [],
+        "tags": [],
+        "url": "https://community.qiskit.org/textbook/ch-applications/qaoa.html",
         "teaser":null},{
         "title": "Solving Satisfiability Problems using Grover's Algorithm",
         
@@ -1694,7 +1721,7 @@ initFunction(initPrint)
         "title": "Investigating Quantum Hardware Using Qiskit",
         
         "excerpt":
-            "Calibrating Qubits using OpenPulse Contents Introduction Finding our qubit Rabi experiment 0 vs 1 Measuring T1 Ramsey experiment Measuring T2 Dynamical Decoupling 1. Introduction %matplotlib inline import qiskit.pulse as pulse import qiskit.pulse.pulse_lib as pulse_lib from qiskit.compiler import assemble import qiskit qiskit.__qiskit_version__ {&#39;qiskit&#39;: &#39;0.11.1&#39;, &#39;qiskit-terra&#39;: &#39;0.8.2&#39;, &#39;qiskit-ignis&#39;: &#39;0.1.1&#39;, &#39;qiskit-aer&#39;: &#39;0.2.3&#39;, &#39;qiskit-ibmq-provider&#39;: &#39;0.3.1&#39;, &#39;qiskit-aqua&#39;: &#39;0.5.3&#39;} from qiskit import IBMQ IBMQ.load_account() provider = IBMQ.get_provider(hub=&#39;your-hub-name&#39;) # change to your hub name backend = provider.get_backend(&#39;ibmq_poughkeepsie&#39;) backend_config = backend.configuration() from qiskit.tools.jupyter import backend_overview, backend_monitor %qiskit_backend_monitor backend The superconducting devices at IBM are routinely calibrated to determine the properties of each qubit. The calibration procedure determines the...",
+            "Calibrating qubits using Qiskit and OpenPulse Qiskit is an open-source framework for programming quantum computers (Ref. 1). Using Qiskit, quantum circuits can be built, simulated and executed on quantum devices. OpenPulse provides a language for specifying pulse level control (i.e. control of the continuous time dynamics of input signals) of a general quantum device independent of the specific hardware implementation (Ref. 2). In this tutorial, we show how to implement typical single-qubit calibration and characterization experiments using Qiskit and OpenPulse. These are typically the first round of experiments that would be done in the lab immediately after a device has...",
         "categories": [],
         "tags": [],
         "url": "https://community.qiskit.org/textbook/ch-quantum-hardware/calibrating-qubits-openpulse.html",
@@ -1790,7 +1817,7 @@ initFunction(initPrint)
         "title": "Upcoming",
         
         "excerpt":
-            "             Upcoming topics            The following topics are currently being developed for addition to the textbook.             Shor's Algorithm Overview of Quantum Algorithms for NISQ Hardware Mapping the Ising Model onto a Superconducting Quantum Computer Solving Combinatorial Optimization Problems using QAOA Solving Linear Systems of Equations using HHL Securing Communications using BB84 Decoherence and Energy Relaxation: Measuring T2 and T1 Optimizing Microwave Pulses for High-Fidelity Qubit Operations State and Process Tomography                     ",
+            "                  Upcoming topics            The following topics are currently being developed for addition to the textbook.             Shor's Algorithm Overview of Quantum Algorithms for NISQ Hardware Mapping the Ising Model onto a Superconducting Quantum Computer Solving Combinatorial Optimization Problems using QAOA Solving Linear Systems of Equations using HHL Securing Communications using BB84 Decoherence and Energy Relaxation: Measuring T2 and T1 Optimizing Microwave Pulses for High-Fidelity Qubit Operations State and Process Tomography                     ",
         "categories": [],
         "tags": [],
         "url": "https://community.qiskit.org/textbook/upcoming.html",

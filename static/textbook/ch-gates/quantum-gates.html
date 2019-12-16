@@ -27,15 +27,15 @@
   <meta name="viewport" content="width=device-width,minimum-scale=1">
 
   <title>Quantum Gates</title>
-  <meta name="description" content="        Quantum Gates     from qiskit import *    To manipulate an input state we need to apply the basic operations of quantum computing. These are known as...">
+  <meta name="description" content="            Quantum Gates     from qiskit import *    To manipulate an input state we need to apply the basic operations of quantum computing. These are know...">
 
-  <link rel="canonical" href="https://community.qiskit.org/textbook/ch-gates/quantum-gates.html">
-  <link rel="alternate" type="application/rss+xml" title="Qiskit Textbook" href="https://community.qiskit.org/textbook/feed.xml">
+  <link rel="canonical" href="https://community.qiskit.orgtextbook/ch-gates/quantum-gates.html">
+  <link rel="alternate" type="application/rss+xml" title="Qiskit Textbook" href="https://community.qiskit.orgtextbook/feed.xml">
 
-  <meta property="og:url"         content="https://community.qiskit.org/textbook/ch-gates/quantum-gates.html" />
+  <meta property="og:url"         content="https://community.qiskit.orgtextbook/ch-gates/quantum-gates.html" />
 <meta property="og:type"        content="article" />
 <meta property="og:title"       content="Quantum Gates" />
-<meta property="og:description" content="        Quantum Gates     from qiskit import *    To manipulate an input state we need to apply the basic operations of quantum computing. These are known as..." />
+<meta property="og:description" content="            Quantum Gates     from qiskit import *    To manipulate an input state we need to apply the basic operations of quantum computing. These are know..." />
 <meta property="og:image"       content="https://community.qiskit.org/textbook/images/logo/logo.png" />
 
 <meta name="twitter:card" content="summary">
@@ -45,11 +45,11 @@
   {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "mainEntityOfPage": "https://community.qiskit.org/textbook/ch-gates/quantum-gates.html",
+  "mainEntityOfPage": "https://community.qiskit.orgtextbook/ch-gates/quantum-gates.html",
   "headline": "Quantum Gates",
-  "datePublished": "2019-12-04T22:17:55+00:00",
-  "dateModified": "2019-12-04T22:17:55+00:00",
-  "description": "        Quantum Gates     from qiskit import *    To manipulate an input state we need to apply the basic operations of quantum computing. These are known as...",
+  "datePublished": "2019-12-14T15:59:24+00:00",
+  "dateModified": "2019-12-14T15:59:24+00:00",
+  "description": "            Quantum Gates     from qiskit import *    To manipulate an input state we need to apply the basic operations of quantum computing. These are know...",
   "author": {
     "@type": "Person",
     "name": "The Qiskit Team"
@@ -59,14 +59,14 @@
     "name": "Data 100 at UC Berkeley",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://community.qiskit.org/textbook",
+      "url": "https://community.qiskit.orgtextbook",
       "width": 60,
       "height": 60
     }
   },
   "image": {
     "@type": "ImageObject",
-    "url": "https://community.qiskit.org/textbook",
+    "url": "https://community.qiskit.orgtextbook",
     "height": 60,
     "width": 60
   }
@@ -131,7 +131,7 @@ initFunction = function(myfunc) {
 
   <!-- Define some javascript variables that will be useful in other javascript -->
   <script>
-    const site_basename = '/textbook';
+    const site_basename = 'textbook';
   </script>
 
   <!-- Add AnchorJS to let headers be linked -->
@@ -1264,10 +1264,29 @@ initFunction(initPrint)
 
               <li class="c-sidebar__section">
                 <a class="c-sidebar__entry "
-                  href="/textbook/ch-applications/satisfiability-grover.html"
+                  href="/textbook/ch-applications/qaoa.html"
                 >
                   
                     4.2
+                  
+                  Solving combinatorial optimization problems using QAOA
+                </a>
+
+                
+                
+
+              </li>
+              
+            
+              
+              
+
+              <li class="c-sidebar__section">
+                <a class="c-sidebar__entry "
+                  href="/textbook/ch-applications/satisfiability-grover.html"
+                >
+                  
+                    4.3
                   
                   Solving Satisfiability Problems using Grover's Algorithm
                 </a>
@@ -1517,6 +1536,7 @@ initFunction(initPrint)
       <main class="c-textbook__page" tabindex="-1">
         <div class="c-textbook__content" id="textbook_content">
               <main class="jupyter-page">
+    <div id="page-info"></div>
     <div class="jb_cell">
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
@@ -1578,8 +1598,9 @@ $$<p>There, their job was to help us make calculations regarding measurements. B
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Hadamard-and-S">Hadamard and S<a class="anchor-link" href="#Hadamard-and-S"> </a></h3><p>The Hadamard gate is one that we've already used. It's a key component in performing an x measurement:</p>
-<div class="highlight"><pre><span></span><span class="n">measure_z</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">measure_z</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="n">measure_x</span> <span class="o">=</span> <span class="n">QuantumCircuit</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">measure_x</span><span class="o">.</span><span class="n">h</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+<span class="n">measure_x</span><span class="o">.</span><span class="n">measure</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
 </pre></div>
 <p>Like the Paulis, the Hadamard is also a half rotation of the Bloch sphere. The difference is that it rotates around an axis located halfway between x and z. This gives it the effect of rotating states that point along the z axis to those pointing along x, and vice versa.</p>
 $$
@@ -1713,7 +1734,7 @@ $$<p>This is exactly what we find when we analyze the circuit with this tool.</p
         <span class="n">gate_latex</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span><span class="n">element</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&amp;&#39;</span>
     <span class="n">gate_latex</span>  <span class="o">=</span> <span class="n">gate_latex</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="n">gate_latex</span> <span class="o">+=</span>  <span class="s1">&#39;</span><span class="se">\\\\</span><span class="s1">&#39;</span>
-<span class="n">gate_latex</span>  <span class="o">=</span> <span class="n">gate_latex</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">gate_latex</span>  <span class="o">=</span> <span class="n">gate_latex</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">gate_latex</span> <span class="o">+=</span> <span class="s1">&#39;\end</span><span class="si">{pmatrix}</span><span class="s1">&#39;</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Markdown</span><span class="p">(</span><span class="n">gate_latex</span><span class="p">))</span>
 </pre></div>
@@ -1751,14 +1772,14 @@ $$<p>This is exactly what we find when we analyze the circuit with this tool.</p
   
     
     <a id="js-page__nav__prev" class="c-page__nav__prev" href="/textbook/ch-gates/introduction.html">
-      〈 <span class="u-margin-right-tiny"></span> Introduction
+      〈 <span class="u-margin-right-tiny"></span> 
     </a>
   
 
   
     
     <a id="js-page__nav__next" class="c-page__nav__next" href="/textbook/ch-gates/fun-matrices.html">
-      Fun with Matrices <span class="u-margin-right-tiny"></span> 〉
+       <span class="u-margin-right-tiny"></span> 〉
     </a>
   
 </nav>
