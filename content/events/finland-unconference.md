@@ -87,7 +87,7 @@ Travel to and from Helsinki, any accomodations in Helsinki, and any extension of
 
 ## Organization
 
-This event is co-organized by the [Qiskit Community Team](https://community.qiskit.org/education/) from IBM and by the [Quantum Technology Group](http://www.tqt.fi/) from the University of Turku, specifically Sabrina Maniscalco, Guillermo Garcia Perez, Matteo Rossi, and Boris Sokolov. 
+This event is co-organized by the [Qiskit Community Team](https://community.qiskit.org/education/) from IBM and by the [Turku Quantum Technology Group](http://www.tqt.fi/) from the University of Turku, specifically Sabrina Maniscalco, Guillermo Garcia Perez, Matteo Rossi, and Boris Sokolov. 
 
 
 ## Code of Conduct
