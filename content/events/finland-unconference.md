@@ -23,7 +23,7 @@ Qiskit Research Unconferences are participant-driven events meant to catalyze co
 
 The 2020 Qiskit Research Unconference will be hosted in Lapland, Finland from 25–29 of March. Invitations with a registration link will be emailed prior to the event. This event has an attendee cap of 30 and registration is first-come, first-serve. Please register soon. 
 
-Attendees that are new to Qiskit, or want to learn more about current research applications of the open-source software, should attend the optional seminars at Aalto University on March 24 immediately preceding the Unconference. 
+Attendees that are new to [Qiskit](https://qiskit.org/), or want to learn more about current research applications of the open-source software, should attend the optional seminars at Aalto University on March 24 immediately preceding the Unconference. 
 
 ## Location
 
@@ -85,7 +85,9 @@ Transportation between Helsinki and Lapland (via plane) and accommodations (lodg
 
 Travel to and from Helsinki, any accomodations in Helsinki, and any extension of the trip must be covered by attendees. 
 
+## Organization
 
+This event is co-organized by the [Qiskit Community Team](https://community.qiskit.org/education/) from IBM and by the [Quantum Technology Group](http://www.tqt.fi/) from the University of Turku, specifically Sabrina Maniscalco, Guillermo Garcia Perez, Matteo Rossi, and Boris Sokolov. 
 
 
 ## Code of Conduct
