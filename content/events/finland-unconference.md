@@ -65,8 +65,7 @@ _check back soon for more details_
 - Celebration Dinner
 
 ### March 29
-- Morning Departure to Helsinki
-- Afternoon Departure to Helsinki
+- Departure to Helsinki
 
 
 _Attendees are welcome to extend their trip at their own expense._
