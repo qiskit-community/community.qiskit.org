@@ -1,3 +1,7 @@
+<p align="center">
+:warning: This project is no longer maintained. It's been merged with https://github.com/qiskit/qiskit.org/ :warning:
+</p>
+
 # community.qiskit.org
 
 > Home of the Qiskit Community
